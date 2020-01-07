@@ -1,0 +1,94 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema bowlingdb
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema bowlingdb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `bowlingdb` DEFAULT CHARACTER SET utf8 ;
+USE `bowlingdb` ;
+
+-- -----------------------------------------------------
+-- Table `bowlingdb`.`team`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bowlingdb`.`team` (
+  `teamno` INT NOT NULL AUTO_INCREMENT,
+  `teamname` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`teamno`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `bowlingdb`.`member`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bowlingdb`.`member` (
+  `userno` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(20) NOT NULL,
+  `phone` INT NOT NULL,
+  `team_teamno` INT NOT NULL,
+  PRIMARY KEY (`userno`, `team_teamno`),
+  INDEX `fk_userno_team_idx` (`team_teamno` ASC) VISIBLE,
+  CONSTRAINT `fk_userno_team`
+    FOREIGN KEY (`team_teamno`)
+    REFERENCES `bowlingdb`.`team` (`teamno`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `bowlingdb`.`sizetable`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bowlingdb`.`sizetable` (
+  `mfreverse` INT NOT NULL,
+  `rfreverse` INT NOT NULL,
+  `mfleft` INT NOT NULL,
+  `insert1` INT NOT NULL,
+  `insert2` INT NOT NULL,
+  `rfright` INT NOT NULL,
+  `mfforward` INT NOT NULL,
+  `rfforward` INT NOT NULL,
+  `span1` INT NOT NULL,
+  `span2` INT NOT NULL,
+  `thforward` INT NOT NULL,
+  `thleft` INT NOT NULL,
+  `thumb` INT NOT NULL,
+  `thright` INT NOT NULL,
+  `threverse` INT NOT NULL)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `bowlingdb`.`size`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bowlingdb`.`size` (
+  `rfsize` INT NOT NULL,
+  `mfsize` INT NOT NULL,
+  `member_userno` INT NOT NULL,
+  INDEX `fk_size_member1_idx` (`member_userno` ASC) VISIBLE,
+  CONSTRAINT `fk_size_member1`
+    FOREIGN KEY (`member_userno`)
+    REFERENCES `bowlingdb`.`member` (`userno`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `bowlingdb`.`login`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bowlingdb`.`login` (
+  `userid` VARCHAR(50) NOT NULL,
+  `userpw` VARCHAR(300) NOT NULL)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
