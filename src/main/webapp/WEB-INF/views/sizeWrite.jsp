@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +14,9 @@
 		연락처 : <input type="text" name="bPhone"><br>
 		소속팀 : 
 		<select>
-			<option value="계양"></option>
-			<option value="임학"></option>
+			<c:forEach items="teamList" var="team">
+				<option value="${team.teamName}"></option>
+			</c:forEach>
 		</select>
 		<br>
 		MF 사이즈 : <input type="text" name="bMsize"><br>

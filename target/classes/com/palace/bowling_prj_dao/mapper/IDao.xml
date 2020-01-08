@@ -7,4 +7,7 @@
 	<select id="loginDao" resultType="com.palace.bowling_prj_dto.MemberDto">
 		SELECT * FROM LOGIN;
 	</select>
+	<select id="teamListDao" resultType="com.palace.bowling_prj_dto.RepositoryDto">
+		SELECT TEAMNAME FROM TEAM;
+	</select>
 </mapper>
