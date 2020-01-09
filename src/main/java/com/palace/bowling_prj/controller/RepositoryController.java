@@ -21,8 +21,7 @@ public class RepositoryController {
 		// 지공 사이즈 작성페이지 접속
 		IDao dao = sqlSession.getMapper(IDao.class);
 		model.addAttribute("teamList",dao.teamListDao());
-		
-		
+
 		return "sizeWrite";
 	}
 	

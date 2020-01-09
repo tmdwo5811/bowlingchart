@@ -8,7 +8,17 @@ public class RepositoryDto {
 	String bMsize;
 	String bRsize;
 
-	
+	public RepositoryDto() {
+		// TODO Auto-generated constructor stub
+	}
+	public RepositoryDto(String bName, int bPhone, String teamName, String bMsize, String bRsize) {
+		// TODO Auto-generated constructor stub
+		this.bName = bName;
+		this.bPhone = bPhone;
+		this.teamName = teamName;
+		this.bMsize = bMsize;
+		this.bRsize = bRsize;
+	}
 	
 	public String getTeamName() {
 		return teamName;
