@@ -14,8 +14,8 @@
 		연락처 : <input type="text" name="bPhone"><br>
 		소속팀 : 
 		<select>
-			<c:forEach items="teamList" var="team">
-				<option value="${team.teamName}"></option>
+			<c:forEach items="${teamList}" var="team">
+				<option value="${team.bName}"></option>
 			</c:forEach>
 		</select>
 		<br>
