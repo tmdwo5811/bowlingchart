@@ -5,9 +5,23 @@
 
 <mapper namespace="com.palace.bowling_prj_dao.IDao">
 	<select id="loginDao" resultType="com.palace.bowling_prj_dto.MemberDto">
-		SELECT * FROM LOGIN;
+		SELECT * FROM LOGIN
 	</select>
 	<select id="teamListDao" resultType="com.palace.bowling_prj_dto.RepositoryDto">
-		SELECT TEAMNAME FROM TEAM;
+		SELECT TEAMNAME,TEAMNO FROM TEAM
 	</select>
+	<insert id="makeTeam">
+		INSERT INTO TEAM (TEAMNAME) VALUES (#{PARAM1})
+	</insert>
+	<delete id="deleteTeam">
+		DELETE FROM TEAM WHERE TEAMNO = #{param1}
+	</delete>
+	<!-- 
+	<delete id="deleteTeam">
+		delete from team where teamno=#{teamNo};
+		alter table team auto_increment = 1;
+		set @count = 0;
+		update team set teamno = @count:=@count+1;
+	</delete>
+	 -->
 </mapper>

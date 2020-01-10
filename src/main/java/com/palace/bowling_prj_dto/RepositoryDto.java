@@ -5,21 +5,30 @@ public class RepositoryDto {
 	String bName;
 	int bPhone;
 	String teamName;
+	int teamNo;
 	String bMsize;
 	String bRsize;
 
 	public RepositoryDto() {
 		// TODO Auto-generated constructor stub
 	}
-	public RepositoryDto(String bName, int bPhone, String teamName, String bMsize, String bRsize) {
+	public RepositoryDto(String bName, int bPhone, String teamName,int teamNo, String bMsize, String bRsize) {
 		// TODO Auto-generated constructor stub
 		this.bName = bName;
 		this.bPhone = bPhone;
 		this.teamName = teamName;
+		this.teamNo = teamNo;
 		this.bMsize = bMsize;
 		this.bRsize = bRsize;
 	}
 	
+	
+	public int getTeamNo() {
+		return teamNo;
+	}
+	public void setTeamNo(int teamNo) {
+		this.teamNo = teamNo;
+	}
 	public String getTeamName() {
 		return teamName;
 	}

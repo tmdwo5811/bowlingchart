@@ -9,4 +9,6 @@ public interface IDao {
 	public MemberDto loginDao();
 	public RepositoryDto makeTeamDao();
 	public ArrayList<RepositoryDto> teamListDao();
+	public void deleteTeam(int teamNo);
+	public void makeTeam(String teamName);
 }

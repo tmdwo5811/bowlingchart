@@ -34,8 +34,21 @@ public class RepositoryController {
 	@RequestMapping("/makeTeam")
 	public String makeTeam(HttpServletRequest request,Model model) {
 		//DB로 팀 이름 저장 메소드
+		IDao dao = sqlSession.getMapper(IDao.class);
+		String tName = request.getParameter("wTeam");
+		dao.makeTeam(tName);
+		System.out.println("생성 요청 팀 이름 = "+tName);
+		return "redirect:sizeWrite";
+	}
+	@RequestMapping("/deleteTeam")
+	public String deleteTeam(HttpServletRequest request,Model model) {
+		//팀 삭제 구문
+		IDao dao = sqlSession.getMapper(IDao.class);
+		int tNo = Integer.parseInt(request.getParameter("teamNo"));
+		dao.deleteTeam(tNo);
+		System.out.println("삭제 요청한 팀번호"+tNo);
 		
-		return "sizeWrite";
+		return "redirect:sizeWrite";
 	}
 	
 }

@@ -15,7 +15,7 @@
 		소속팀 : 
 		<select>
 			<c:forEach items="${teamList}" var="team">
-				<option value="${team.bName}"></option>
+				<option value="">${team.teamName} 팀</option>
 			</c:forEach>
 		</select>
 		<br>
@@ -24,9 +24,20 @@
 		<input type="submit" value="입력">
 	</form>
 	<hr>
+	<h3>팀 생성 기능</h3>
 	<form action="makeTeam" method="post">
 		팀 이름 : <input type="text" name="wTeam">
 		<input type="submit" value="팀 생성">
+	</form>
+	<hr>
+	<h3>팀 삭제 기능</h3>
+	<form action="deleteTeam" method="post">
+		<select name="teamNo">
+			<c:forEach items="${teamList}" var="team">
+				<option value="${team.teamNo}" >${team.teamName} 팀</option>
+			</c:forEach>
+		</select>
+		<input type="submit" value="삭제">
 	</form>
 </body>
 </html>
