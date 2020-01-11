@@ -93,3 +93,22 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+//*************************DELETE Team 쿼리문 [프로시저 생성 구문]
+delimiter $$
+drop procedure if exists deleteteam$$
+create procedure deleteteam(tno INT)
+begin
+	delete from team where teamno=tno;
+	alter table team auto_increment = 1;
+    set @count = 0;
+    update team set teamno = @count:=@count+1;
+end $$
+delimiter $$
+
+쿼리 실행구문
+call deleteteam();
+
+//********************************************************
+

@@ -13,8 +13,10 @@
 	<insert id="makeTeam">
 		INSERT INTO TEAM (TEAMNAME) VALUES (#{PARAM1})
 	</insert>
-	<delete id="deleteTeam">
-		DELETE FROM TEAM WHERE TEAMNO = #{param1}
+	<delete id="deleteTeam" statementType="CALLABLE">
+		{
+			CALL DELETETEAM(#{PARAM1})
+		}
 	</delete>
 	<!-- 
 	<delete id="deleteTeam">
