@@ -22,12 +22,6 @@ public class LoginController {
 		return "loginPage";
 	}
 
-	@RequestMapping("/index")
-	public String index() {
-		// 로그인페이지 접속
-		return "index";
-	}
-
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, Model model) {
 		// 로그인 실행 컨트롤러

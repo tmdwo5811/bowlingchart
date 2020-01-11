@@ -2,8 +2,9 @@ package com.palace.bowling_prj_dto;
 
 public class RepositoryDto {
 	
-	String bName;
-	int bPhone;
+	int userNo;
+	String userName;
+	int phone;
 	String teamName;
 	int teamNo;
 	String bMsize;
@@ -12,10 +13,11 @@ public class RepositoryDto {
 	public RepositoryDto() {
 		// TODO Auto-generated constructor stub
 	}
-	public RepositoryDto(String bName, int bPhone, String teamName,int teamNo, String bMsize, String bRsize) {
+	public RepositoryDto(int userNo, String userName, int phone, String teamName,int teamNo, String bMsize, String bRsize) {
 		// TODO Auto-generated constructor stub
-		this.bName = bName;
-		this.bPhone = bPhone;
+		this.userNo = userNo;
+		this.userName = userName;
+		this.phone = phone;
 		this.teamName = teamName;
 		this.teamNo = teamNo;
 		this.bMsize = bMsize;
@@ -23,6 +25,12 @@ public class RepositoryDto {
 	}
 	
 	
+	public int getuserNo() {
+		return userNo;
+	}
+	public void setuserNo(int userNo) {
+		this.userNo = userNo;
+	}
 	public int getTeamNo() {
 		return teamNo;
 	}
@@ -37,12 +45,12 @@ public class RepositoryDto {
 		this.teamName = teamName;
 	}
 
-	public String getbName() {
-		return bName;
+	public String getuserName() {
+		return userName;
 	}
 
-	public int getbPhone() {
-		return bPhone;
+	public int getphone() {
+		return phone;
 	}
 
 	public String getbMsize() {
@@ -53,12 +61,12 @@ public class RepositoryDto {
 		return bRsize;
 	}
 
-	public void setbName(String bName) {
-		this.bName = bName;
+	public void setuserName(String userName) {
+		this.userName = userName;
 	}
 
-	public void setbPhone(int bPhone) {
-		this.bPhone = bPhone;
+	public void setphone(int phone) {
+		this.phone = phone;
 	}
 
 	public void setbMsize(String bMsize) {

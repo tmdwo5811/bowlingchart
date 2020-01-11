@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <html>
 <head>
 <title>+ 왕궁볼링장 +</title>
@@ -20,12 +21,14 @@
 				<td>작성/수정일</td>
 				<td><a href="sizeWrite">지공 사이즈 작성</a></td>
 			</tr>
+			<c:forEach items="${main}" var="dto">
 			<tr>
-				<td>${login.userId}</td>
-				<td>${login.userPw}</td>
-				<td>${userPhone }</td>
-				<td>${writeDate }</td>
+				<td>${dto.userNo}</td>
+				<td><a href="sizeView?userNo=${dto.userNo}">${dto.userName}</a></td>
+				<td>${dto.phone }</td>
+				<td>2020.01.01</td>
 			</tr>
+			</c:forEach>
 		</table>
 	</div>
 </body>
