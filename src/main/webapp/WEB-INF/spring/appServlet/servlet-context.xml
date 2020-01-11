@@ -31,7 +31,7 @@
 	<!--  데이터 소스 -->
 	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<beans:property name="url" value="jdbc:mysql://localhost:3306/bowlingdb?useSSL=false&amp;serverTimezone=UTC" />
+		<beans:property name="url" value="jdbc:mysql://localhost:3306/bowlingdb?useSSL=false&amp;serverTimezone=Asia/Seoul" />
 		<beans:property name="username" value="root" />
 		<beans:property name="password" value="1234" />
 	</beans:bean>

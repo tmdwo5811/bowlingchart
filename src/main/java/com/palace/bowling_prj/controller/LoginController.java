@@ -25,9 +25,9 @@ public class LoginController {
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, Model model) {
 		// 로그인 실행 컨트롤러
-		IDao dao = sqlSession.getMapper(IDao.class);
+		//IDao dao = sqlSession.getMapper(IDao.class);
 		
-		model.addAttribute("login", dao.loginDao());
+		//model.addAttribute("login", dao.loginDao());
 		return "index";
 	}
 }

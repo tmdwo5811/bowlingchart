@@ -19,6 +19,8 @@
 				<td>회원이름</td>
 				<td>연락처</td>
 				<td>작성/수정일</td>
+				<td>수정 버튼</td>
+				<td>삭제 버튼</td>
 				<td><a href="sizeWrite">지공 사이즈 작성</a></td>
 			</tr>
 			<c:forEach items="${main}" var="dto">
@@ -26,7 +28,9 @@
 				<td>${dto.userNo}</td>
 				<td><a href="sizeView?userNo=${dto.userNo}">${dto.userName}</a></td>
 				<td>${dto.phone }</td>
-				<td>2020.01.01</td>
+				<td>${dto.reg_date }</td>
+				<td><a href="modifySizePage?userNo=${dto.userNo}">회원정보 수정</a></td>
+				<td><a href="deleteMemberSize?userNo=${dto.userNo}">회원정보 삭제</a></td>
 			</tr>
 			</c:forEach>
 		</table>

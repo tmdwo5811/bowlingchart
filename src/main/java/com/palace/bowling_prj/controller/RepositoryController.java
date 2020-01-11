@@ -23,6 +23,41 @@ public class RepositoryController {
 		model.addAttribute("main",dao.indexView());
 		return "index";
 	}
+	@RequestMapping("/modifySizePage")
+	public String modifySizePage(HttpServletRequest request, Model model) {
+		//회원 정보 수정 페이지 접속
+		IDao dao = sqlSession.getMapper(IDao.class);
+		int userNo = Integer.parseInt(request.getParameter("userNo"));
+		System.out.println(userNo+"번 회원 정보 수정 페이지 접속");
+		model.addAttribute("memberSize",dao.modifyMemberSize(userNo));
+		model.addAttribute("teamList",dao.teamListDao());
+		return "sizeModify";
+	}
+	
+	public String modifyMemberSizeSave(HttpServletRequest request) {
+		//회원 정보 저장 요청
+		IDao dao = sqlSession.getMapper(IDao.class);
+		int tNo = Integer.parseInt(request.getParameter("teamNo"));
+		String tName = request.getParameter("bName");
+		String tPhone = request.getParameter("bPhone");
+		String tMsize = request.getParameter("bMsize");
+		String tRsize = request.getParameter("bRsize");
+		System.out.println("size 수정 요청 내용");
+		System.out.println(tNo+" "+ tName +" "+ tPhone +" "+ tRsize +" "+ tMsize);
+		dao.modifyMemberSizeSave(tNo,tName,tPhone,tRsize,tMsize);
+		System.out.println("size 수정 성공");
+		
+		return "redirect:index";
+	}
+	
+	@RequestMapping("/deleteMemberSize")
+	public String deleteMemberSize(HttpServletRequest request,Model model) {
+		IDao dao = sqlSession.getMapper(IDao.class);
+		int userNo = Integer.parseInt(request.getParameter("userNo"));
+		dao.deleteMemberSize(userNo);
+		System.out.println("삭제요청한 "+userNo+"번 회원");
+		return "redirect:index";
+	}
 	
 	@RequestMapping("/sizeView")
 	public String sizeView(HttpServletRequest request,Model model) {
@@ -50,7 +85,7 @@ public class RepositoryController {
 
 		int tNo = Integer.parseInt(request.getParameter("teamNo"));
 		String tName = request.getParameter("bName");
-		int tPhone = Integer.parseInt(request.getParameter("bPhone"));
+		String tPhone = request.getParameter("bPhone");
 		String tMsize = request.getParameter("bMsize");
 		String tRsize = request.getParameter("bRsize");
 		System.out.println("size 저장 요청 내용");
