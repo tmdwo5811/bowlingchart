@@ -12,8 +12,8 @@
 		성함 : ${memberSize.userName}<br>
 		연락처 : ${memberSize.phone }<br>
 		소속팀 : ${memberSize.teamName } 팀<br>
-		MF 사이즈 : ${memberSize.bMsize }<br>
-		RF 사이즈 : ${memberSize.bRsize }<br>
+		MF 사이즈 : ${memberSize.mFsize }<br>
+		RF 사이즈 : ${memberSize.rFsize }<br>
 		작성/수정일 : ${memberSize.reg_date }<br>
 </body>
 </html>

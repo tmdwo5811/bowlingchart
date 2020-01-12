@@ -13,10 +13,24 @@
 	<select id="modifyMemberSize" resultType="com.palace.bowling_prj_dto.RepositoryDto">
 		SELECT * FROM MEMBERSIZE WHERE USERNO = #{PARAM1}
 	</select>
+	<select id="indexView" resultType="com.palace.bowling_prj_dto.RepositoryDto">
+		SELECT USERNO,TEAM_TEAMNO,USERNAME,PHONE,REG_DATE FROM MEMBERSIZE
+	</select>
+	<select id="sizeView" resultType="com.palace.bowling_prj_dto.RepositoryDto">
+		SELECT USERNO,USERNAME,PHONE,RFSIZE,MFSIZE,REG_DATE,TEAMNAME,TEAM_TEAMNO FROM MEMBERSIZE AS A INNER JOIN TEAM AS B ON A.TEAM_TEAMNO = B.TEAMNO WHERE USERNO = #{PARAM1};
+	</select>
 	
 	<insert id="makeTeam">
 		INSERT INTO TEAM (TEAMNAME) VALUES (#{PARAM1})
 	</insert>
+	<insert id="sizeWrite">
+		INSERT INTO MEMBERSIZE (TEAM_TEAMNO, USERNAME, PHONE, RFSIZE, MFSIZE, REG_DATE) VALUES (#{Val1}, #{Val2}, #{Val3}, #{Val4}, #{Val5}, NOW())
+	</insert>
+	<update id="modifyMemberSizeSave">
+		UPDATE MEMBERSIZE SET TEAM_TEAMNO=#{M_Val1},USERNAME=#{M_Val2},PHONE=#{M_Val3},RFSIZE=#{M_Val4},MFSIZE=#{M_Val5},REG_DATE=NOW() WHERE USERNO=#{M_Val6}
+	</update>
+	
+	
 	<delete id="deleteTeam" statementType="CALLABLE">
 		{
 			CALL DELETETEAM(#{PARAM1})
@@ -27,13 +41,6 @@
 			CALL DELETEMEMBERSIZE(#{PARAM1})
 		}
 	</delete>
-	<insert id="sizeWrite">
-		INSERT INTO MEMBERSIZE (TEAM_TEAMNO, USERNAME, PHONE, RFSIZE, MFSIZE, REG_DATE) VALUES (#{Val1}, #{Val2}, #{Val3}, #{Val4}, #{Val5}, NOW())
-	</insert>
-	<select id="indexView" resultType="com.palace.bowling_prj_dto.RepositoryDto">
-		SELECT USERNO,TEAM_TEAMNO,USERNAME,PHONE,REG_DATE FROM MEMBERSIZE
-	</select>
-	<select id="sizeView" resultType="com.palace.bowling_prj_dto.RepositoryDto">
-		SELECT USERNO,USERNAME,PHONE,RFSIZE,MFSIZE,REG_DATE,TEAMNAME FROM MEMBERSIZE AS A INNER JOIN TEAM AS B ON A.TEAM_TEAMNO = B.TEAMNO WHERE USERNO = #{PARAM1};
-	</select>
+	
+	
 </mapper>

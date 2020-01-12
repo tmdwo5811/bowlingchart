@@ -33,10 +33,11 @@ public class RepositoryController {
 		model.addAttribute("teamList",dao.teamListDao());
 		return "sizeModify";
 	}
-	
+	@RequestMapping("/modifyMemberSizeSave")
 	public String modifyMemberSizeSave(HttpServletRequest request) {
 		//회원 정보 저장 요청
 		IDao dao = sqlSession.getMapper(IDao.class);
+		int userNo = Integer.parseInt(request.getParameter("userNo"));
 		int tNo = Integer.parseInt(request.getParameter("teamNo"));
 		String tName = request.getParameter("bName");
 		String tPhone = request.getParameter("bPhone");
@@ -44,7 +45,7 @@ public class RepositoryController {
 		String tRsize = request.getParameter("bRsize");
 		System.out.println("size 수정 요청 내용");
 		System.out.println(tNo+" "+ tName +" "+ tPhone +" "+ tRsize +" "+ tMsize);
-		dao.modifyMemberSizeSave(tNo,tName,tPhone,tRsize,tMsize);
+		dao.modifyMemberSizeSave(tNo,tName,tPhone,tRsize,tMsize, userNo);
 		System.out.println("size 수정 성공");
 		
 		return "redirect:index";

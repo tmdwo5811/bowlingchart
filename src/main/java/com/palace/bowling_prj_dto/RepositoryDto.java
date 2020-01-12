@@ -11,6 +11,7 @@ public class RepositoryDto {
 	String phone;
 	String teamName;
 	int teamNo;
+	int team_teamNo;
 	String mFsize;
 	String rFsize;
 	String reg_date;
@@ -18,16 +19,24 @@ public class RepositoryDto {
 	public RepositoryDto() {
 		// TODO Auto-generated constructor stub
 	}
-	public RepositoryDto(int userNo, String userName, String phone, String teamName,int teamNo, String mFsize, String rFsize, Timestamp reg_date) {
+	public RepositoryDto(int userNo, String userName, String phone, String teamName,int teamNo,int team_teamNo, String mFsize, String rFsize, Timestamp reg_date) {
 		// TODO Auto-generated constructor stub
 		this.userNo = userNo;
 		this.userName = userName;
 		this.phone = phone;
 		this.teamName = teamName;
 		this.teamNo = teamNo;
+		this.team_teamNo = team_teamNo;
 		this.mFsize = mFsize;
 		this.rFsize = rFsize;
 		this.reg_date = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(reg_date);
+	}
+	
+	public int getTeam_teamNo() {
+		return team_teamNo;
+	}
+	public void setTeam_teamNo(int team_teamNo) {
+		this.team_teamNo = team_teamNo;
 	}
 	public int getUserNo() {
 		return userNo;
