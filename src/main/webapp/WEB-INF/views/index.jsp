@@ -8,10 +8,11 @@
 <body>
 	<h1>왕궁볼링장 지공 데이터 프로그램</h1>
 	<div>
-		<form action="" method="get" style="display: inline">
-			<input type="text" placeholder="회원 검색">
+		<form action="userSearch" method="get" style="display: inline">
+			<input type="text" placeholder="회원 검색" name="userSearch">
 			<input type="submit" value="검색">
 		</form>
+		
 		<a href="loginPage">로그인</a> <br>
 		<table>
 			<tr>

@@ -23,6 +23,15 @@ public class RepositoryController {
 		model.addAttribute("main",dao.indexView());
 		return "index";
 	}
+	@RequestMapping("/userSearch")
+	public String userSearch(HttpServletRequest request, Model model) {
+		IDao dao = sqlSession.getMapper(IDao.class);
+		String searchKeyWord = request.getParameter("userSearch");
+		System.out.println("검색하려는 데이터 => "+searchKeyWord);
+		model.addAttribute("main",dao.userSearch(searchKeyWord));
+		return "redirect:index";
+	}
+	
 	@RequestMapping("/modifySizePage")
 	public String modifySizePage(HttpServletRequest request, Model model) {
 		//회원 정보 수정 페이지 접속
