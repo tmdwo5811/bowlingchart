@@ -13,6 +13,7 @@
 			<input type="submit" value="검색">
 		</form>
 		
+		
 		<a href="loginPage">로그인</a> <br>
 		<table>
 			<tr>
