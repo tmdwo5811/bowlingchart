@@ -22,6 +22,9 @@
 	<select id="userSearch" resultType="com.palace.bowling_prj_dto.RepositoryDto">
 		SELECT * FROM MEMBERSIZE WHERE USERNAME LIKE CONCAT('%',#{S_Val1},'%');
 	</select>
+	<select id="selectCount" resultType="int">
+		SELECT COUNT(USERNO) FROM MEMBERSIZE;
+	</select>
 	
 	<insert id="makeTeam">
 		INSERT INTO TEAM (TEAMNAME) VALUES (#{PARAM1})

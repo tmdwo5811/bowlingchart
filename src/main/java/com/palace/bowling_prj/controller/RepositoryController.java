@@ -7,20 +7,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.palace.bowling_prj_dao.IDao;
+import com.palace.bowling_prj_util.PageNavigator;
 
 @Controller
 public class RepositoryController {
 	
 	@Autowired
 	SqlSession sqlSession;
+	final static int COUNTPERPAGE=5;
+	final static int PAGEPERGROUP=3;
+	
 	
 	@RequestMapping("/index")
-	public String index(Model model) {
+	public String index(Model model,@RequestParam(value = "page",defaultValue = "1")int page) {
 		// 메인 페이지 접속
+		
 		IDao dao = sqlSession.getMapper(IDao.class);
-		model.addAttribute("main",dao.indexView());
+		int selectCount = dao.selectCount();
+		System.out.println("총 레코드 수 => " + selectCount);
+		PageNavigator navi = new PageNavigator(COUNTPERPAGE,PAGEPERGROUP,page,selectCount);
+		model.addAttribute("main",dao.indexView(navi));
+		model.addAttribute("navi",navi);
+		
 		return "index";
 	}
 	@RequestMapping("/userSearch")
