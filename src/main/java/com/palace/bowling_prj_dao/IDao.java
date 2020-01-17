@@ -10,7 +10,7 @@ import com.palace.bowling_prj_util.PageNavigator;
 
 public interface IDao {
 	public MemberDto loginDao();
-	public ArrayList<RepositoryDto> indexView(PageNavigator navi);
+	public ArrayList<RepositoryDto> indexView();
 	public ArrayList<RepositoryDto> teamListDao();
 	public ArrayList<RepositoryDto> userSearch(@Param("S_Val1") String searchKeyWord);
 	public RepositoryDto modifyMemberSize(int userNo);

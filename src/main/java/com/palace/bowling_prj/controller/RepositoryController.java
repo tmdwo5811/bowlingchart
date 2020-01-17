@@ -28,9 +28,10 @@ public class RepositoryController {
 		IDao dao = sqlSession.getMapper(IDao.class);
 		int selectCount = dao.selectCount();
 		System.out.println("총 레코드 수 => " + selectCount);
-		PageNavigator navi = new PageNavigator(COUNTPERPAGE,PAGEPERGROUP,page,selectCount);
-		model.addAttribute("main",dao.indexView(navi));
-		model.addAttribute("navi",navi);
+		//PageNavigator navi = new PageNavigator(COUNTPERPAGE,PAGEPERGROUP,page,selectCount);
+		// 프로젝트 구조 변경을 위한 주석처리
+		
+		model.addAttribute("main",dao.indexView());
 		
 		return "index";
 	}
