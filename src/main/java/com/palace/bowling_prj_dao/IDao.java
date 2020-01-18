@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Param;
 
 import com.palace.bowling_prj_dto.MemberDto;
 import com.palace.bowling_prj_dto.RepositoryDto;
-import com.palace.bowling_prj_util.PageNavigator;
 
 public interface IDao {
 	public MemberDto loginDao();
