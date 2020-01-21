@@ -7,12 +7,16 @@ import org.apache.ibatis.annotations.Param;
 import com.palace.bowling_prj_dto.RepositoryDto;
 
 public interface RepositoryDAO {
-	public ArrayList<RepositoryDto> indexView();
-	public ArrayList<RepositoryDto> userSearch(@Param("S_Val1") String searchKeyWord);
-	public RepositoryDto modifyMemberSize(int userNo);
-	public RepositoryDto sizeView(int userNo);
-	public void sizeWrite(@Param("Val1") int team_teamno,@Param("Val2") String username,@Param("Val3") String tPhone,@Param("Val4") String rfsize,@Param("Val5") String mfsize);
-	public void deleteMemberSize(int userNo);
-	public void modifyMemberSizeSave(@Param("M_Val1") int tNo,@Param("M_Val2") String tName,@Param("M_Val3") String tPhone,@Param("M_Val4") String tRsize,@Param("M_Val5") String tMsize,@Param("M_Val6") int userNo);
-	public int selectCount();
+	public ArrayList<RepositoryDto> indexView() throws Exception;
+	public RepositoryDto modifyMemberSize(int userNo) throws Exception;
+	public RepositoryDto sizeView(int userNo) throws Exception;
+	public void sizeWrite(RepositoryDto vo) throws Exception;
+	public void deleteMemberSize(int userNo) throws Exception;
+	public void modifyMemberSizeSave(RepositoryDto vo)  throws Exception;
+
+	
+	//준비중인 코드
+	//검색 -> public ArrayList<RepositoryDto> userSearch(@Param("S_Val1") String searchKeyWord) throws Exception;
+	//페이징처리 -> public int selectCount();
+
 }

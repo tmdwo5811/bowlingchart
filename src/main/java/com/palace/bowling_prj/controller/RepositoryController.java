@@ -1,29 +1,27 @@
 package com.palace.bowling_prj.controller;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.palace.bowling_prj.service.RepositoryService;
+
 @Controller
 public class RepositoryController {
 	
-	@Autowired
-	SqlSession sqlSession;
-	final static int COUNTPERPAGE=5;
-	final static int PAGEPERGROUP=3;
-	
+	@Inject
+	RepositoryService service;
 	
 	@RequestMapping("/index")
 	public String index(Model model,@RequestParam(value = "page",defaultValue = "1")int page) {
 		// 메인 페이지 접속
 		
-		IDao dao = sqlSession.getMapper(IDao.class);
-		int selectCount = dao.selectCount();
+		IDao repositorydao = sqlSession.getMapper(IDao.class);
+		int selectCount = repositorydao.selectCount();
 		System.out.println("총 레코드 수 => " + selectCount);
 		//PageNavigator navi = new PageNavigator(COUNTPERPAGE,PAGEPERGROUP,page,selectCount);
 		// 프로젝트 구조 변경을 위한 주석처리
