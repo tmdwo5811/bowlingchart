@@ -1,5 +1,5 @@
 package com.palace.bowling_prj_dao;
 
-public class RepositoryDao {
+public class RepositoryDAOImpl {
 
 }

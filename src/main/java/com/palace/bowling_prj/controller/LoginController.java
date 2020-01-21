@@ -8,8 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.palace.bowling_prj_dao.IDao;
-
 @Controller
 public class LoginController {
 

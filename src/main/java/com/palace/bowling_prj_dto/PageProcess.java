@@ -1,6 +1,6 @@
 package com.palace.bowling_prj_dto;
 
-public class PageDto {
+public class PageProcess {
 	
 	//페이지 관련 정보
 	
@@ -18,7 +18,7 @@ public class PageDto {
 	 * 생성자
 	 * */
 	
-	public PageDto(int countPerPage, int pagePerGroup, int currentPage, int totalRecordsCount) {
+	public PageProcess(int countPerPage, int pagePerGroup, int currentPage, int totalRecordsCount) {
 		//페이지당 글 수, 그룹당 페이지수, 현재 페이지, 전체 글 수를 전달 받음
 		this.countPerPage = countPerPage;
 		this.pagePerGroup = pagePerGroup;
