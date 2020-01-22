@@ -2,5 +2,9 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
 <mapper namespace="com.palace.bowling_prj_dao.RepositoryDAO">
+	<select id="indexView" resultType="com.palace.bowling_prj_dto.RepositoryDto">
+		SELECT USERNO,TEAM_TEAMNO,USERNAME,PHONE,REG_DATE FROM MEMBERSIZE
+	</select>
 </mapper>

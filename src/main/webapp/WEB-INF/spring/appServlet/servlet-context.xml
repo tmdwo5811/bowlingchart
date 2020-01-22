@@ -40,10 +40,14 @@
 	<!-- mybatis Sql세션팩토리 빈 -->
 	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />
-		<beans:property name="mapperLocations" value="classpath:com/palace/bowling_prj_dao/mapper/*.xml" />
+		<beans:property name="mapperLocations" value="classpath:com/palace/bowling_prj_dao/mapper/repositoryMapper.xml" />
 	</beans:bean>
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
 	</beans:bean>
+	
+	<beans:bean id="repositoryService" class="com.palace.bowling_prj.service.RepositoryServiceImpl" />
+	<beans:bean id="rDao" class="com.palace.bowling_prj_dao.RepositoryDAOImpl" />
+	
 	
 </beans:beans>

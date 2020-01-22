@@ -1,35 +1,35 @@
 package com.palace.bowling_prj.controller;
 
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.palace.bowling_prj.service.RepositoryService;
+import com.palace.bowling_prj.service.RepositoryServiceImpl;
+import com.palace.bowling_prj_dto.RepositoryDto;
 
 @Controller
 public class RepositoryController {
 	
-	@Inject
-	RepositoryService service;
+	@Autowired
+	RepositoryServiceImpl service;
 	
 	@RequestMapping("/index")
-	public String index(Model model,@RequestParam(value = "page",defaultValue = "1")int page) {
+	public String index(Model model) throws Exception {
 		// 메인 페이지 접속
 		
-		IDao repositorydao = sqlSession.getMapper(IDao.class);
-		int selectCount = repositorydao.selectCount();
-		System.out.println("총 레코드 수 => " + selectCount);
+		//IDao repositorydao = sqlSession.getMapper(IDao.class);
+		//int selectCount = repositorydao.selectCount();
+		//System.out.println("총 레코드 수 => " + selectCount);
 		//PageNavigator navi = new PageNavigator(COUNTPERPAGE,PAGEPERGROUP,page,selectCount);
 		// 프로젝트 구조 변경을 위한 주석처리
-		
-		model.addAttribute("main",dao.indexView());
-		
+		ArrayList<RepositoryDto> al = service.indexView();
+		model.addAttribute("main",al);
 		return "index";
 	}
+	/*
 	@RequestMapping("/userSearch")
 	public String userSearch(HttpServletRequest request, Model model) {
 		IDao dao = sqlSession.getMapper(IDao.class);
@@ -131,5 +131,5 @@ public class RepositoryController {
 		
 		return "redirect:sizeWrite";
 	}
-	
+	*/
 }
