@@ -8,13 +8,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.palace.bowling_prj.service.RepositoryServiceImpl;
+import com.palace.bowling_prj.service.TeamServiceImpl;
 import com.palace.bowling_prj_dto.RepositoryDto;
 
 @Controller
 public class RepositoryController {
 	
 	@Autowired
-	RepositoryServiceImpl service;
+	RepositoryServiceImpl rService;
+	
+	@Autowired
+	TeamServiceImpl tService;
 	
 	@RequestMapping("/index")
 	public String index(Model model) throws Exception {
@@ -25,10 +29,20 @@ public class RepositoryController {
 		//System.out.println("총 레코드 수 => " + selectCount);
 		//PageNavigator navi = new PageNavigator(COUNTPERPAGE,PAGEPERGROUP,page,selectCount);
 		// 프로젝트 구조 변경을 위한 주석처리
-		ArrayList<RepositoryDto> al = service.indexView();
+		ArrayList<RepositoryDto> al = rService.indexView();
 		model.addAttribute("main",al);
 		return "index";
 	}
+	@RequestMapping("/sizeWrite")	
+	public String writePage(Model model) {
+		// 지공 사이즈 작성페이지 접속
+		
+		//IDao dao = sqlSession.getMapper(IDao.class);
+		
+		model.addAttribute("teamList",tService.teamListDao());
+		return "sizeWrite";
+	}
+	
 	/*
 	@RequestMapping("/userSearch")
 	public String userSearch(HttpServletRequest request, Model model) {
@@ -86,14 +100,6 @@ public class RepositoryController {
 		return "sizeView";
 	}
 	
-	@RequestMapping("/sizeWrite")	
-	public String writePage(Model model) {
-		// 지공 사이즈 작성페이지 접속
-		IDao dao = sqlSession.getMapper(IDao.class);
-		model.addAttribute("teamList",dao.teamListDao());
-
-		return "sizeWrite";
-	}
 	
 	@RequestMapping("/sizeSave")
 	public String sizeWrite(HttpServletRequest request,Model model) {

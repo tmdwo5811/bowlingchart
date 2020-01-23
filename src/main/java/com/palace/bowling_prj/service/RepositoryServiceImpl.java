@@ -17,8 +17,11 @@ public class RepositoryServiceImpl implements RepositoryService{
 	@Override
 	public ArrayList<RepositoryDto> indexView() throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("Service indexView 실행");
 		return dao.indexView();
 	}
-	
+	@Override
+	public void sizeWrite(RepositoryDto vo) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
 }

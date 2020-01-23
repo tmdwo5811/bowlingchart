@@ -7,9 +7,6 @@
 	<select id="loginDao" resultType="com.palace.bowling_prj_dto.MemberDto">
 		SELECT * FROM LOGIN
 	</select>
-	<select id="teamListDao" resultType="com.palace.bowling_prj_dto.RepositoryDto">
-		SELECT TEAMNAME,TEAMNO FROM TEAM
-	</select>
 	<select id="modifyMemberSize" resultType="com.palace.bowling_prj_dto.RepositoryDto">
 		SELECT * FROM MEMBERSIZE WHERE USERNO = #{PARAM1}
 	</select>

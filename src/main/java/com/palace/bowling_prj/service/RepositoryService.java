@@ -9,9 +9,9 @@ import com.palace.bowling_prj_dto.RepositoryDto;
 
 public interface RepositoryService {
 	public ArrayList<RepositoryDto> indexView() throws Exception;
+	public void sizeWrite(RepositoryDto vo) throws Exception;
 	/*public RepositoryDto modifyMemberSize(int userNo) throws Exception;
 	public RepositoryDto sizeView(int userNo) throws Exception;
-	public void sizeWrite(RepositoryDto vo) throws Exception;
 	public void deleteMemberSize(int userNo) throws Exception;
 	public void modifyMemberSizeSave(RepositoryDto vo)  throws Exception;
 	*/
