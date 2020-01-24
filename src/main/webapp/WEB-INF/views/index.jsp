@@ -36,18 +36,18 @@
 			</tr>
 			</c:forEach>
 		</table>
-		<c:if test="#{pagingDTO.totalPage > 1 }">
+		<c:if test="${pagingDTO.totPage > 1 }">
 			<div class="paging">
 				<c:forEach var="i" begin="${pagingDTO.pageStart}" end="${pagingDTO.pageEnd}" step="1">
-					<c:url var="pageLink" value="board2List">
-						<c:param name="page" value="${i}" />
+					<c:url var="pageLink" value="indexList">
+						<c:param name="page" value="${i }" />
 					</c:url>
 					<c:choose>
 						<c:when test="${i eq pagingDTO.page }">
-							<c:out value="${i}" />
+							<c:out value="${i }" />
 						</c:when>
 						<c:otherwise>
-							<a href="${pageLink}"><c:out value="${i}" /></a>
+							<a href="${pageLink }"><c:out value="${i}" /></a>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>

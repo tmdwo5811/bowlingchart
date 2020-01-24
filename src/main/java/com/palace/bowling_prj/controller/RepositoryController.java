@@ -7,9 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.palace.bowling_prj.common.PagingDTO;
+import com.palace.bowling_prj.common.PageNavigator;
 import com.palace.bowling_prj.service.RepositoryServiceImpl;
 import com.palace.bowling_prj.service.TeamServiceImpl;
 import com.palace.bowling_prj_dto.RepositoryDTO;
@@ -23,13 +26,17 @@ public class RepositoryController {
 	@Autowired
 	TeamServiceImpl tService;
 	
-	@RequestMapping("/index")
-	public String index(Model model) throws Exception {
+	@RequestMapping(value="/index", method = RequestMethod.GET)
+	public String index(ModelMap model,@RequestParam(value="page", defaultValue = "1") int curPage) throws Exception {
 		// 메인 페이지 접속
-		PagingDTO page = new PagingDTO(0, 0, 0, 0);
-
-		ArrayList<RepositoryDTO> al = rService.indexView();
-		model.addAttribute("main",al);
+		int count = rService.selectCount();
+		PageNavigator pp = new PageNavigator(count, curPage);
+		int start = pp.getPageBegin();
+		int end = pp.getPageEnd();
+		ArrayList<RepositoryDTO> list = rService.indexView(start,end);
+		model.addAttribute("main",list);
+		model.addAttribute("navi",pp);
+		
 		return "index";
 	}
 	@RequestMapping("/sizeWrite")	

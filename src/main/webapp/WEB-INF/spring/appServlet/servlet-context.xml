@@ -12,6 +12,7 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 	<context:component-scan base-package="com.palace.bowling_prj_dao" />
 	<context:component-scan base-package="com.palace.bowling_prj.service" />
+	<context:component-scan base-package="com.palace.bowling_prj.controller" />
 	
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
@@ -27,7 +28,6 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.palace.bowling_prj.controller" />
 	
 	
 	<!--  데이터 소스 -->
@@ -42,7 +42,7 @@
 	<!-- mybatis Sql세션팩토리 빈 -->
 	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />
-		<beans:property name="mapperLocations" value="classpath:com/palace/bowling_prj_dao/mapper/*.xml" />
+		<beans:property name="mapperLocations" value="classpath:mapper/*.xml" />
 	</beans:bean>
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg index="0" ref="sqlSessionFactory" />

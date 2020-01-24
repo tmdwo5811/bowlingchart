@@ -2,7 +2,7 @@ package com.palace.bowling_prj_dto;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 public class RepositoryDTO {
 	
