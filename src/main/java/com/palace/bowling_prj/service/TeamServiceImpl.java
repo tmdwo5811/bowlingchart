@@ -21,4 +21,14 @@ public class TeamServiceImpl implements TeamService{
 		// TODO Auto-generated method stub
 		return dao.teamListDao();
 	}
+	@Override
+	public void makeTeam(String teamName) {
+		// TODO Auto-generated method stub
+		dao.makeTeam(teamName);
+	}
+	@Override
+	public void deleteTeam(int teamNo) {
+		// TODO Auto-generated method stub
+		dao.deleteTeam(teamNo);
+	}
 }

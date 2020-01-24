@@ -24,5 +24,17 @@ public class TeamDAOImpl implements TeamDAO{
 		TeamDAO idao = sql.getMapper(TeamDAO.class);
 		return idao.teamListDao();
 	}
+	@Override
+	public void makeTeam(String teamName) {
+		// TODO Auto-generated method stub
+		TeamDAO idao = sql.getMapper(TeamDAO.class);
+		idao.makeTeam(teamName);
+	}
+	@Override
+	public void deleteTeam(int teamNo) {
+		// TODO Auto-generated method stub
+		TeamDAO idao = sql.getMapper(TeamDAO.class);
+		idao.deleteTeam(teamNo);
+	}
 	
 }

@@ -7,4 +7,14 @@
 	<select id="teamListDao" resultType="com.palace.bowling_prj_dto.RepositoryDto">
 		SELECT TEAMNAME,TEAMNO FROM TEAM
 	</select>
+	
+	<insert id="makeTeam">
+		INSERT INTO TEAM (TEAMNAME) VALUES (#{PARAM1})
+	</insert>
+	
+	<delete id="deleteTeam" statementType="CALLABLE">
+		{
+			CALL DELETETEAM(#{PARAM1})
+		}
+	</delete>
 </mapper>

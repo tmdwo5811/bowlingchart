@@ -22,8 +22,28 @@ public class RepositoryServiceImpl implements RepositoryService{
 		return dao.indexView();
 	}
 	@Override
-	public void sizeWrite(RepositoryDto vo) throws Exception {
+	public void sizeWrite(int tNo, String tName, String tPhone, String tRsize, String tMsize) throws Exception {
 		// TODO Auto-generated method stub
-		
+		dao.sizeWrite(tNo,tName,tPhone,tRsize,tMsize);
+	}
+	@Override
+	public void deleteMemberSize(int userNo) throws Exception {
+		// TODO Auto-generated method stub
+		dao.deleteMemberSize(userNo);
+	}
+	@Override
+	public RepositoryDto sizeView(int userNo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.sizeView(userNo);
+	}
+	@Override
+	public RepositoryDto modifyMemberSize(int userNo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.modifyMemberSize(userNo);
+	}
+	@Override
+	public void modifyMemberSizeSave(int tNo, String tName, String tPhone, String tRsize, String tMsize, int userNo) throws Exception {
+		// TODO Auto-generated method stub
+		dao.modifyMemberSizeSave(tNo, tName, tPhone, tRsize, tMsize, userNo);
 	}
 }
