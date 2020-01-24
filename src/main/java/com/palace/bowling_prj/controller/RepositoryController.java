@@ -1,6 +1,5 @@
 package com.palace.bowling_prj.controller;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,9 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.palace.bowling_prj.common.PagingDTO;
 import com.palace.bowling_prj.service.RepositoryServiceImpl;
 import com.palace.bowling_prj.service.TeamServiceImpl;
-import com.palace.bowling_prj_dto.RepositoryDto;
+import com.palace.bowling_prj_dto.RepositoryDTO;
 
 @Controller
 public class RepositoryController {
@@ -26,8 +26,9 @@ public class RepositoryController {
 	@RequestMapping("/index")
 	public String index(Model model) throws Exception {
 		// 메인 페이지 접속
-		
-		ArrayList<RepositoryDto> al = rService.indexView();
+		PagingDTO page = new PagingDTO(0, 0, 0, 0);
+
+		ArrayList<RepositoryDTO> al = rService.indexView();
 		model.addAttribute("main",al);
 		return "index";
 	}
@@ -92,7 +93,7 @@ public class RepositoryController {
 		//멤버 사이즈 상세 페이지 접속
 		int userNo = Integer.parseInt(request.getParameter("userNo"));
 		System.out.println(userNo+" 번 회원 조회 요청");
-		RepositoryDto sv = rService.sizeView(userNo);
+		RepositoryDTO sv = rService.sizeView(userNo);
 		model.addAttribute("memberSize",sv);
 		return "sizeView";
 	}

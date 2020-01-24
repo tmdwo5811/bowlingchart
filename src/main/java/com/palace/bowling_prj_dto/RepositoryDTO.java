@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class RepositoryDto {
+public class RepositoryDTO {
 	
 	int userNo;
 	String userName;
@@ -16,10 +16,10 @@ public class RepositoryDto {
 	String rFsize;
 	String reg_date;
 	
-	public RepositoryDto() {
+	public RepositoryDTO() {
 		// TODO Auto-generated constructor stub
 	}
-	public RepositoryDto(int userNo, String userName, String phone, String teamName,int teamNo,int team_teamNo, String mFsize, String rFsize, Timestamp reg_date) {
+	public RepositoryDTO(int userNo, String userName, String phone, String teamName,int teamNo,int team_teamNo, String mFsize, String rFsize, Timestamp reg_date) {
 		// TODO Auto-generated constructor stub
 		this.userNo = userNo;
 		this.userName = userName;

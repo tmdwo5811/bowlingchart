@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Repository;
 
-import com.palace.bowling_prj_dto.RepositoryDto;
+import com.palace.bowling_prj_dto.RepositoryDTO;
 
 
 
@@ -19,7 +19,7 @@ public class TeamDAOImpl implements TeamDAO{
 	SqlSession sql;
 	
 	@Override
-	public ArrayList<RepositoryDto> teamListDao() {
+	public ArrayList<RepositoryDTO> teamListDao() {
 		// TODO Auto-generated method stub
 		TeamDAO idao = sql.getMapper(TeamDAO.class);
 		return idao.teamListDao();

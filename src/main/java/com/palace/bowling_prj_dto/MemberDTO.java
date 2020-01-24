@@ -1,15 +1,15 @@
 package com.palace.bowling_prj_dto;
 
-public class MemberDto {
+public class MemberDTO {
 	String userId;
 	String userPw;
 	
-	public MemberDto(String userId,String userPw) {
+	public MemberDTO(String userId,String userPw) {
 		// TODO Auto-generated constructor stub
 		this.userId=userId;
 		this.userPw=userPw;
 	}
-	public MemberDto() {
+	public MemberDTO() {
 		// TODO Auto-generated constructor stub
 	}
 	public String getUserId() {

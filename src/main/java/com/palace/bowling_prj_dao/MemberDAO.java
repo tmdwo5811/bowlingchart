@@ -1,8 +1,8 @@
 package com.palace.bowling_prj_dao;
 
-import com.palace.bowling_prj_dto.MemberDto;
+import com.palace.bowling_prj_dto.MemberDTO;
 
 public interface MemberDAO {
 
-	public MemberDto loginDao();
+	public MemberDTO loginDao();
 }

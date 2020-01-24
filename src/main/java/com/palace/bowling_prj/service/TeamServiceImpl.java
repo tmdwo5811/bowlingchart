@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
 import com.palace.bowling_prj_dao.TeamDAOImpl;
-import com.palace.bowling_prj_dto.RepositoryDto;
+import com.palace.bowling_prj_dto.RepositoryDTO;
 
 @Service("teamService")
 @Configuration("teamService")
@@ -17,7 +17,7 @@ public class TeamServiceImpl implements TeamService{
 	TeamDAOImpl dao;
 	
 	@Override
-	public ArrayList<RepositoryDto> teamListDao() {
+	public ArrayList<RepositoryDTO> teamListDao() {
 		// TODO Auto-generated method stub
 		return dao.teamListDao();
 	}

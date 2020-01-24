@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
 import com.palace.bowling_prj_dao.RepositoryDAOImpl;
-import com.palace.bowling_prj_dto.RepositoryDto;
+import com.palace.bowling_prj_dto.RepositoryDTO;
 
 @Service("repositoryService")
 @Configuration("repositoryService")
@@ -17,7 +17,7 @@ public class RepositoryServiceImpl implements RepositoryService{
 	RepositoryDAOImpl dao;
 	
 	@Override
-	public ArrayList<RepositoryDto> indexView() throws Exception {
+	public ArrayList<RepositoryDTO> indexView() throws Exception {
 		// TODO Auto-generated method stub
 		return dao.indexView();
 	}
@@ -32,12 +32,12 @@ public class RepositoryServiceImpl implements RepositoryService{
 		dao.deleteMemberSize(userNo);
 	}
 	@Override
-	public RepositoryDto sizeView(int userNo) throws Exception {
+	public RepositoryDTO sizeView(int userNo) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.sizeView(userNo);
 	}
 	@Override
-	public RepositoryDto modifyMemberSize(int userNo) throws Exception {
+	public RepositoryDTO modifyMemberSize(int userNo) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.modifyMemberSize(userNo);
 	}
