@@ -112,3 +112,15 @@ call deleteteam();
 
 //********************************************************
 
+//**************************indexView 쿼리문 [프로시저 생성 구문]
+delimiter $$
+drop procedure if exists indexview$$
+create procedure indexview(usersearch varchar(20),startno int,endno int)
+begin
+set @rownum:=0;
+select * from ( select * from ( SELECT @rownum:=@rownum+1 as rownum12, USERNO,TEAM_TEAMNO,USERNAME,PHONE,REG_DATE FROM MEMBERSIZE WHERE USERNAME like CONCAT('%',usersearch,'%')) A) B where rownum12 between startno and endno;
+end $$
+delimiter $$
+
+쿼리 실행 구문
+call indexview(검색키워드,페이지 시작번호, 마지막 페이지 번호);

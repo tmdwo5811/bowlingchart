@@ -6,8 +6,9 @@
 <!--  or phone like '%'||#{userSearch}||'%') -->
 	<select id="indexView"
 		resultType="com.palace.bowling_prj_dto.RepositoryDTO">
-		SELECT USERNO,TEAM_TEAMNO,USERNAME,PHONE,REG_DATE FROM
-		MEMBERSIZE WHERE USERNO BETWEEN #{start} AND #{end} and USERNAME LIKE CONCAT('%',#{userSearch},'%')
+		{
+		CALL INDEXVIEW(#{userSearch},#{start},#{end})
+		}
 	</select>
 	<insert id="sizeWrite">
 		{
@@ -41,5 +42,50 @@
 		SELECT COUNT(USERNO) FROM
 		MEMBERSIZE where username like CONCAT('%',#{userSearchCount},'%')
 	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<!-- 	<select id="listAll" resultType="com.example.spring02.model.board.dto.BoardVO">
+		
+		SELECT * FROM (	SELECT ROWNUM AS rn, A.* FROM (
+			SELECT ROWNUM, bno, title, content, b.regdate, viewcnt, user_name AS userName, show
+			FROM 
+				tbl_board b
+			WHERE 
+				${searchOption} like '%'||#{keyword}||'%'
+			ORDER BY bno DESC, b.regdate DESC ) A
+		) WHERE rn BETWEEN #{start} AND #{end}
+	</select>
+	 -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 </mapper>
