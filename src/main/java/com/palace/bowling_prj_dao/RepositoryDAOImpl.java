@@ -19,10 +19,10 @@ public class RepositoryDAOImpl implements RepositoryDAO{
 	SqlSession sql;
 	
 	@Override
-	public ArrayList<RepositoryDTO> indexView(int start, int end) throws Exception {
+	public ArrayList<RepositoryDTO> indexView(int start, int end,String userSearch) throws Exception {
 		// TODO Auto-generated method stub
 		RepositoryDAO idao = sql.getMapper(RepositoryDAO.class);
-		return idao.indexView(start,end);
+		return idao.indexView(start,end, userSearch);
 	}
 	@Override
 	public void sizeWrite(int tNo, String tName, String tPhone, String tRsize, String tMsize) throws Exception {
@@ -55,9 +55,9 @@ public class RepositoryDAOImpl implements RepositoryDAO{
 		idao.modifyMemberSizeSave(tNo,tName,tPhone,tRsize,tMsize, userNo);
 	}
 	@Override
-	public int selectCount() {
+	public int selectCount(String userSearch) {
 		// TODO Auto-generated method stub
 		RepositoryDAO idao = sql.getMapper(RepositoryDAO.class);
-		return idao.selectCount();
+		return idao.selectCount(userSearch);
 	}
 }

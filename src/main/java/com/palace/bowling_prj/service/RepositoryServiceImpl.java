@@ -19,9 +19,9 @@ public class RepositoryServiceImpl implements RepositoryService{
 	RepositoryDAOImpl dao;
 	
 	@Override
-	public ArrayList<RepositoryDTO> indexView(int start, int end) throws Exception {
+	public ArrayList<RepositoryDTO> indexView(int start, int end,String userSearch) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.indexView(start,end);
+		return dao.indexView(start,end,userSearch);
 	}
 	@Override
 	public void sizeWrite(int tNo, String tName, String tPhone, String tRsize, String tMsize) throws Exception {
@@ -49,9 +49,9 @@ public class RepositoryServiceImpl implements RepositoryService{
 		dao.modifyMemberSizeSave(tNo, tName, tPhone, tRsize, tMsize, userNo);
 	}
 	@Override
-	public int selectCount() {
+	public int selectCount(String userSearch) {
 		// TODO Auto-generated method stub
-		return dao.selectCount();
+		return dao.selectCount(userSearch);
 	}
 	
 }
