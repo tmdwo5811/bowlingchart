@@ -12,9 +12,7 @@
 			<input type="text" placeholder="회원 검색" name="userSearch">
 			<input type="submit" value="검색">
 		</form>
-		
-		
-		<a href="loginPage">로그인</a> <br>
+		<a href="loginPage">로그아웃</a> <br>
 		<table>
 			<tr>
 				<td>회원번호</td>
