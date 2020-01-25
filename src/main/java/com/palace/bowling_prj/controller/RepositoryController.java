@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.palace.bowling_prj.common.PageNavigator;
@@ -26,9 +25,12 @@ public class RepositoryController {
 	@Autowired
 	TeamServiceImpl tService;
 	
-	@RequestMapping(value="/index", method = RequestMethod.GET)
-	public String index(ModelMap model,@RequestParam(value="page", defaultValue = "1") int curPage) throws Exception {
+	@RequestMapping("/index")
+	public String index(ModelMap model,@RequestParam(defaultValue="1") int curPage,@RequestParam(defaultValue="") String userSearch) throws Exception {
 		// 메인 페이지 접속
+		
+		
+		System.out.println(curPage + "<= 처음으로 눌렀을때 가져온 값");
 		int count = rService.selectCount();
 		PageNavigator pp = new PageNavigator(count, curPage);
 		int start = pp.getPageBegin();
@@ -136,19 +138,5 @@ public class RepositoryController {
 		
 		return "redirect:index";
 	}
-	/*
-	@RequestMapping("/userSearch")
-	public String userSearch(HttpServletRequest request, Model model) {
-		IDao dao = sqlSession.getMapper(IDao.class);
-		String searchKeyWord = request.getParameter("userSearch");
-		System.out.println("검색하려는 데이터 => "+searchKeyWord);
-		model.addAttribute("main",dao.userSearch(searchKeyWord));
-		return "redirect:index";
-	}
-	
-	
-	
-	
-	
-	*/
+
 }

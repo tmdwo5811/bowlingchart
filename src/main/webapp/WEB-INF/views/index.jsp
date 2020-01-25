@@ -6,10 +6,10 @@
 <title>+ 왕궁볼링장 +</title>
 </head>
 <body>
-	<h1>왕궁볼링장 지공 데이터 프로그램</h1>
+	<h1>볼링장 지공 데이터 프로그램</h1>
 	<div>
-		<form action="userSearch" method="get" style="display: inline">
-			<input type="text" placeholder="회원 검색" name="userSearch">
+		<form action="index" method="post" style="display: inline">
+			<input type="userSearch" placeholder="회원 검색" name="userSearch">
 			<input type="submit" value="검색">
 		</form>
 		
@@ -35,24 +35,35 @@
 				<td><a href="deleteMemberSize?userNo=${dto.userNo}">회원정보 삭제</a></td>
 			</tr>
 			</c:forEach>
+					</table>
+		<table>
+			<tr>
+				<td>
+					<c:if test="${navi.curBlock > 1}">
+						<a href="index?curPage=1">[ 처음 ]</a>
+					</c:if> 
+					<c:if test="${navi.curBlock > 1}">
+						<a href="index?curPage=${navi.prevPage }">[ 이전 ]</a>
+					</c:if>
+					<c:forEach var="num" begin="${navi.blockBegin }" end="${navi.blockEnd }">
+						<c:choose>
+							<c:when test="${num == navi.curPage }">
+								<span style="color:red">${num}</span>&nbsp;
+							</c:when>
+							<c:otherwise>
+								<a href="index?curPage=${num}">${num }</a>&nbsp;
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					<c:if test="${navi.curBlock <= navi.totBlock }">
+						<a href="index?curPage=${navi.nextPage }">[ 다음 ]</a>
+					</c:if>
+					<c:if test="${navi.curPage <= navi.totPage }">
+						<a href="index?curPage=${navi.totPage }">[ 끝 ]</a>
+					</c:if>
+				</td>
+			</tr>
 		</table>
-		<c:if test="${pagingDTO.totPage > 1 }">
-			<div class="paging">
-				<c:forEach var="i" begin="${pagingDTO.pageStart}" end="${pagingDTO.pageEnd}" step="1">
-					<c:url var="pageLink" value="indexList">
-						<c:param name="page" value="${i }" />
-					</c:url>
-					<c:choose>
-						<c:when test="${i eq pagingDTO.page }">
-							<c:out value="${i }" />
-						</c:when>
-						<c:otherwise>
-							<a href="${pageLink }"><c:out value="${i}" /></a>
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
-			</div>
-		</c:if>
 	</div>
 </body>
 </html>

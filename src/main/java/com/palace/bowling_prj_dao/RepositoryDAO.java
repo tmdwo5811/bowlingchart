@@ -9,7 +9,7 @@ import com.palace.bowling_prj.common.PageNavigator;
 import com.palace.bowling_prj_dto.RepositoryDTO;
 
 public interface RepositoryDAO {
-	public ArrayList<RepositoryDTO> indexView(int start, int end) throws Exception;
+	public ArrayList<RepositoryDTO> indexView(@Param("start")int start,@Param("end") int end) throws Exception;
 	public void sizeWrite(@Param("sVal1") int tNo,@Param("sVal2") String tName,@Param("sVal3") String tPhone,@Param("sVal4") String tRsize,@Param("sVal5") String tMsize) throws Exception;
 	public void deleteMemberSize(int userNo) throws Exception;
 	public RepositoryDTO sizeView(int userNo) throws Exception;
