@@ -12,6 +12,6 @@
 		비밀번호 : <input type="password" name="aPw" placehold="비밀번호를 입력하세요">
 		<input type="submit" value="로그인" />
 	</form>
-	<a href="#">회원 가입</a>
+	<a href="/joinForm">회원 가입</a>
 </body>
 </html>
