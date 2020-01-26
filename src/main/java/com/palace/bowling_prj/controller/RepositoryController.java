@@ -19,11 +19,17 @@ import com.palace.bowling_prj_dto.RepositoryDTO;
 @Controller
 public class RepositoryController {
 	
-	@Autowired
-	RepositoryServiceImpl rService;
+	private RepositoryServiceImpl rService;
+	private TeamServiceImpl tService;
 	
 	@Autowired
-	TeamServiceImpl tService;
+	public RepositoryController(RepositoryServiceImpl rService, TeamServiceImpl tService) {
+		// TODO Auto-generated constructor stub
+		this.rService = rService;
+		this.tService = tService;
+		
+	}
+	
 	
 	@RequestMapping("/index")
 	public String index(ModelMap model,@RequestParam(defaultValue="1") int curPage,@RequestParam(defaultValue="") String userSearch) throws Exception {

@@ -14,9 +14,10 @@ import com.palace.bowling_prj_dto.RepositoryDTO;
 @Repository("tDao")
 @Configuration("tDao")
 public class TeamDAOImpl implements TeamDAO{
-	
-	@Autowired
-	SqlSession sql;
+
+	@Autowired	
+	private SqlSession sql;
+
 	
 	@Override
 	public ArrayList<RepositoryDTO> teamListDao() {

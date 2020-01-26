@@ -14,10 +14,10 @@ import com.palace.bowling_prj_dto.RepositoryDTO;
 @Repository("rDao")
 @Configuration("rDao")
 public class RepositoryDAOImpl implements RepositoryDAO{
-	
-	@Autowired
-	SqlSession sql;
-	
+
+	@Autowired	
+	private SqlSession sql;
+
 	@Override
 	public ArrayList<RepositoryDTO> indexView(int start, int end,String userSearch) throws Exception {
 		// TODO Auto-generated method stub
