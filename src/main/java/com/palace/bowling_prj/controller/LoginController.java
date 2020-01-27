@@ -2,6 +2,7 @@ package com.palace.bowling_prj.controller;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.palace.bowling_prj.service.MemberServiceImpl;
+import com.palace.bowling_prj_dto.MemberDTO;
 
 @Controller
 public class LoginController {
@@ -21,6 +23,14 @@ public class LoginController {
 		// 로그인페이지 접속
 		return "joinForm";
 	}
+	public String login(MemberDTO dto, HttpServletRequest request) throws Exception{
+		
+		HttpSession session = request.getSession();
+		MemberDTO memdto = mService.login(dto);
+
+		
+		return "list";
+	}
 	@RequestMapping("/userJoin")
 	public String userJoin(HttpServletRequest request) {
 		// 회원가입 실행
@@ -32,7 +42,7 @@ public class LoginController {
 		String memName = request.getParameter("memName");
 		try {
 			mService.userJoin(userId, encode, userEmail, memName);
-			System.out.println("회원가입 실행");
+			System.out.println("회원가입 실행 입력한 아이디 => "+userId);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

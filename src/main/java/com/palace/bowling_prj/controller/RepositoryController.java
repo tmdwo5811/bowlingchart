@@ -31,7 +31,7 @@ public class RepositoryController {
 	}
 	
 	
-	@RequestMapping("/index")
+	@RequestMapping("/list")
 	public String index(ModelMap model,@RequestParam(defaultValue="1") int curPage,@RequestParam(defaultValue="") String userSearch) throws Exception {
 		// 메인 페이지 접속
 		
@@ -48,7 +48,7 @@ public class RepositoryController {
 		model.addAttribute("navi",pp);
 		model.addAttribute("userSearch",userSearch);
 		
-		return "index";
+		return "list";
 	}
 	@RequestMapping("/sizeWrite")	
 	public String writePage(Model model) {
@@ -91,7 +91,7 @@ public class RepositoryController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "redirect:index";
+		return "redirect:list";
 	}
 
 	@RequestMapping("/deleteMemberSize")
@@ -104,7 +104,7 @@ public class RepositoryController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "redirect:index";
+		return "redirect:list";
 	}
 	@RequestMapping("/sizeView")
 	public String sizeView(HttpServletRequest request,Model model) throws Exception {
@@ -145,7 +145,7 @@ public class RepositoryController {
 			e.printStackTrace();
 		}
 		
-		return "redirect:index";
+		return "redirect:list";
 	}
 
 }

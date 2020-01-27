@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
 import com.palace.bowling_prj_dao.MemberDAOImpl;
+import com.palace.bowling_prj_dto.MemberDTO;
 
 
 @Service("memberService")
@@ -19,5 +20,12 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		dao.userJoin(userId, userPassWord, userEmail, memName);
 	}
+
+	@Override
+	public MemberDTO login(MemberDTO dto) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	
 }
