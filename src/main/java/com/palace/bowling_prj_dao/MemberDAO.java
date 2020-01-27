@@ -1,8 +1,8 @@
 package com.palace.bowling_prj_dao;
 
-import com.palace.bowling_prj_dto.MemberDTO;
+import org.apache.ibatis.annotations.Param;
 
 public interface MemberDAO {
 
-	public MemberDTO loginDao();
+	public void userJoin(@Param("userId") String userId,@Param("userPw") String userPassWord,@Param("userEmail") String userEmail,@Param("memName") String memName) throws Exception;
 }

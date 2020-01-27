@@ -1,5 +1,23 @@
 package com.palace.bowling_prj.service;
 
-public class MemberServiceImpl {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Service;
+
+import com.palace.bowling_prj_dao.MemberDAOImpl;
+
+
+@Service("memberService")
+@Configuration("memberService")
+public class MemberServiceImpl implements MemberService {
+	
+	@Autowired
+	MemberDAOImpl dao;
+	
+	@Override
+	public void userJoin(String userId, String userPassWord, String userEmail, String memName) throws Exception {
+		// TODO Auto-generated method stub
+		dao.userJoin(userId, userPassWord, userEmail, memName);
+	}
 	
 }
