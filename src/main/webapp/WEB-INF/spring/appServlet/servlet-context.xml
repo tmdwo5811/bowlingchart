@@ -47,5 +47,7 @@
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
 	</beans:bean>
+	<beans:bean id="passwordEncoder"
+	class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 	
 </beans:beans>

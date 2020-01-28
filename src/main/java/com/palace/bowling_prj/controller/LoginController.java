@@ -7,34 +7,43 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.palace.bowling_prj.service.MemberServiceImpl;
-import com.palace.bowling_prj_dto.MemberDTO;
+import com.palace.bowling_prj_dto.LoginDTO;
 
 @Controller
 public class LoginController {
 
 	@Autowired
 	MemberServiceImpl mService;
+	
+	@Autowired
+	BCryptPasswordEncoder passEncoder;
 
+	@RequestMapping("/index")
+	public String index() {
+	//로그인 메인 페이지 접속
+		return "index";
+	}
+	
 	@RequestMapping("/joinForm")
 	public String joinForm() {
-		// 로그인페이지 접속
+		// 회원가입 페이지 접속
 		return "joinForm";
 	}
-	public String login(MemberDTO dto, HttpServletRequest request) throws Exception{
+	@RequestMapping("/login")
+	public String login(LoginDTO dto, HttpServletRequest request) throws Exception{
+		
 		
 		HttpSession session = request.getSession();
-		MemberDTO memdto = mService.login(dto);
-
 		
-		return "list";
+		return "redirect:list";
 	}
 	@RequestMapping("/userJoin")
 	public String userJoin(HttpServletRequest request) {
 		// 회원가입 실행
-		BCryptPasswordEncoder passEncoder = new BCryptPasswordEncoder();
 		
 		String userId = request.getParameter("userId");
 		String encode = passEncoder.encode(request.getParameter("userPassWord"));
