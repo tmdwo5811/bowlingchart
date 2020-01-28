@@ -35,9 +35,9 @@ public class LoginController {
 	}
 	@RequestMapping("/login")
 	public String login(LoginDTO dto, HttpServletRequest request) throws Exception{
-		
-		
 		HttpSession session = request.getSession();
+		System.out.println("LoginDTO Id 출력 =>" +dto.getaId());
+		System.out.println("LoginDTO Pw 출력 =>" +passEncoder.encode(dto.getaPw()));
 		
 		return "redirect:list";
 	}
