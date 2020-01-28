@@ -1,8 +1,5 @@
 package com.palace.bowling_prj.controller;
 
-
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -24,6 +21,12 @@ public class LoginController {
 	
 	@Autowired
 	BCryptPasswordEncoder passEncoder;
+	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "index";
+	}
 
 	@RequestMapping("/index")
 	public String index() {
