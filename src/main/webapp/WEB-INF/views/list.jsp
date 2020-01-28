@@ -7,6 +7,7 @@
 </head>
 <body>
 	<h1>볼링장 지공 데이터 프로그램</h1>
+	<h2>접속 회원명 : ${sessionScope.userName } 회원번호 : ${sessionScope.userNo }</h2>
 	<div>
 		<form action="index" method="get" style="display: inline">
 			<input type="text" placeholder="회원 검색" name="userSearch">

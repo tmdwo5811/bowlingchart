@@ -9,5 +9,5 @@ import com.palace.bowling_prj_dto.MemberDTO;
 public interface MemberDAO {
 
 	public void userJoin(@Param("userId") String userId,@Param("userPw") String userPassWord,@Param("userEmail") String userEmail,@Param("memName") String memName) throws Exception;
-	public ArrayList<MemberDTO> loadUser(@Param("aId") String getaId);
+	public MemberDTO loadUser(@Param("aId") String getaId);
 }

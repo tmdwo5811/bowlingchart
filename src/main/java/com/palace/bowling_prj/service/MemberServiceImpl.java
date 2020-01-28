@@ -1,7 +1,5 @@
 package com.palace.bowling_prj.service;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
@@ -29,7 +27,7 @@ public class MemberServiceImpl implements MemberService {
 		return null;
 	}
 
-	public ArrayList<MemberDTO> loadUser(String getaId) {
+	public MemberDTO loadUser(String getaId) {
 		// TODO Auto-generated method stub
 		return dao.loadUser(getaId);
 	}

@@ -37,15 +37,19 @@ public class LoginController {
 		return "joinForm";
 	}
 	@RequestMapping("/login")
-	public String login(LoginDTO dto, HttpServletRequest request,Model model) throws Exception{
-		HttpSession session = request.getSession();
+	public String login(HttpSession session, LoginDTO dto, HttpServletRequest request,Model model) throws Exception{
+		
 		System.out.println("LoginDTO Id 출력 =>" +dto.getaId());
 		System.out.println("LoginDTO Pw 출력 =>" +dto.getaPw());
-		ArrayList<MemberDTO> mem = mService.loadUser(dto.getaId());
-		System.out.println(mem.get(0).getUserPw());
+		MemberDTO mem = mService.loadUser(dto.getaId());
 		
-		if(passEncoder.matches(dto.getaPw(), mem.get(0).getUserPw())){
+		System.out.println(mem.getUserPw());
+		System.out.println("가져온 회원 번호 =>"+mem.getMemNo());
+		
+		if(passEncoder.matches(dto.getaPw(), mem.getUserPw())){
 			System.out.println("계정정보 일치");
+			session.setAttribute("userName", mem.getMemName());
+			session.setAttribute("userNo", mem.getMemNo());
 			return "redirect:list";
 		}else {
 			System.out.println("계정정보 불일치");

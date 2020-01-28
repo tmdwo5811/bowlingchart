@@ -1,7 +1,5 @@
 package com.palace.bowling_prj_dao;
 
-import java.util.ArrayList;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +21,7 @@ public class MemberDAOImpl implements MemberDAO{
 		dao.userJoin(userId, userPassWord, userEmail, memName);
 	}
 	@Override
-	public ArrayList<MemberDTO> loadUser(String getaId) {
+	public MemberDTO loadUser(String getaId) {
 		// TODO Auto-generated method stub
 		MemberDAO dao = sql.getMapper(MemberDAO.class);
 		return dao.loadUser(getaId);
