@@ -6,6 +6,9 @@
 	<insert id="userJoin">
 		insert into login (userid,userpw,useremail,memname) values (#{userId},#{userPw},#{userEmail},#{memName})
 	</insert>
-	
+	<select id="loadUser"
+		resultType="com.palace.bowling_prj_dto.MemberDTO">
+		SELECT * FROM LOGIN WHERE USERID = #{aId}
+	</select>
 
 </mapper>

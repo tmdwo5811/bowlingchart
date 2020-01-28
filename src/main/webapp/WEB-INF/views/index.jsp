@@ -8,10 +8,11 @@
 </head>
 <body>
 	<form action="login" method="post">
-		아이디 : <input type="text" name="aId" placehold="아이디를 입력하세요">
-		비밀번호 : <input type="password" name="aPw" placehold="비밀번호를 입력하세요">
+		아이디 : <input type="text" name="aId" placeholder="아이디를 입력하세요">
+		비밀번호 : <input type="password" name="aPw" placeholder="비밀번호를 입력하세요">
 		<input type="submit" value="로그인" />
 	</form>
-	<a href="/joinForm">회원 가입</a>
+	<a href="joinForm">회원 가입</a>
+	<h2>${resultMessage}</h2>
 </body>
 </html>

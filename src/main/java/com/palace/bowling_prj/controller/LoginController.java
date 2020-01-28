@@ -1,17 +1,20 @@
 package com.palace.bowling_prj.controller;
 
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.palace.bowling_prj.service.MemberServiceImpl;
 import com.palace.bowling_prj_dto.LoginDTO;
+import com.palace.bowling_prj_dto.MemberDTO;
 
 @Controller
 public class LoginController {
@@ -34,12 +37,22 @@ public class LoginController {
 		return "joinForm";
 	}
 	@RequestMapping("/login")
-	public String login(LoginDTO dto, HttpServletRequest request) throws Exception{
+	public String login(LoginDTO dto, HttpServletRequest request,Model model) throws Exception{
 		HttpSession session = request.getSession();
 		System.out.println("LoginDTO Id 출력 =>" +dto.getaId());
-		System.out.println("LoginDTO Pw 출력 =>" +passEncoder.encode(dto.getaPw()));
+		System.out.println("LoginDTO Pw 출력 =>" +dto.getaPw());
+		ArrayList<MemberDTO> mem = mService.loadUser(dto.getaId());
+		System.out.println(mem.get(0).getUserPw());
 		
-		return "redirect:list";
+		if(passEncoder.matches(dto.getaPw(), mem.get(0).getUserPw())){
+			System.out.println("계정정보 일치");
+			return "redirect:list";
+		}else {
+			System.out.println("계정정보 불일치");
+			model.addAttribute("resultMessage","ID 또는 패스워드가 틀립니다.");
+			return "index";
+		}
+		
 	}
 	@RequestMapping("/userJoin")
 	public String userJoin(HttpServletRequest request) {
