@@ -19,10 +19,10 @@ public class RepositoryDAOImpl implements RepositoryDAO{
 	private SqlSession sql;
 
 	@Override
-	public ArrayList<RepositoryDTO> indexView(int start, int end,String userSearch) throws Exception {
+	public ArrayList<RepositoryDTO> indexView(int start, int end,String userSearch, int userNo) throws Exception {
 		// TODO Auto-generated method stub
 		RepositoryDAO idao = sql.getMapper(RepositoryDAO.class);
-		return idao.indexView(start,end, userSearch);
+		return idao.indexView(start,end, userSearch, userNo);
 	}
 	@Override
 	public void sizeWrite(RepositoryDTO rDto) throws Exception {

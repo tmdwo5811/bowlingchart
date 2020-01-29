@@ -3,6 +3,7 @@ package com.palace.bowling_prj.controller;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,22 +33,21 @@ public class RepositoryController {
 	
 	
 	@RequestMapping("/list")
-	public String index(ModelMap model,@RequestParam(defaultValue="1") int curPage,@RequestParam(defaultValue="") String userSearch) throws Exception {
+	public String index(ModelMap model,@RequestParam(defaultValue="1") int curPage,@RequestParam(defaultValue="") String userSearch, HttpSession session) throws Exception {
 		// 메인 페이지 접속
-		
 		
 		System.out.println(curPage + "<= 처음으로 눌렀을때 가져온 값");
 		System.out.println(userSearch+"<= 검색하려는 회원 명");
+		int userNo = (Integer) session.getAttribute("userNo");
 		int count = rService.selectCount(userSearch);
 		System.out.println("검색 회원 숫자" + count);
 		PageNavigator pp = new PageNavigator(count, curPage);
 		int start = pp.getPageBegin();
 		int end = pp.getPageEnd();
-		ArrayList<RepositoryDTO> list = rService.indexView(start,end,userSearch);
+		ArrayList<RepositoryDTO> list = rService.indexView(start,end,userSearch,userNo);
 		model.addAttribute("main",list);
 		model.addAttribute("navi",pp);
 		model.addAttribute("userSearch",userSearch);
-		
 		return "list";
 	}
 	@RequestMapping("/sizeWrite")	

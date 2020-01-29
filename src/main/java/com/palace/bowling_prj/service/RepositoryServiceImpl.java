@@ -19,9 +19,9 @@ public class RepositoryServiceImpl implements RepositoryService{
 	RepositoryDAOImpl dao;
 	
 	@Override
-	public ArrayList<RepositoryDTO> indexView(int start, int end,String userSearch) throws Exception {
+	public ArrayList<RepositoryDTO> indexView(int start, int end,String userSearch, int userNo) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.indexView(start,end,userSearch);
+		return dao.indexView(start,end,userSearch,userNo);
 	}
 	@Override
 	public void sizeWrite(RepositoryDTO rDto) throws Exception {

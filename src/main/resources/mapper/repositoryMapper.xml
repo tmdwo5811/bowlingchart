@@ -7,7 +7,7 @@
 	<select id="indexView"
 		resultType="com.palace.bowling_prj_dto.RepositoryDTO">
 		{
-		CALL INDEXVIEW(#{userSearch},#{start},#{end})
+		CALL INDEXVIEW(#{userSearch},#{start},#{end},#{userNo})
 		}
 	</select>
 	<insert id="sizeWrite">
