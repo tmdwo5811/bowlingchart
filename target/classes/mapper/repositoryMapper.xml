@@ -3,7 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.palace.bowling_prj_dao.RepositoryDAO">
-<!--  or phone like '%'||#{userSearch}||'%') -->
+	<!-- or phone like '%'||#{userSearch}||'%') -->
 	<select id="indexView"
 		resultType="com.palace.bowling_prj_dto.RepositoryDTO">
 		{
@@ -13,7 +13,7 @@
 	<insert id="sizeWrite">
 		{
 		CALL
-		SIZEWRITE(#{sVal1},#{sVal2},#{sVal3},#{sVal4},#{sVal5})
+		SIZEWRITE(#{userNo},#{memberName},#{memberPhone},#{teamNo},#{middleFingerReverse},#{ringFingerReverse},#{middleFingerLeft},#{ringFingerRight},#{insert1},#{insert2},#{middleFingerForward},#{ringFingerForward},#{span1},#{span2},#{thumbForward},#{tumbLeft},#{thumb},#{thumbRight},#{thumbReverse},#{no1},#{no2},#{no3})
 		}
 	</insert>
 	<delete id="deleteMemberSize" statementType="CALLABLE">
@@ -25,67 +25,22 @@
 	<select id="sizeView"
 		resultType="com.palace.bowling_prj_dto.RepositoryDTO">
 		SELECT
-		USERNO,USERNAME,PHONE,RFSIZE,MFSIZE,REG_DATE,TEAMNAME,TEAM_TEAMNO FROM
+		MEMBERNO,MEMBERNAME,MEMBERPHONE,MIDDLEFINGERREVERSE,RINGFINGERREVERSE,MIDDLEFINGERLEFT,RINGFINGERRIGHT,INSERT1,INSERT2,MIDDLEFINGERFORWARD,RINGFINGERFORWARD,SPAN1,SPAN2,THUMBFORWARD,TUMBLEFT,THUMB,THUMBRIGHT,THUMBREVERSE,NO1,NO2,NO3,REG_DATE,TEAMNAME,TEAM_TEAMNO FROM
 		MEMBERSIZE AS A INNER JOIN TEAM AS B ON A.TEAM_TEAMNO = B.TEAMNO WHERE
-		USERNO = #{PARAM1};
+		MEMBERNO = #{PARAM1}
 	</select>
 	<select id="modifyMemberSize"
 		resultType="com.palace.bowling_prj_dto.RepositoryDTO">
-		SELECT * FROM MEMBERSIZE WHERE USERNO = #{PARAM1}
+		SELECT * FROM MEMBERSIZE WHERE MEMBERNO = #{PARAM1}
 	</select>
 	<update id="modifyMemberSizeSave">
 		UPDATE MEMBERSIZE SET
-		TEAM_TEAMNO=#{M_Val1},USERNAME=#{M_Val2},PHONE=#{M_Val3},RFSIZE=#{M_Val4},MFSIZE=#{M_Val5},REG_DATE=NOW()
-		WHERE USERNO=#{M_Val6}
+		TEAM_TEAMNO=#{teamNo},MEMBERNAME=#{memberName},MEMBERPHONE=#{memberPhone},MIDDLEFINGERREVERSE=#{middleFingerReverse},RINGFINGERREVERSE=#{ringFingerReverse},MIDDLEFINGERLEFT=#{middleFingerLeft},RINGFINGERRIGHT=#{ringFingerRight},INSERT1=#{insert1},INSERT2=#{insert2},MIDDLEFINGERFORWARD=#{middleFingerForward},RINGFINGERFORWARD=#{ringFingerForward},SPAN1=#{span1},SPAN2=#{span2},THUMBFORWARD=#{thumbForward},TUMBLEFT=#{tumbLeft},THUMB=#{thumb},THUMBRIGHT=#{thumbRight},THUMBREVERSE=#{thumbReverse},NO1=#{no1},NO2=#{no2},NO3=#{no3},REG_DATE=NOW()
+		WHERE MEMBERNO=#{memberNo}
 	</update>
 	<select id="selectCount" resultType="int">
-		SELECT COUNT(USERNO) FROM
-		MEMBERSIZE where username like CONCAT('%',#{userSearchCount},'%')
+		SELECT COUNT(memberNO) FROM
+		MEMBERSIZE where membername like CONCAT('%',#{userSearchCount},'%')
 	</select>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-<!-- 	<select id="listAll" resultType="com.example.spring02.model.board.dto.BoardVO">
-		
-		SELECT * FROM (	SELECT ROWNUM AS rn, A.* FROM (
-			SELECT ROWNUM, bno, title, content, b.regdate, viewcnt, user_name AS userName, show
-			FROM 
-				tbl_board b
-			WHERE 
-				${searchOption} like '%'||#{keyword}||'%'
-			ORDER BY bno DESC, b.regdate DESC ) A
-		) WHERE rn BETWEEN #{start} AND #{end}
-	</select>
-	 -->
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 </mapper>

@@ -9,21 +9,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.palace.bowling_prj.service.MemberServiceImpl;
+import com.palace.bowling_prj.service.UserServiceImpl;
 import com.palace.bowling_prj_dto.LoginDTO;
-import com.palace.bowling_prj_dto.MemberDTO;
+import com.palace.bowling_prj_dto.UserDTO;
 
 @Controller
 public class LoginController {
 
 	@Autowired
-	MemberServiceImpl mService;
+	UserServiceImpl mService;
 	
 	@Autowired
 	BCryptPasswordEncoder passEncoder;
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
+		//로그아웃 세션 해제
 		session.invalidate();
 		return "index";
 	}
@@ -42,17 +43,12 @@ public class LoginController {
 	@RequestMapping("/login")
 	public String login(HttpSession session, LoginDTO dto, HttpServletRequest request,Model model) throws Exception{
 		
-		System.out.println("LoginDTO Id 출력 =>" +dto.getaId());
-		System.out.println("LoginDTO Pw 출력 =>" +dto.getaPw());
-		MemberDTO mem = mService.loadUser(dto.getaId());
-		
-		System.out.println(mem.getUserPw());
-		System.out.println("가져온 회원 번호 =>"+mem.getMemNo());
+		UserDTO mem = mService.loadUser(dto.getaId());
 		
 		if(passEncoder.matches(dto.getaPw(), mem.getUserPw())){
 			System.out.println("계정정보 일치");
-			session.setAttribute("userName", mem.getMemName());
-			session.setAttribute("userNo", mem.getMemNo());
+			session.setAttribute("userName", mem.getUserName());
+			session.setAttribute("userNo", mem.getUserNo());
 			return "redirect:list";
 		}else {
 			System.out.println("계정정보 불일치");
@@ -62,16 +58,14 @@ public class LoginController {
 		
 	}
 	@RequestMapping("/userJoin")
-	public String userJoin(HttpServletRequest request) {
+	public String userJoin(UserDTO uDto, HttpServletRequest request) {
 		// 회원가입 실행
-		
 		String userId = request.getParameter("userId");
-		String encode = passEncoder.encode(request.getParameter("userPassWord"));
+		String encode = passEncoder.encode(request.getParameter("userPw"));
 		String userEmail = request.getParameter("userEmail");
-		String memName = request.getParameter("memName");
+		String userName = request.getParameter("userName");
 		try {
-			mService.userJoin(userId, encode, userEmail, memName);
-			System.out.println("회원가입 실행 입력한 아이디 => "+userId);
+			mService.userJoin(userId,encode,userEmail,userName);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

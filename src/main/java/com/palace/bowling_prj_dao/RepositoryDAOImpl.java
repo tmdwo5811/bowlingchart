@@ -25,10 +25,10 @@ public class RepositoryDAOImpl implements RepositoryDAO{
 		return idao.indexView(start,end, userSearch);
 	}
 	@Override
-	public void sizeWrite(int tNo, String tName, String tPhone, String tRsize, String tMsize) throws Exception {
+	public void sizeWrite(RepositoryDTO rDto) throws Exception {
 		// TODO Auto-generated method stub
 		RepositoryDAO idao = sql.getMapper(RepositoryDAO.class);
-		idao.sizeWrite(tNo, tName, tPhone, tRsize, tMsize);
+		idao.sizeWrite(rDto);
 	}
 	@Override
 	public void deleteMemberSize(int userNo) throws Exception {
@@ -37,22 +37,22 @@ public class RepositoryDAOImpl implements RepositoryDAO{
 		idao.deleteMemberSize(userNo);
 	}
 	@Override
-	public RepositoryDTO sizeView(int userNo) throws Exception {
+	public RepositoryDTO sizeView(int memberNo) throws Exception {
 		// TODO Auto-generated method stub
 		RepositoryDAO idao = sql.getMapper(RepositoryDAO.class);
-		return idao.sizeView(userNo);
+		return idao.sizeView(memberNo);
 	}
 	@Override
-	public RepositoryDTO modifyMemberSize(int userNo) throws Exception {
+	public RepositoryDTO modifyMemberSize(int memberNo) throws Exception {
 		// TODO Auto-generated method stub
 		RepositoryDAO idao = sql.getMapper(RepositoryDAO.class);
-		return idao.modifyMemberSize(userNo);
+		return idao.modifyMemberSize(memberNo);
 	}
 	@Override
-	public void modifyMemberSizeSave(int tNo, String tName, String tPhone, String tRsize, String tMsize, int userNo) throws Exception {
+	public void modifyMemberSizeSave(RepositoryDTO rDto) throws Exception {
 		// TODO Auto-generated method stub
 		RepositoryDAO idao = sql.getMapper(RepositoryDAO.class);
-		idao.modifyMemberSizeSave(tNo,tName,tPhone,tRsize,tMsize, userNo);
+		idao.modifyMemberSizeSave(rDto);
 	}
 	@Override
 	public int selectCount(String userSearch) {

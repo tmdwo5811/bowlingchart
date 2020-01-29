@@ -11,11 +11,11 @@ import com.palace.bowling_prj_dto.RepositoryDTO;
 
 public interface RepositoryService {
 	public ArrayList<RepositoryDTO> indexView(int start, int end, String userSearch) throws Exception;
-	public void sizeWrite(int tNo,String tName, String tPhone, String tRsize, String tMsize) throws Exception;
-	public void deleteMemberSize(int userNo) throws Exception;
-	public RepositoryDTO sizeView(int userNo) throws Exception;
-	public RepositoryDTO modifyMemberSize(int userNo) throws Exception;
-	public void modifyMemberSizeSave(int tNo, String tName, String tPhone, String tRsize, String tMsize, int userNo)  throws Exception;
+	public void sizeWrite(RepositoryDTO rDto) throws Exception;
+	public void deleteMemberSize(int memberNo) throws Exception;
+	public RepositoryDTO sizeView(int memberNo) throws Exception;
+	public RepositoryDTO modifyMemberSize(int memberNo) throws Exception;
+	public void modifyMemberSizeSave(RepositoryDTO rDto)  throws Exception;
 	public int selectCount(String userSearch);
 	
 	//준비중인 코드

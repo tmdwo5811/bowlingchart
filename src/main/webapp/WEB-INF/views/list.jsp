@@ -26,12 +26,12 @@
 			</tr>
 			<c:forEach items="${main}" var="dto">
 			<tr>
-				<td>${dto.userNo}</td>
-				<td><a href="sizeView?userNo=${dto.userNo}">${dto.userName}</a></td>
-				<td>${dto.phone }</td>
+				<td>${dto.memberNo}</td>
+				<td><a href="sizeView?memberNo=${dto.memberNo}">${dto.memberName}</a></td>
+				<td>${dto.memberPhone }</td>
 				<td>${dto.reg_date }</td>
-				<td><a href="modifySizePage?userNo=${dto.userNo}">회원정보 수정</a></td>
-				<td><a href="deleteMemberSize?userNo=${dto.userNo}">회원정보 삭제</a></td>
+				<td><a href="modifySizePage?memberNo=${dto.memberNo}">회원정보 수정</a></td>
+				<td><a href="deleteMemberSize?memberNo=${dto.memberNo}">회원정보 삭제</a></td>
 			</tr>
 			</c:forEach>
 					</table>
@@ -57,7 +57,7 @@
 					<c:if test="${navi.curBlock <= navi.totBlock }">
 						<a href="index?curPage=${navi.nextPage }&userSearch=${userSearch}">[ 다음 ]</a>
 					</c:if>
-					<c:if test="${navi.curPage <= navi.totPage }">
+					<c:if test="${navi.curPage < navi.totPage }">
 						<a href="index?curPage=${navi.totPage }&userSearch=${userSearch}">[ 끝 ]</a>
 					</c:if>
 				</td>

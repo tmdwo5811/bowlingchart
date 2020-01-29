@@ -74,32 +74,24 @@ public class RepositoryController {
 		return "redirect:sizeWrite";
 	}
 	@RequestMapping("/sizeSave")
-	public String sizeWrite(HttpServletRequest request,Model model) {
+	public String sizeWrite(RepositoryDTO rDto) {
 		//저장소로 지공 사이즈 저장 메소드
+			try {
+				rService.sizeWrite(rDto);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
-		int tNo = Integer.parseInt(request.getParameter("teamNo"));
-		String tName = request.getParameter("bName");
-		String tPhone = request.getParameter("bPhone");
-		String tMsize = request.getParameter("bMsize");
-		String tRsize = request.getParameter("bRsize");
-		try {
-			rService.sizeWrite(tNo, tName, tPhone, tRsize, tMsize);
-			System.out.println("size 저장 요청 내용");
-			System.out.println(tNo+" "+ tName +" "+ tPhone +" "+ tRsize +" "+ tMsize);
-			System.out.println("size 입력 성공");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return "redirect:list";
 	}
 
 	@RequestMapping("/deleteMemberSize")
 	public String deleteMemberSize(HttpServletRequest request,Model model) {
-		int userNo = Integer.parseInt(request.getParameter("userNo"));
+		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
 		try {
-			rService.deleteMemberSize(userNo);
-			System.out.println("삭제요청한 "+userNo+"번 회원");
+			rService.deleteMemberSize(memberNo);
+			System.out.println("삭제요청한 "+memberNo+"번 회원");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -109,36 +101,27 @@ public class RepositoryController {
 	@RequestMapping("/sizeView")
 	public String sizeView(HttpServletRequest request,Model model) throws Exception {
 		//멤버 사이즈 상세 페이지 접속
-		int userNo = Integer.parseInt(request.getParameter("userNo"));
-		System.out.println(userNo+" 번 회원 조회 요청");
-		RepositoryDTO sv = rService.sizeView(userNo);
+		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
+		System.out.println(memberNo+" 번 회원 조회 요청");
+		RepositoryDTO sv = rService.sizeView(memberNo);
 		model.addAttribute("memberSize",sv);
 		return "sizeView";
 	}
 	@RequestMapping("/modifySizePage")
 	public String modifySizePage(HttpServletRequest request, Model model) throws Exception{
 		//회원 정보 수정 페이지 접속
-		int userNo = Integer.parseInt(request.getParameter("userNo"));
-		System.out.println(userNo+"번 회원 정보 수정 페이지 접속");
-		model.addAttribute("memberSize",rService.modifyMemberSize(userNo));
+		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
+		System.out.println(memberNo+"번 회원 정보 수정 페이지 접속");
+		model.addAttribute("memberSize",rService.modifyMemberSize(memberNo));
 		model.addAttribute("teamList",tService.teamListDao());
 		return "sizeModify";
 	}
 
 	@RequestMapping("/modifyMemberSizeSave")
-	public String modifyMemberSizeSave(HttpServletRequest request) {
+	public String modifyMemberSizeSave(RepositoryDTO rDto, HttpServletRequest request) {
 		//회원 정보 저장 요청
-		
-		int userNo = Integer.parseInt(request.getParameter("userNo"));
-		int tNo = Integer.parseInt(request.getParameter("teamNo"));
-		String tName = request.getParameter("bName");
-		String tPhone = request.getParameter("bPhone");
-		String tMsize = request.getParameter("bMsize");
-		String tRsize = request.getParameter("bRsize");
-		System.out.println("size 수정 요청 내용");
-		System.out.println(tNo+" "+ tName +" "+ tPhone +" "+ tRsize +" "+ tMsize);
 		try {
-			rService.modifyMemberSizeSave(tNo,tName,tPhone,tRsize,tMsize, userNo);
+			rService.modifyMemberSizeSave(rDto);
 			System.out.println("size 수정 성공");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

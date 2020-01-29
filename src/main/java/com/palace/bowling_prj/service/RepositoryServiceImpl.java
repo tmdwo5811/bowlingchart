@@ -24,29 +24,29 @@ public class RepositoryServiceImpl implements RepositoryService{
 		return dao.indexView(start,end,userSearch);
 	}
 	@Override
-	public void sizeWrite(int tNo, String tName, String tPhone, String tRsize, String tMsize) throws Exception {
+	public void sizeWrite(RepositoryDTO rDto) throws Exception {
 		// TODO Auto-generated method stub
-		dao.sizeWrite(tNo,tName,tPhone,tRsize,tMsize);
+		dao.sizeWrite(rDto);
 	}
 	@Override
-	public void deleteMemberSize(int userNo) throws Exception {
+	public void deleteMemberSize(int memberNo) throws Exception {
 		// TODO Auto-generated method stub
-		dao.deleteMemberSize(userNo);
+		dao.deleteMemberSize(memberNo);
 	}
 	@Override
-	public RepositoryDTO sizeView(int userNo) throws Exception {
+	public RepositoryDTO sizeView(int memberNo) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.sizeView(userNo);
+		return dao.sizeView(memberNo);
 	}
 	@Override
-	public RepositoryDTO modifyMemberSize(int userNo) throws Exception {
+	public RepositoryDTO modifyMemberSize(int memberNo) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.modifyMemberSize(userNo);
+		return dao.modifyMemberSize(memberNo);
 	}
 	@Override
-	public void modifyMemberSizeSave(int tNo, String tName, String tPhone, String tRsize, String tMsize, int userNo) throws Exception {
+	public void modifyMemberSizeSave(RepositoryDTO rDto) throws Exception {
 		// TODO Auto-generated method stub
-		dao.modifyMemberSizeSave(tNo, tName, tPhone, tRsize, tMsize, userNo);
+		dao.modifyMemberSizeSave(rDto);
 	}
 	@Override
 	public int selectCount(String userSearch) {
