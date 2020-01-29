@@ -52,7 +52,6 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.8.9</version>
 		</dependency>
-		
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>

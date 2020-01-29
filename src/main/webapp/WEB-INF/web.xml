@@ -28,11 +28,11 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-		/WEB-INF/spring/root-context.xml
+			/WEB-INF/spring/root-context.xml
 		</param-value>
 	</context-param>
-	
-	
+
+
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener
@@ -47,8 +47,8 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-			/WEB-INF/spring/appServlet/servlet-context.xml
-			/WEB-INF/spring/security-context.xml
+				/WEB-INF/spring/appServlet/servlet-context.xml
+				/WEB-INF/spring/security-context.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
@@ -58,5 +58,22 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
+	<!-- 에러페이지 처리 -->
+	<error-page>
+		<location>/errors</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/no-resource</location>
+	</error-page>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/server-error</location>
+	</error-page>
+
+	<error-page>
+		<location>/error</location>
+	</error-page>
 </web-app>
