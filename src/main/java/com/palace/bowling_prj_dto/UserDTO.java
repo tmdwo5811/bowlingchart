@@ -1,8 +1,5 @@
 package com.palace.bowling_prj_dto;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 public class UserDTO {
 	
 	String userId;

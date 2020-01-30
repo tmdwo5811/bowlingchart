@@ -60,12 +60,10 @@ public class LoginController {
 	@RequestMapping("/userJoin")
 	public String userJoin(UserDTO uDto, HttpServletRequest request) {
 		// 회원가입 실행
-		String userId = request.getParameter("userId");
-		String encode = passEncoder.encode(request.getParameter("userPw"));
-		String userEmail = request.getParameter("userEmail");
-		String userName = request.getParameter("userName");
+		String encode = passEncoder.encode(uDto.getUserPw());
+		uDto.setUserPw(encode);
 		try {
-			mService.userJoin(userId,encode,userEmail,userName);
+			mService.userJoin(uDto);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -6,6 +6,6 @@ import com.palace.bowling_prj_dto.UserDTO;
 
 public interface UserDAO {
 
-	public void userJoin(@Param("userId") String userId,@Param("userPw") String encode,@Param("userEmail") String userEmail,@Param("userName") String userName) throws Exception;
+	public void userJoin(UserDTO uDto) throws Exception;
 	public UserDTO loadUser(@Param("aId") String getaId);
 }

@@ -15,10 +15,10 @@ public class UserDAOImpl implements UserDAO{
 	SqlSession sql;
 	
 	@Override
-	public void userJoin(String userId, String encode, String userEmail, String userName) throws Exception {
+	public void userJoin(UserDTO uDto) throws Exception {
 		// TODO Auto-generated method stub
 		UserDAO dao = sql.getMapper(UserDAO.class);
-		dao.userJoin(userId,encode,userEmail,userName);
+		dao.userJoin(uDto);
 	}
 	@Override
 	public UserDTO loadUser(String getaId) {

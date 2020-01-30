@@ -16,9 +16,9 @@ public class UserServiceImpl implements UserService {
 	UserDAOImpl dao;
 	
 	@Override
-	public void userJoin(String userId, String encode, String userEmail, String userName) throws Exception {
+	public void userJoin(UserDTO uDto) throws Exception {
 		// TODO Auto-generated method stub
-		dao.userJoin(userId,encode,userEmail,userName);
+		dao.userJoin(uDto);
 	}
 
 	public UserDTO loadUser(String getaId) {
