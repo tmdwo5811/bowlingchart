@@ -1,10 +1,24 @@
 package com.palace.bowling_prj_dto;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class UserDTO {
 	
+	@NotEmpty
+	@Length(min=3,max=20)
 	String userId;
+	
+	@NotEmpty
+	@Length(min=3,max=30)
 	String userPw;
+	
+	@NotEmpty
+	@Email
 	String userEmail;
+	
+	@NotEmpty
 	String userName;
 	int userNo;
 

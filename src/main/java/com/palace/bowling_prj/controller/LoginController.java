@@ -1,12 +1,18 @@
 package com.palace.bowling_prj.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.palace.bowling_prj.service.UserServiceImpl;
@@ -58,16 +64,24 @@ public class LoginController {
 		
 	}
 	@RequestMapping("/userJoin")
-	public String userJoin(UserDTO uDto, HttpServletRequest request) {
+	public String userJoin(@ModelAttribute @Valid UserDTO uDto, BindingResult result) {
 		// 회원가입 실행
 		String encode = passEncoder.encode(uDto.getUserPw());
 		uDto.setUserPw(encode);
 		try {
 			mService.userJoin(uDto);
+			if(result.hasErrors()) {
+				List<ObjectError> list = result.getAllErrors();
+				for(ObjectError error : list) {
+					System.out.println("에러 내용 =>"+error);
+				}
+				return "joinForm";
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		return "redirect:index";
 	}
 	
