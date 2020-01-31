@@ -3,13 +3,24 @@ package com.palace.bowling_prj_dto;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 public class RepositoryDTO {
 	
+	
 	int userNo;
 	int memberNo;
+	
+	@NotEmpty
+	@Length(min=2,max=20)
 	String memberName;
+
+	@NotEmpty
+	@Length(min=9,max=15)
 	String memberPhone;
+	
 	String teamName;
 	int teamNo;
 	int team_teamNo;

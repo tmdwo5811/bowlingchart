@@ -115,7 +115,7 @@ public class LoginController {
 	}
 
 	@RequestMapping("/userJoin")
-	public String userJoin(@ModelAttribute @Valid UserDTO uDto, BindingResult result) {
+	public String userJoin(@ModelAttribute @Valid UserDTO uDto) {
 		// 회원가입 실행
 		String encode = passEncoder.encode(uDto.getUserPw());
 		uDto.setUserPw(encode);

@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -19,107 +21,113 @@ import com.palace.bowling_prj_dto.RepositoryDTO;
 
 @Controller
 public class RepositoryController {
-	
+
 	private RepositoryServiceImpl rService;
 	private TeamServiceImpl tService;
-	
+
 	@Autowired
 	public RepositoryController(RepositoryServiceImpl rService, TeamServiceImpl tService) {
 		// TODO Auto-generated constructor stub
 		this.rService = rService;
 		this.tService = tService;
-		
+
 	}
-	
-	
+
 	@RequestMapping("/list")
-	public String index(ModelMap model,@RequestParam(defaultValue="1") int curPage,@RequestParam(defaultValue="") String userSearch, HttpSession session) throws Exception {
+	public String index(ModelMap model, @RequestParam(defaultValue = "1") int curPage,
+			@RequestParam(defaultValue = "") String userSearch, HttpSession session) throws Exception {
 		// 메인 페이지 접속
-		
+
 		System.out.println(curPage + "<= 처음으로 눌렀을때 가져온 값");
-		System.out.println(userSearch+"<= 검색하려는 회원 명");
+		System.out.println(userSearch + "<= 검색하려는 회원 명");
 		int userNo = (Integer) session.getAttribute("userNo");
 		int count = rService.selectCount(userSearch);
 		System.out.println("검색 회원 숫자" + count);
 		PageNavigator pp = new PageNavigator(count, curPage);
 		int start = pp.getPageBegin();
 		int end = pp.getPageEnd();
-		ArrayList<RepositoryDTO> list = rService.indexView(start,end,userSearch,userNo);
-		model.addAttribute("main",list);
-		model.addAttribute("navi",pp);
-		model.addAttribute("userSearch",userSearch);
+		ArrayList<RepositoryDTO> list = rService.indexView(start, end, userSearch, userNo);
+		model.addAttribute("main", list);
+		model.addAttribute("navi", pp);
+		model.addAttribute("userSearch", userSearch);
 		return "list";
 	}
-	@RequestMapping("/sizeWrite")	
+
+	@RequestMapping("/sizeWrite")
 	public String writePage(Model model) {
 		// 지공 사이즈 작성페이지 접속
-		
-		model.addAttribute("teamList",tService.teamListDao());
+
+		model.addAttribute("teamList", tService.teamListDao());
 		return "sizeWrite";
 	}
+
 	@RequestMapping("/makeTeam")
-	public String makeTeam(HttpServletRequest request,Model model) {
-		//DB로 팀 이름 저장 메소드
-		
+	public String makeTeam(HttpServletRequest request, Model model) {
+		// DB로 팀 이름 저장 메소드
+
 		String tName = request.getParameter("wTeam");
 		tService.makeTeam(tName);
 		return "redirect:sizeWrite";
 	}
+
 	@RequestMapping("/deleteTeam")
-	public String deleteTeam(HttpServletRequest request,Model model) {
-		//팀 삭제 구문
-		
+	public String deleteTeam(HttpServletRequest request, Model model) {
+		// 팀 삭제 구문
+
 		int tNo = Integer.parseInt(request.getParameter("teamNo"));
 		tService.deleteTeam(tNo);
 		return "redirect:sizeWrite";
 	}
+
 	@RequestMapping("/sizeSave")
-	public String sizeWrite(RepositoryDTO rDto) {
-		//저장소로 지공 사이즈 저장 메소드
-			try {
-				rService.sizeWrite(rDto);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
+	public String sizeWrite(@ModelAttribute @Valid RepositoryDTO rDto) {
+		// 저장소로 지공 사이즈 저장 메소드
+		try {
+			rService.sizeWrite(rDto);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "redirect:list";
+
 	}
 
 	@RequestMapping("/deleteMemberSize")
-	public String deleteMemberSize(HttpServletRequest request,Model model) {
+	public String deleteMemberSize(HttpServletRequest request, Model model) {
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
 		try {
 			rService.deleteMemberSize(memberNo);
-			System.out.println("삭제요청한 "+memberNo+"번 회원");
+			System.out.println("삭제요청한 " + memberNo + "번 회원");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "redirect:list";
 	}
+
 	@RequestMapping("/sizeView")
-	public String sizeView(HttpServletRequest request,Model model) throws Exception {
-		//멤버 사이즈 상세 페이지 접속
+	public String sizeView(HttpServletRequest request, Model model) throws Exception {
+		// 멤버 사이즈 상세 페이지 접속
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
-		System.out.println(memberNo+" 번 회원 조회 요청");
+		System.out.println(memberNo + " 번 회원 조회 요청");
 		RepositoryDTO sv = rService.sizeView(memberNo);
-		model.addAttribute("memberSize",sv);
+		model.addAttribute("memberSize", sv);
 		return "sizeView";
 	}
+
 	@RequestMapping("/modifySizePage")
-	public String modifySizePage(HttpServletRequest request, Model model) throws Exception{
-		//회원 정보 수정 페이지 접속
+	public String modifySizePage(HttpServletRequest request, Model model) throws Exception {
+		// 회원 정보 수정 페이지 접속
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
-		System.out.println(memberNo+"번 회원 정보 수정 페이지 접속");
-		model.addAttribute("memberSize",rService.modifyMemberSize(memberNo));
-		model.addAttribute("teamList",tService.teamListDao());
+		System.out.println(memberNo + "번 회원 정보 수정 페이지 접속");
+		model.addAttribute("memberSize", rService.modifyMemberSize(memberNo));
+		model.addAttribute("teamList", tService.teamListDao());
 		return "sizeModify";
 	}
 
 	@RequestMapping("/modifyMemberSizeSave")
 	public String modifyMemberSizeSave(RepositoryDTO rDto, HttpServletRequest request) {
-		//회원 정보 저장 요청
+		// 회원 정보 저장 요청
 		try {
 			rService.modifyMemberSizeSave(rDto);
 			System.out.println("size 수정 성공");
@@ -127,7 +135,7 @@ public class RepositoryController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return "redirect:list";
 	}
 
