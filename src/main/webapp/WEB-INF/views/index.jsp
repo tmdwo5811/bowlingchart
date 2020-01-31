@@ -12,7 +12,7 @@
 		비밀번호 : <input type="password" name="aPw" placeholder="비밀번호를 입력하세요">
 		<input type="submit" value="로그인" />
 	</form>
-	<a href="joinForm">회원 가입</a>
+	<a href="joinForm">회원 가입</a> &nbsp;&nbsp; <a href="findPwForm">비밀번호 찾기</a>
 	<h2>${resultMessage}</h2>
 </body>
 </html>

@@ -10,4 +10,10 @@
 		resultType="com.palace.bowling_prj_dto.UserDTO">
 		SELECT * FROM LOGIN WHERE USERID = #{aId}
 	</select>
+	<update id="updatePw">
+		UPDATE LOGIN SET USERPW = #{userPw} WHERE USERID = #{userId}
+	</update>
+	<update id="changeUserPw">
+		UPDATE LOGIN SET USERPW = #{newPw} WHERE USERID = #{userId}
+	</update>
 </mapper>

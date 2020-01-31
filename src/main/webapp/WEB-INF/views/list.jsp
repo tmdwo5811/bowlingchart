@@ -13,7 +13,7 @@
 			<input type="text" placeholder="회원 검색" name="userSearch">
 			<input type="submit" value="검색">
 		</form>
-		<a href="logout">로그아웃</a> <br>
+		<a href="logout">로그아웃</a> &nbsp;&nbsp;<a href="changeUserPwForm">비밀번호 변경하기</a><br>
 		<table>
 			<tr>
 				<td>회원번호</td>

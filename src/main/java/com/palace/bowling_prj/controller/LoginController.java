@@ -1,8 +1,10 @@
 package com.palace.bowling_prj.controller;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -46,6 +48,33 @@ public class LoginController {
 		// 회원가입 페이지 접속
 		return "joinForm";
 	}
+	@RequestMapping("/findPwForm")
+	public String findPwForm() {
+		return "findPw";
+	}
+	@RequestMapping("/changeUserPwForm")
+	public String changeUserPwForm() {
+		return "changePw";
+	}
+	@RequestMapping("/changePassword")
+	public String changeUserPw(HttpSession session, HttpServletRequest request, Model model) throws Exception {
+		
+		UserDTO mem = mService.loadUser((String) session.getAttribute("userId"));
+		
+		if(passEncoder.matches(request.getParameter("userPw"), mem.getUserPw())) {
+			System.out.println("비밀번호 일치");
+			String userId = (String) session.getAttribute("userId");
+			String encode = passEncoder.encode(request.getParameter("userNewPw"));
+			mService.changeUserPw(encode, userId);
+			session.invalidate();
+		} else {
+			System.out.println("현재 비밀번호가 틀렸습니다.");
+			model.addAttribute("resultMessage","현재 비밀번호가 틀렸습니다.");
+			return "changeUserPwForm";
+		}
+		
+		return "index";
+	}
 	@RequestMapping("/login")
 	public String login(HttpSession session, LoginDTO dto, HttpServletRequest request,Model model) throws Exception{
 		
@@ -55,6 +84,7 @@ public class LoginController {
 			System.out.println("계정정보 일치");
 			session.setAttribute("userName", mem.getUserName());
 			session.setAttribute("userNo", mem.getUserNo());
+			session.setAttribute("userId", mem.getUserId());
 			return "redirect:list";
 		}else {
 			System.out.println("계정정보 불일치");
@@ -83,6 +113,18 @@ public class LoginController {
 		}
 
 		return "redirect:index";
+	}
+	@RequestMapping("/findPw")
+	public String findUserPw(@ModelAttribute UserDTO uDto, HttpServletResponse response) throws Exception {
+		
+		mService.updatePw(response, uDto);
+		PrintWriter out = response.getWriter();
+		response.setContentType("text/html;charset=utf-8");
+		out.println("<script language='javascript'>");
+		out.println("alert('이메일로 임시 비밀번호가 발송되었습니다.')");
+		out.println("</script>");
+		out.flush();
+		return "index";
 	}
 	
 }
