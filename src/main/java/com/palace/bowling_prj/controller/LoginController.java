@@ -26,42 +26,57 @@ public class LoginController {
 
 	@Autowired
 	UserServiceImpl mService;
-	
+
 	@Autowired
 	BCryptPasswordEncoder passEncoder;
-	
+
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
-		//로그아웃 세션 해제
+		// 로그아웃 세션 해제
+		if (session.getAttribute("userId") == null) {
+			return "index";
+		} else {
+			session.invalidate();
+			return "index";
+		}
+	}
+
+	@RequestMapping("/index")
+	public String index(HttpSession session) {
+		// 로그인 메인 페이지 접속
 		session.invalidate();
 		return "index";
 	}
 
-	@RequestMapping("/index")
-	public String index() {
-	//로그인 메인 페이지 접속
-		return "index";
-	}
-	
 	@RequestMapping("/joinForm")
-	public String joinForm() {
+	public String joinForm(HttpSession session) {
 		// 회원가입 페이지 접속
+		session.invalidate();
 		return "joinForm";
 	}
+
 	@RequestMapping("/findPwForm")
-	public String findPwForm() {
+	public String findPwForm(HttpSession session) {
+		session.invalidate();
 		return "findPw";
 	}
+
 	@RequestMapping("/changeUserPwForm")
-	public String changeUserPwForm() {
-		return "changePw";
+	public String changeUserPwForm(HttpSession session, Model model) {
+		if (session.getAttribute("userId") == null) {
+			model.addAttribute("resultMessage", "로그인을 해주시기 바랍니다.");
+			return "index";
+		} else {
+			return "changePw";
+		}
 	}
+
 	@RequestMapping("/changePassword")
 	public String changeUserPw(HttpSession session, HttpServletRequest request, Model model) throws Exception {
-		
+
 		UserDTO mem = mService.loadUser((String) session.getAttribute("userId"));
-		
-		if(passEncoder.matches(request.getParameter("userPw"), mem.getUserPw())) {
+
+		if (passEncoder.matches(request.getParameter("userPw"), mem.getUserPw())) {
 			System.out.println("비밀번호 일치");
 			String userId = (String) session.getAttribute("userId");
 			String encode = passEncoder.encode(request.getParameter("userNewPw"));
@@ -69,30 +84,36 @@ public class LoginController {
 			session.invalidate();
 		} else {
 			System.out.println("현재 비밀번호가 틀렸습니다.");
-			model.addAttribute("resultMessage","현재 비밀번호가 틀렸습니다.");
+			model.addAttribute("resultMessage", "현재 비밀번호가 틀렸습니다.");
 			return "changeUserPwForm";
 		}
-		
+
 		return "index";
 	}
+
 	@RequestMapping("/login")
-	public String login(HttpSession session, LoginDTO dto, HttpServletRequest request,Model model) throws Exception{
-		
+	public String login(HttpSession session, LoginDTO dto, HttpServletRequest request, Model model) throws Exception {
+
 		UserDTO mem = mService.loadUser(dto.getaId());
-		
-		if(passEncoder.matches(dto.getaPw(), mem.getUserPw())){
-			System.out.println("계정정보 일치");
-			session.setAttribute("userName", mem.getUserName());
-			session.setAttribute("userNo", mem.getUserNo());
-			session.setAttribute("userId", mem.getUserId());
-			return "redirect:list";
-		}else {
-			System.out.println("계정정보 불일치");
-			model.addAttribute("resultMessage","ID 또는 패스워드가 틀립니다.");
+		try {
+			if (passEncoder.matches(dto.getaPw(), mem.getUserPw())) {
+				System.out.println("계정정보 일치");
+				session.setAttribute("userName", mem.getUserName());
+				session.setAttribute("userNo", mem.getUserNo());
+				session.setAttribute("userId", mem.getUserId());
+				return "redirect:list";
+			} else {
+				System.out.println("비밀번호 불일치");
+				model.addAttribute("resultMessage", "패스워드가 틀립니다.");
+				return "index";
+			}
+		} catch (Exception e) {
+			System.out.println(e + "없는 계정입니다.");
+			model.addAttribute("resultMessage","존재하지 않는 계정입니다.");
 			return "index";
 		}
-		
 	}
+
 	@RequestMapping("/userJoin")
 	public String userJoin(@ModelAttribute @Valid UserDTO uDto, BindingResult result) {
 		// 회원가입 실행
@@ -100,10 +121,10 @@ public class LoginController {
 		uDto.setUserPw(encode);
 		try {
 			mService.userJoin(uDto);
-			if(result.hasErrors()) {
+			if (result.hasErrors()) {
 				List<ObjectError> list = result.getAllErrors();
-				for(ObjectError error : list) {
-					System.out.println("에러 내용 =>"+error);
+				for (ObjectError error : list) {
+					System.out.println("에러 내용 =>" + error);
 				}
 				return "joinForm";
 			}
@@ -114,9 +135,10 @@ public class LoginController {
 
 		return "redirect:index";
 	}
+
 	@RequestMapping("/findPw")
 	public String findUserPw(@ModelAttribute UserDTO uDto, HttpServletResponse response) throws Exception {
-		
+
 		mService.updatePw(response, uDto);
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html;charset=utf-8");
@@ -126,5 +148,5 @@ public class LoginController {
 		out.flush();
 		return "index";
 	}
-	
+
 }
