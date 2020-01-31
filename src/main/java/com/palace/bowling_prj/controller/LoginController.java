@@ -94,8 +94,8 @@ public class LoginController {
 	@RequestMapping("/login")
 	public String login(HttpSession session, LoginDTO dto, HttpServletRequest request, Model model) throws Exception {
 
-		UserDTO mem = mService.loadUser(dto.getaId());
 		try {
+			UserDTO mem = mService.loadUser(dto.getaId());
 			if (passEncoder.matches(dto.getaPw(), mem.getUserPw())) {
 				System.out.println("계정정보 일치");
 				session.setAttribute("userName", mem.getUserName());
@@ -121,13 +121,7 @@ public class LoginController {
 		uDto.setUserPw(encode);
 		try {
 			mService.userJoin(uDto);
-			if (result.hasErrors()) {
-				List<ObjectError> list = result.getAllErrors();
-				for (ObjectError error : list) {
-					System.out.println("에러 내용 =>" + error);
-				}
-				return "joinForm";
-			}
+			return "joinForm";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
