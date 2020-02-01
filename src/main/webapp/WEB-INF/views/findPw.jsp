@@ -13,5 +13,6 @@
 	Email : <input type="text" name="userEmail"><br>
 	<input type="submit" value="비밀번호 찾기">
 	</form>
+	<h2>${resultMessage }</h2>
 </body>
 </html>

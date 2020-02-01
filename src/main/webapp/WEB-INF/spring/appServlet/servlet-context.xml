@@ -49,7 +49,17 @@
 	<beans:bean id="authenticationInterceptor" class="com.palace.bowling_prj.common.Authinterceptor" />
 	<interceptors>
 		<interceptor>
-			<mapping path="/user/**"/>
+			<mapping path="/list"/>
+			<mapping path="/sizeWrite"/>
+			<mapping path="/makeTeam"/>
+			<mapping path="/sizeView"/>
+			<mapping path="/deleteTeam"/>
+			<mapping path="/sizeSave"/>
+			<mapping path="/deleteMemberSize"/>
+			<mapping path="/modifySizePage"/>
+			<mapping path="/modifyMemberSizeSave"/>
+			<mapping path="/changeUserPwForm"/>
+			<mapping path="/changePassword"/>
 			<beans:ref bean="authenticationInterceptor" />
 		</interceptor>
 	</interceptors>

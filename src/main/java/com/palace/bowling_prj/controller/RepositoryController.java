@@ -34,7 +34,7 @@ public class RepositoryController {
 
 	}
 
-	@RequestMapping("/user/list")
+	@RequestMapping("/list")
 	public String index(ModelMap model, @RequestParam(defaultValue = "1") int curPage,
 			@RequestParam(defaultValue = "") String userSearch, HttpSession session) throws Exception {
 		// 메인 페이지 접속
@@ -54,14 +54,14 @@ public class RepositoryController {
 		return "list";
 	}
 
-	@RequestMapping("/user/sizeWrite")
+	@RequestMapping("/sizeWrite")
 	public String writePage(Model model) {
 		// 지공 사이즈 작성페이지 접속
 		model.addAttribute("teamList", tService.teamListDao());
 		return "sizeWrite";
 	}
 
-	@RequestMapping("/user/makeTeam")
+	@RequestMapping("/makeTeam")
 	public String makeTeam(HttpServletRequest request, Model model) {
 		// DB로 팀 이름 저장 메소드
 
@@ -70,7 +70,7 @@ public class RepositoryController {
 		return "redirect:sizeWrite";
 	}
 
-	@RequestMapping("/user/deleteTeam")
+	@RequestMapping("/deleteTeam")
 	public String deleteTeam(HttpServletRequest request, Model model) {
 		// 팀 삭제 구문
 
@@ -79,14 +79,18 @@ public class RepositoryController {
 		return "redirect:sizeWrite";
 	}
 
-	@RequestMapping("/user/sizeSave")
+	@RequestMapping("/sizeSave")
 	public String sizeWrite(@ModelAttribute @Valid RepositoryDTO rDto, BindingResult result) throws Exception {
 		// 저장소로 지공 사이즈 저장 메소드
-		rService.sizeWrite(rDto);
-		return "redirect:list";
+		if (result.hasErrors()) {
+			return "redirect:sizeWrite";
+		} else {
+			rService.sizeWrite(rDto);
+			return "redirect:list";
+		}
 	}
 
-	@RequestMapping("/user/deleteMemberSize")
+	@RequestMapping("/deleteMemberSize")
 	public String deleteMemberSize(HttpServletRequest request, Model model) {
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
 		try {
@@ -99,7 +103,7 @@ public class RepositoryController {
 		return "redirect:list";
 	}
 
-	@RequestMapping("/user/sizeView")
+	@RequestMapping("/sizeView")
 	public String sizeView(HttpServletRequest request, Model model) throws Exception {
 		// 멤버 사이즈 상세 페이지 접속
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
@@ -109,7 +113,7 @@ public class RepositoryController {
 		return "sizeView";
 	}
 
-	@RequestMapping("/user/modifySizePage")
+	@RequestMapping("/modifySizePage")
 	public String modifySizePage(HttpServletRequest request, Model model) throws Exception {
 		// 회원 정보 수정 페이지 접속
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
@@ -119,18 +123,16 @@ public class RepositoryController {
 		return "sizeModify";
 	}
 
-	@RequestMapping("/user/modifyMemberSizeSave")
-	public String modifyMemberSizeSave(RepositoryDTO rDto, HttpServletRequest request) {
+	@RequestMapping("/modifyMemberSizeSave")
+	public String modifyMemberSizeSave(@ModelAttribute @Valid RepositoryDTO rDto, HttpServletRequest request, BindingResult result) throws Exception {
 		// 회원 정보 저장 요청
-		try {
+			if(result.hasErrors()) {
+				return "redirect:modifySizePage";
+			} else {
 			rService.modifyMemberSizeSave(rDto);
 			System.out.println("size 수정 성공");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return "redirect:list";
+			return "redirect:list";
+			}
 	}
 
 }

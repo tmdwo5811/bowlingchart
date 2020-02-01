@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +13,20 @@
 	<a href="list">홈으로</a>
 	<form action="sizeSave" method="post">
 		<input type="hidden" name="userNo" value="${sessionScope.userNo}">
-		성함 : <input type="text" name="memberName"><br>
-		연락처 : <input type="text" name="memberPhone"><br>
+		성함 : <input type="text" name="memberName">
+		<spring:hasBindErrors name="repositoryDTO">
+			<c:if test="${errors.hasFieldErrors('memberName') }">
+				<strong>회원 이름은 ${errors.getFieldError('memberName').defaultMessage }</strong>
+			</c:if>
+		</spring:hasBindErrors>
+		<br>
+		연락처 : <input type="text" name="memberPhone">
+		<spring:hasBindErrors name="repositoryDTO">
+			<c:if test="${errors.hasFieldErrors('memberPhone') }">
+				<strong>연락처는 ${errors.getFieldError('memberPhone').defaultMessage }</strong>
+			</c:if>
+		</spring:hasBindErrors>
+		<br>
 		소속팀 : 
 		<select name="teamNo">
 			<c:forEach items="${teamList}" var="team">

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +12,20 @@
 	<a href="list">홈으로</a><br>
 	<form action="modifyMemberSizeSave" method="post">
 	<input type="hidden" value="${memberSize.memberNo }" name="memberNo">
-		성함 : <input type="text" placeholder="${memberSize.memberName}" name="memberName" value="${memberSize.memberName}"><br>
-		연락처 : <input type="text" placeholder="${memberSize.memberPhone}" name="memberPhone" value="${memberSize.memberPhone}"><br>
+		성함 : <input type="text" placeholder="${memberSize.memberName}" name="memberName" value="${memberSize.memberName}">
+		<spring:hasBindErrors name="repositoryDTO">
+			<c:if test="${errors.hasFieldErrors('memberName') }">
+				<strong>${errors.getFieldError('memberName').defaultMessage }</strong>
+			</c:if>
+		</spring:hasBindErrors>
+		<br>
+		연락처 : <input type="text" placeholder="${memberSize.memberPhone}" name="memberPhone" value="${memberSize.memberPhone}">
+		<spring:hasBindErrors name="repositoryDTO">
+			<c:if test="${errors.hasFieldErrors('memberPhone') }">
+				<strong>${errors.getFieldError('memberPhone').defaultMessage }</strong>
+			</c:if>
+		</spring:hasBindErrors>
+		<br>
 		소속팀 : 
 		<select name="teamNo">
 			<c:forEach items="${teamList}" var="team">
