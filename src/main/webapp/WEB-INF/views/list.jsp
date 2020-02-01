@@ -9,11 +9,11 @@
 	<h1>볼링장 지공 데이터 프로그램</h1>
 	<h2>접속 회원명 : ${sessionScope.userName } 회원번호 : ${sessionScope.userNo }</h2>
 	<div>
-		<form action="index" method="get" style="display: inline">
+		<form action="/user/list" method="get" style="display: inline">
 			<input type="text" placeholder="회원 검색" name="userSearch">
 			<input type="submit" value="검색">
 		</form>
-		<a href="logout">로그아웃</a> &nbsp;&nbsp;<a href="changeUserPwForm">비밀번호 변경하기</a><br>
+		<a href="index">로그아웃</a> &nbsp;&nbsp;<a href="changeUserPwForm">비밀번호 변경하기</a><br>
 		<table>
 			<tr>
 				<td>회원번호</td>

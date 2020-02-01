@@ -10,9 +10,6 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
-	<context:component-scan base-package="com.palace.bowling_prj_dao" />
-	<context:component-scan base-package="com.palace.bowling_prj.service" />
-	<context:component-scan base-package="com.palace.bowling_prj.controller" />
 	
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
@@ -47,5 +44,20 @@
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
 	</beans:bean>
+	
+	<!-- 인터셉터 부분 -->
+	<beans:bean id="authenticationInterceptor" class="com.palace.bowling_prj.common.Authinterceptor" />
+	<interceptors>
+		<interceptor>
+			<mapping path="/user/**"/>
+			<beans:ref bean="authenticationInterceptor" />
+		</interceptor>
+	</interceptors>
+	
+	
+	<context:component-scan base-package="com.palace.bowling_prj_dao" />
+	<context:component-scan base-package="com.palace.bowling_prj.service" />
+	<context:component-scan base-package="com.palace.bowling_prj.controller" />
+	<context:component-scan base-package="com.palace.bowling_prj.common" />
 	
 </beans:beans>
