@@ -1,0 +1,113 @@
+body {
+    background: #eee !important;
+  }
+  
+  .wrapper {
+    margin-top: 200px;
+    margin-bottom: 80px;
+/*     width: 300px; */
+/*     margin: 0 auto; */
+/*     padding: 10px; */
+  }
+  
+  .form-signin {
+    max-width: 250px;
+    padding: 15px 35px 45px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, .17) 2px 1px 30px,
+    rgba(0, 0, 0, .02) 1px -3px 40px;
+  }
+
+  .form-signin .form-signin-heading,
+  .form-signin {
+    margin-bottom: 30px;
+  }
+  
+  .form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid rgba(204, 202, 202, 0.5);
+  }
+
+  .form-signin .form-control:focus {
+    z-index: 2;
+    background-color: #e4e2e470;
+    outline: none;
+  }
+
+  .form-signin input[type="text"] {
+    margin-bottom: 3px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .form-signin input[type="password"] {
+    margin-bottom: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
+  .btn {
+    all: unset;
+    cursor: pointer;
+    dispaly: flex;
+    justify-content: center;
+  }
+
+  .btn-lg {
+    background-color: #2c6bffd9;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    font-size: 17px;
+/*     font-weight: bold; */
+    margin-bottom: 10px;
+  }
+
+  .btn:hover {
+    background-color: #2c6bffeb;
+    box-shadow: rgba(0, 0, 0, .17) 2px 1px 20px,
+    rgba(0, 0, 0, .5) 1px 1px 5px;
+  }
+/*   .btn-lg:hover {
+    background-color: #2c6bffeb;
+    box-shadow: rgba(0, 0, 0, .17) 2px 1px 20px,
+    rgba(0, 0, 0, .5) 1px 1px 5px;
+  } 
+*/
+
+  .btn__signup {
+    background-color: #2c6bffeb;
+    padding: 10px;
+    width: 75px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+/*     font-weight: bold;     */
+  }
+
+  .btn__pwfind {
+    background-color: #2c6bffeb;
+    padding: 10px;
+    width: 100px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+/*     font-weight: bold;   */
+  }
+
+/*   .btn__signup .btn__pwfind:hover {
+    background-color: #2c6bffeb;
+    box-shadow: rgba(0, 0, 0, .17) 2px 1px 20px,
+    rgba(0, 0, 0, .5) 1px 1px 5px;
+  } */
