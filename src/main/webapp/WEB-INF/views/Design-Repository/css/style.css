@@ -35,6 +35,7 @@ body {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     border: 1px solid rgba(204, 202, 202, 0.5);
+    border-radius: 7px;
   }
 
   .form-signin .form-control:focus {
@@ -44,22 +45,20 @@ body {
   }
 
   .form-signin input[type="text"] {
-    margin-bottom: 3px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    margin-bottom: 8px;
+    /* border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
   }
 
   .form-signin input[type="password"] {
     margin-bottom: 20px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    /* border-top-left-radius: 0;
+    border-top-right-radius: 0; */
   }
   
   .btn {
     all: unset;
     cursor: pointer;
-    dispaly: flex;
-    justify-content: center;
   }
 
   .btn-lg {
