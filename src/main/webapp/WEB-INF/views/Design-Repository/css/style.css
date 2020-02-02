@@ -8,7 +8,7 @@ body {
   }
   
   .form-signin {
-    max-width: 250px;
+    max-width: 220px;
     padding: 15px 35px 45px;
     margin: 0 auto;
     background-color: #fff;
@@ -32,15 +32,28 @@ body {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     border: 1px solid rgba(204, 202, 202, 0.5);
-    border-radius: 7px;
+    border-radius: 5px;
   }
 
   .form-signin .form-control:focus {
+    animation-name: border;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+    animation-duration: .3s;
     z-index: 2;
     background-color: #e4e2e470;
-    outline: none;
+    outline:  none;
   }
 
+  @keyframes border {
+    form { opacity: 0; }
+    to {
+    box-shadow: -1px -1px 5px #2c6bff52, -1px 1px 5px #2c6bff52, 
+    1px 1px 5px #2c6bff52, 1px -1px 5px #2c6bff52;
+    opacity: 1;
+     }
+  }
+  
   .form-signin input[type="text"] {
     margin-bottom: 8px;
     /* border-bottom-left-radius: 0;
@@ -56,39 +69,37 @@ body {
   .btn {
     all: unset;
     cursor: pointer;
+/*     display: flex;
+    justify-content: space-around; */
   }
 
   .btn-lg {
-    background-color: #2c6bffd9;
+    background-color:  #004de4eb;
+    background: linear-gradient(to bottom, #6497fbe3, #004de4eb);
     padding: 10px;
     width: 200px;
     border-radius: 5px;
     text-align: center;
     color: #fff;
     font-size: 17px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
-  .btn:hover {
-    background-color: #2c6bffeb;
-    box-shadow: rgba(0, 0, 0, .17) 2px 1px 20px,
-    rgba(0, 0, 0, .5) 1px 1px 5px;
+  .btn-lg:hover {
+    background: #0b5bf7c7;
   }
 
   .btn__signup {
-    background-color: #2c6bffeb;
-    padding: 10px;
-    width: 75px;
-    border-radius: 5px;
-    text-align: center;
-    color: #fff;
+/*     margin-bottom: 5px; */
+    color: #2c6bff;
   }
 
   .btn__pwfind {
-    background-color: #2c6bffeb;
-    padding: 10px;
-    width: 100px;
-    border-radius: 5px;
-    text-align: center;
-    color: #fff;
+/*     background-color: #c2c7d4eb; */
+/*     padding: 10px; */
+/*     width: 100px; */
+/*     border-radius: 5px; */
+/*     text-align: center; */
+    margin-left: 53px;
+    color: #2c6bff;
   }
