@@ -5,23 +5,32 @@
 	<meta charset="UTF-8">
 	<title>왕궁볼링장 로그인 페이지</title>
 	<link rel="stylesheet" href="css/style.css">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body>
 	<form action="login" method="post">
 		<div class="wrapper">
+			<div id="pins">
+				<!-- <img id="move" src="img/pins.gif" alt="볼링핀"> -->
+			</div>
 			<div class="form-signin">       
 			  <h2 class="form-signin-heading">LOGIN</h2>
-			 <div class="input">
+			 <!-- <div class="input">
 				<input type="text" class="form-control" name="aId" placeholder="아이디를 입력하세요" required="" autofocus="" />	 
-			 </div> 
-			  <!-- <input type="text" class="form-control" name="aId" placeholder="아이디를 입력하세요" required="" autofocus="" /> -->
+			 </div>  -->
+			  <input type="text" class="form-control" name="aId" placeholder="아이디를 입력하세요" required="" autofocus="" />
 			  <input type="password" class="form-control" name="aPw" placeholder="비밀번호를 입력하세요" required=""/>      
 			  <button class="btn btn-lg" type="submit" href="joinForm">로그인</button>     
 			  <input class="btn btn__signup" type="submit" value="회원가입" onclick="location.href='joinForm'" />   
 			  <input class="btn btn__pwfind" type="submit"  value="비밀번호찾기" onclick="location.href='findPwForm'" />
 			</div>
 		</div>
+        <script>
+            setInterval (function(){
+                $('#pins').css({'background-position' : '-=0.3'});
+            });
+        </script>
 		<!-- 
 		아이디 : <input type="text" name="aId" placeholder="아이디를 입력하세요">
 		비밀번호 : <input type="password" name="aPw" placeholder="비밀번호를 입력하세요">
