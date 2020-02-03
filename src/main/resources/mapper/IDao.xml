@@ -10,9 +10,4 @@
 	<select id="userSearch" resultType="com.palace.bowling_prj_dto.RepositoryDTO">
 		SELECT * FROM MEMBERSIZE WHERE USERNAME LIKE CONCAT('%',#{S_Val1},'%');
 	</select>
-	
-	
-
-	
-	
 </mapper>
