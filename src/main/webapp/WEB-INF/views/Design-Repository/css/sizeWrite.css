@@ -80,9 +80,6 @@ body{overflow-x:hidden; overflow-y:auto;}
     top:540px;
     left:380px;
 }
-.inputDiv div {
-    position: relative;
-}
 .textInput input,
 .textInput label {
     cursor: text;
