@@ -1,0 +1,109 @@
+*{margin:0;padding:0;list-style-type: none;}
+body{overflow-x:hidden; overflow-y:auto;}
+.inputDiv{
+    margin-top:30px;
+    margin-left:100px;
+    width:600px;
+    height:800px;
+    position: relative;
+    background-image: url("../img/chartImg.png");
+    background-repeat: no-repeat;
+}
+.middleFingerReverse{
+    top:-10px;
+    left:80px;
+}
+.ringFingerReverse{
+    top:-10px;
+    left:340px;
+}
+.middleFingerLeft{
+    top:112px;
+    left:-90px;
+}
+.ringFingerRight{
+    top:112px;
+    left:525px;
+}
+.insert1{
+    top:50px;
+    left:-60px;
+}
+.insert2{
+    top:50px;
+    left:490px;
+}
+.middleFingerForward{
+    top:230px;
+}
+.ringFingerForward{
+    top:230px;
+    left:420px;
+}
+.span1{
+    top:390px;
+    left:30px;
+}
+.span2{
+    top:390px;
+    left:410px;
+}
+.thumbForward{
+    top:600px;
+    left:50px;
+}
+.tumbLeft{
+    top:690px;
+    left:50px;
+}
+.thumb{
+    top:620px;
+    left:370px;
+}
+.thumbRight{
+    top:690px;
+    left:395px;
+}
+.thumbReverse{
+    top:750px;
+    left:50px;
+}
+.no1{
+    top:460px;
+    left:380px;
+}
+.no2{
+    top:500px;
+    left:380px;
+}
+.no3{
+    top:540px;
+    left:380px;
+}
+.inputDiv div {
+    position: relative;
+}
+.textInput input,
+.textInput label {
+    cursor: text;
+    font-size: 16px;
+    position: absolute;
+    transition: all 0.15s ease;
+    width: 26%;
+}
+.textInput input {
+    border: solid black 1px;
+    padding: 0.8em 1% 0.15em 1%;
+    border-radius: 0.15em;
+}
+.textInput label {
+    color:#bcb9b8;
+    padding:0.4em 1%;
+}
+.textInput input.filled ~ label,
+.textInput input:focus ~ label {
+    padding:0.1em 1%;
+    font-size: 10px;
+    font-weight: 400;
+    position: absolute;
+}
