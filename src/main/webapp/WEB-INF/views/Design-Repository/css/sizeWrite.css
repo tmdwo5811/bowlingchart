@@ -91,6 +91,9 @@ body{overflow-x:hidden; overflow-y:auto;}
     transition: all 0.15s ease;
     width: 26%;
 }
+.middleFingerForward > label {
+    font-size: 15px;
+}
 .textInput input {
     border: solid black 1px;
     padding: 0.8em 1% 0.15em 1%;
