@@ -1,120 +1,123 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	<meta name="viewport" content="width=device-width, initial-scale=0.9" />
 	<link rel="stylesheet" type="text/css" href="css/sizeWrite.css">
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
+
 <body>
-	<a href="list">홈으로</a>
-	<form action="sizeSave" method="post">
-		<input type="hidden" name="userNo" value="${sessionScope.userNo}">
-		성함 : <input type="text" name="memberName"><br>
-		연락처 : <input type="text" name="memberPhone"><br>
-		소속팀 :
-		<select name="teamNo">
-			<option value="teamNo">임학 팀</option>
-			<option value="teamNo">부평 팀</option>
-			<option value="teamNo">계양 팀</option>
-			<option value="teamNo">문학 팀</option>
-			<option value="teamNo">남양 팀</option>
-		</select>
+		<a href="list">홈으로</a>
+		<form action="sizeSave" method="post">
+			<input type="hidden" name="userNo" value="${sessionScope.userNo}">
+			성함 : <input type="text" name="memberName"><br>
+			연락처 : <input type="text" name="memberPhone"><br>
+			소속팀 :
+			<select name="teamNo">
+				<option value="teamNo">임학 팀</option>
+				<option value="teamNo">부평 팀</option>
+				<option value="teamNo">계양 팀</option>
+				<option value="teamNo">문학 팀</option>
+				<option value="teamNo">남양 팀</option>
+			</select>
+			<br>
+			<div class="inputDiv">
+				<div class="textInput middleFingerReverse">
+					<input type="text" class="chartInput" id="middleFingerReverse" name="middleFingerReverse" />
+					<label for="middleFingerReverse">Middle finger reverse</label>
+				</div>
+				<div class="textInput ringFingerReverse">
+					<input type="text" class="chartInput" id="ringFingerReverse" name="ringFingerReverse">
+					<label for="ringFingerReverse">Ring finger reverse</label>
+				</div>
+				<div class="textInput middleFingerLeft">
+					<input type="text" class="chartInput" id="middleFingerLeft" name="middleFingerLeft">
+					<label for="middleFingerLeft">Middle finger left</label>
+				</div>
+				<div class="textInput ringFingerRight">
+					<input type="text" class="chartInput" id="ringFingerRight" name="ringFingerRight">
+					<label for="ringFingerRight">Ring finger right</label>
+				</div>
+				<div class="textInput insert1">
+					<input type="text" class="chartInput" id="insert1" name="insert1">
+					<label for="insert1">Insert 1</label>
+				</div>
+				<div class="textInput insert2">
+					<input type="text" class="chartInput" id="insert2" name="insert2">
+					<label for="insert2">Insert 2</label>
+				</div>
+				<div class="textInput middleFingerForward">
+					<input type="text" class="chartInput" id="middleFingerForward" name="middleFingerForward">
+					<label for="middleFingerForward">Middle finger forward</label>
+				</div>
+				<div class="textInput ringFingerForward">
+					<input type="text" class="chartInput" id="ringFingerForward" name="ringFingerForward">
+					<label for="ringFingerForward">Ring finger forward</label>
+				</div>
+				<div class="textInput span1">
+					<input type="text" name="span1" class="chartInput" id="span1">
+					<label for="span1">Span1</label>
+				</div>
+				<div class="textInput span2">
+					<input type="text" name="span2" class="chartInput" id="span2">
+					<label for="span2">Span2</label>
+				</div>
+				<div class="textInput thumbForward">
+					<input type="text" class="chartInput" id="thumbForward" name="thumbForward">
+					<label for="thumbForward">Thumb forward</label>
+				</div>
+				<div class="textInput tumbLeft">
+					<input type="text" class="chartInput" id="tumbLeft" name="tumbLeft">
+					<label for="tumbLeft">Thumb left</label>
+				</div>
+				<div class="textInput thumb">
+					<input type="text" class="chartInput" id="thumb" name="thumb">
+					<label for="thumb">Thumb</label>
+				</div>
+				<div class="textInput thumbRight">
+					<input type="text" class="chartInput" id="thumbRight" name="thumbRight">
+					<label for="thumbRight">Thumb right</label>
+				</div>
+				<div class="textInput thumbReverse">
+					<input type="text" class="chartInput" id="thumbReverse" name="thumbReverse">
+					<label for="thumbReverse">Thumb reverse</label>
+				</div>
+				<div class="textInput no1">
+					<input type="text" class="chartInput" id="no1" name="no1">
+					<label for="no1">No.1</label>
+				</div>
+				<div class="textInput no2">
+					<input type="text" class="chartInput" id="no2" name="no2">
+					<label for="no2">No.2</label>
+				</div>
+				<div class="textInput no3">
+					<input type="text" class="chartInput" id="no3" name="no3">
+					<label for="no3">No.3</label>
+				</div>
+			</div>
+			<input type="submit" value="입력">
+		</form>
 		<br>
-		<div class="inputDiv">
-			<div class="textInput middleFingerReverse">
-				<input type="text" class="chartInput" id="middleFingerReverse" name="middleFingerReverse" />
-				<label for="middleFingerReverse">Middle finger reverse</label>
-			</div>
-			<div class="textInput ringFingerReverse">
-				<input type="text" class="chartInput" id="ringFingerReverse" name="ringFingerReverse">
-				<label for="ringFingerReverse">Ring finger reverse</label>
-			</div>
-			<div class="textInput middleFingerLeft">
-				<input type="text" class="chartInput" id="middleFingerLeft" name="middleFingerLeft">
-				<label for="middleFingerLeft">Middle finger left</label>
-			</div>
-			<div class="textInput ringFingerRight">
-				<input type="text" class="chartInput" id="ringFingerRight" name="ringFingerRight">
-				<label for="ringFingerRight">Ring finger right</label>
-			</div>
-			<div class="textInput insert1">
-				<input type="text" class="chartInput" id="insert1" name="insert1">
-				<label for="insert1">Insert 1</label>
-			</div>
-			<div class="textInput insert2">
-				<input type="text" class="chartInput" id="insert2" name="insert2">
-				<label for="insert2">Insert 2</label>
-			</div>
-			<div class="textInput middleFingerForward">
-				<input type="text" class="chartInput" id="middleFingerForward" name="middleFingerForward">
-				<label for="middleFingerForward">Middle finger forward</label>
-			</div>
-			<div class="textInput ringFingerForward">
-				<input type="text" class="chartInput" id="ringFingerForward" name="ringFingerForward">
-				<label for="ringFingerForward">Ring finger forward</label>
-			</div>
-			<div class="textInput span1">
-				<input type="text" name="span1" class="chartInput" id="span1">
-				<label for="span1">Span1</label>
-			</div>
-			<div class="textInput span2">
-				<input type="text" name="span2" class="chartInput" id="span2">
-				<label for="span2">Span2</label>
-			</div>
-			<div class="textInput thumbForward">
-				<input type="text" class="chartInput" id="thumbForward" name="thumbForward">
-				<label for="thumbForward">Thumb forward</label>
-			</div>
-			<div class="textInput tumbLeft">
-				<input type="text" class="chartInput" id="tumbLeft" name="tumbLeft">
-				<label for="tumbLeft">Thumb left</label>
-			</div>
-			<div class="textInput thumb">
-				<input type="text" class="chartInput" id="thumb" name="thumb">
-				<label for="thumb">Thumb</label>
-			</div>
-			<div class="textInput thumbRight">
-				<input type="text" class="chartInput" id="thumbRight" name="thumbRight">
-				<label for="thumbRight">Thumb right</label>
-			</div>
-			<div class="textInput thumbReverse">
-				<input type="text" class="chartInput" id="thumbReverse" name="thumbReverse">
-				<label for="thumbReverse">Thumb reverse</label>
-			</div>
-			<div class="textInput no1">
-				<input type="text" class="chartInput" id="no1" name="no1">
-				<label for="no1">No.1</label>
-			</div>
-			<div class="textInput no2">
-				<input type="text" class="chartInput" id="no2" name="no2">
-				<label for="no2">No.2</label>
-			</div>
-			<div class="textInput no3">
-				<input type="text" class="chartInput" id="no3" name="no3">
-				<label for="no3">No.3</label>
-			</div>
-		</div>
-		<input type="submit" value="입력">
-	</form>
-	<hr>
-	<h3>팀 생성 기능</h3>
-	<form action="makeTeam" method="post">
-		팀 이름 : <input type="text" name="wTeam">
-		<input type="submit" value="팀 생성">
-	</form>
-	<hr>
-	<h3>팀 삭제 기능</h3>
-	<form action="deleteTeam" method="post">
-		<select name="teamNo">
-			<option value="teamNo">임학 팀</option>
-			<option value="teamNo">부평 팀</option>
-			<option value="teamNo">계양 팀</option>
-			<option value="teamNo">문학 팀</option>
-			<option value="teamNo">남양 팀</option>
-		</select>
-		<input type="submit" value="삭제">
-	</form>
+		<h3>팀 생성 기능</h3>
+		<form action="makeTeam" method="post">
+			팀 이름 : <input type="text" name="wTeam">
+			<input type="submit" value="팀 생성">
+		</form>
+		<br>
+		<h3>팀 삭제 기능</h3>
+		<form action="deleteTeam" method="post">
+			<select name="teamNo">
+				<option value="teamNo">임학 팀</option>
+				<option value="teamNo">부평 팀</option>
+				<option value="teamNo">계양 팀</option>
+				<option value="teamNo">문학 팀</option>
+				<option value="teamNo">남양 팀</option>
+			</select>
+			<input type="submit" value="삭제">
+		</form>
 	<script>
 		$(".inputDiv input").change(function () {
 			if ($(this).val() != "") {
