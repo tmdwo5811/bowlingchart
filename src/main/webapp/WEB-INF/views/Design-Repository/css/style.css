@@ -1,3 +1,5 @@
+@import url(form.css);
+
 body {
   background: #eee !important;
   position: relative;
@@ -32,48 +34,6 @@ body {
   rgba(0, 0, 0, .02) 1px -3px 40px;
 }
 
-.form-signin .form-signin-heading,
-.form-signin {
-  margin-bottom: 30px;
-}
-
-.form-signin .form-control {
-  /* position: relative; */
-  font-size: 16px;
-  height: auto;
-  padding: 12px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: 1px solid rgba(204, 202, 202, 0.5);
-  border-radius: 5px;
-}
-
-
-input::placeholder {
-  font-size: 13px;
-  opacity: .6;
-}
-
-.form-signin .form-control:focus {
-  animation-name: border;
-  animation-delay: 0s;
-  animation-fill-mode: forwards;
-  animation-duration: .3s;
-  z-index: 2;
-  background-color: #e4e2e470;
-  outline:  none;
-}
-
-@keyframes border {
-  form { opacity: 0; }
-  to {
-  box-shadow: -1px -1px 5px #2c6bff52, -1px 1px 5px #2c6bff52, 
-  1px 1px 5px #2c6bff52, 1px -1px 5px #2c6bff52;
-  opacity: 1;
-   }
-}
-
 .form-signin input[type="text"] {
   margin-bottom: 8px;
   /* border-bottom-left-radius: 0;
@@ -89,8 +49,6 @@ input::placeholder {
 .btn {
   all: unset;
   cursor: pointer;
-/*     display: flex;
-  justify-content: space-around; */
 }
 
 .btn-lg {
@@ -110,16 +68,10 @@ input::placeholder {
 }
 
 .btn__signup {
-/*     margin-bottom: 5px; */
   color: #2c6bff;
 }
 
 .btn__pwfind {
-/*     background-color: #c2c7d4eb; */
-/*     padding: 10px; */
-/*     width: 100px; */
-/*     border-radius: 5px; */
-/*     text-align: center; */
   margin-left: 53px;
   color: #2c6bff;
 }
