@@ -126,6 +126,7 @@ public class RepositoryController {
 	@RequestMapping("/modifyMemberSizeSave")
 	public String modifyMemberSizeSave(@ModelAttribute @Valid RepositoryDTO rDto, HttpServletRequest request, BindingResult result) throws Exception {
 		// 회원 정보 저장 요청
+		// 수정해야할 메소드 사이즈 입력이 안됨
 			if(result.hasErrors()) {
 				return "redirect:modifySizePage";
 			} else {
