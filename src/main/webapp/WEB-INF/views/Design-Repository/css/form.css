@@ -1,12 +1,16 @@
 
+.textInput {
+    position: relative;
+    margin-bottom: 30px;
+}
 .textInput input,
 .textInput label {
     cursor: text;
-    font-size: 16px;
+    font-size: 15px;
     position: absolute;
     transition: all 0.15s ease;
     width: 160px;
-    padding: 0.8em 1% 0.15em 1%;
+    padding: 20px 1% 0.15em 1%;
 }
 .middleFingerForward > label {
     font-size: 15px;
@@ -18,7 +22,7 @@
 }
 .textInput label {
     color:#bcb9b8;
-    padding:0.4em 10px;
+    padding:0.8em 10px;
 }
 .textInput input.filled ~ label,
 .textInput input:focus ~ label {
@@ -48,6 +52,7 @@
   }
   
 .form-signin .form-control {
+    width: 200px;
     font-size: 16px;
     height: auto;
     padding: 12px;
