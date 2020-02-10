@@ -3,7 +3,8 @@
 .inputDiv{
     width:800px;
     height:800px;
-    margin:15px auto;
+    margin:140px auto;
+    margin-bottom:20px;
     position: relative;
     background-image: url("../img/chartImg.png") ;
     background-position: center center;
@@ -84,13 +85,29 @@
     top:540px;
     left:477px;
 }
+.memberName{
+    top:-100px;
+    left:0px;
+}
+.memberPhone{
+    top:-60px;
+    left:0px;
+}
+.formSelectTeam{
+    position: absolute;
+    top:-101px;
+    left:180px;
+}
+.homeButton, .submitButton{
+    width:100%;
+}
 .textInput input,
 .textInput label {
     cursor: text;
     font-size: 16px;
     position: absolute;
     transition: all 0.15s ease;
-    width: 160px;
+    width: 170px;
     padding: 0.8em 1% 0.15em 1%;
 }
 .middleFingerForward > label {

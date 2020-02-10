@@ -4,27 +4,38 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<meta name="viewport" content="width=device-width, initial-scale=0.9" />
-	<link rel="stylesheet" type="text/css" href="css/sizeWrite.css">
+	<!-- jQuery CDN Import -->
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<!-- 시멘틱 UI CDN -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+	
+	<!-- 로컬 CSS Import -->
+	<link rel="stylesheet" type="text/css" href="css/sizeWrite.css">
+	
 </head>
 
 <body>
-		<a href="list">홈으로</a>
+		<button type="submit" class="ui secondary button homeButton" formaction="list">홈으로</button>
 		<form action="sizeSave" method="post">
 			<input type="hidden" name="userNo" value="${sessionScope.userNo}">
-			성함 : <input type="text" name="memberName"><br>
-			연락처 : <input type="text" name="memberPhone"><br>
-			소속팀 :
-			<select name="teamNo">
-				<option value="teamNo">임학 팀</option>
-				<option value="teamNo">부평 팀</option>
-				<option value="teamNo">계양 팀</option>
-				<option value="teamNo">문학 팀</option>
-				<option value="teamNo">남양 팀</option>
-			</select>
-			<br>
+			
 			<div class="inputDiv">
+				<div class="textInput memberName">
+					<input type="text" id="memberName" name="memberName">
+					<label for="memberName">회원명</label>
+				</div>
+				<div class="textInput memberPhone">
+					<input type="text" id="memberPhone" name="memberPhone">
+					<label for="memberPhone">연락처</label>
+				</div>
+				<select class="ui dropdown teamSelect formSelectTeam" name="teamNo">
+					<option value="teamNo">임학 팀</option>
+					<option value="teamNo">부평 팀</option>
+					<option value="teamNo">계양 팀</option>
+					<option value="teamNo">문학 팀</option>
+					<option value="teamNo">남양 팀</option>
+				</select>
 				<div class="textInput middleFingerReverse">
 					<input type="text" class="chartInput" id="middleFingerReverse" name="middleFingerReverse" />
 					<label for="middleFingerReverse">Middle finger reverse</label>
@@ -98,27 +109,46 @@
 					<label for="no3">No.3</label>
 				</div>
 			</div>
-			<input type="submit" value="입력">
+			<button class="ui primary button submitButton" type="submit">입력</button>
 		</form>
 		<br>
 		<h3>팀 생성 기능</h3>
+		<hr>
 		<form action="makeTeam" method="post">
-			팀 이름 : <input type="text" name="wTeam">
-			<input type="submit" value="팀 생성">
+			<div class="textInput wTeam" style="">
+			<input type="text" id="wTeam" name="wTeam">
+			<label for="wTeam">팀 이름</label>
+		</div>
+		<br><br><br>
+			<button class="ui primary button submitButton" type="submit">팀 생성</button>
 		</form>
 		<br>
 		<h3>팀 삭제 기능</h3>
+		<hr>
 		<form action="deleteTeam" method="post">
-			<select name="teamNo">
+			<select class="ui dropdown teamSelect selectTeam" name="teamNo">
 				<option value="teamNo">임학 팀</option>
 				<option value="teamNo">부평 팀</option>
 				<option value="teamNo">계양 팀</option>
 				<option value="teamNo">문학 팀</option>
 				<option value="teamNo">남양 팀</option>
 			</select>
-			<input type="submit" value="삭제">
+			<br>
+			<br>
+			<button class="ui primary button submitButton" style="background-color:#ff1a1a;" type="submit">삭제</button>
 		</form>
-		<script type="text/javascript" src="script/form.js"></script>
+	<script type="text/javascript" src="script/form.js"></script>
+	<script>
+		$(".textInput input").change(function () {
+			if ($(this).val() != "") {
+				$(this).addClass('filled');
+			} else {
+				$(this).removeClass('filled');
+			}
+		})
+		$('.selectTeam').dropdown();
+		$('.formSelectTeam').dropdown();
+	</script>
 </body>
 
 </html>
