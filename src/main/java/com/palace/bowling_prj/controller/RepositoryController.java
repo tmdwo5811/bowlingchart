@@ -55,18 +55,19 @@ public class RepositoryController {
 	}
 
 	@RequestMapping("/sizeWrite")
-	public String writePage(Model model) {
+	public String writePage(Model model, HttpSession session) {
 		// 지공 사이즈 작성페이지 접속
-		model.addAttribute("teamList", tService.teamListDao());
+		int userNo = (Integer) session.getAttribute("userNo");
+		model.addAttribute("teamList", tService.teamListDao(userNo));
 		return "sizeWrite";
 	}
 
 	@RequestMapping("/makeTeam")
-	public String makeTeam(HttpServletRequest request, Model model) {
+	public String makeTeam(HttpServletRequest request, Model model, HttpSession session) {
 		// DB로 팀 이름 저장 메소드
-
+		int userNo = (Integer) session.getAttribute("userNo");
 		String tName = request.getParameter("wTeam");
-		tService.makeTeam(tName);
+		tService.makeTeam(tName, userNo);
 		return "redirect:sizeWrite";
 	}
 
@@ -114,12 +115,13 @@ public class RepositoryController {
 	}
 
 	@RequestMapping("/modifySizePage")
-	public String modifySizePage(HttpServletRequest request, Model model) throws Exception {
+	public String modifySizePage(HttpServletRequest request, Model model, HttpSession session) throws Exception {
 		// 회원 정보 수정 페이지 접속
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
+		int userNo = (Integer) session.getAttribute("userNo");
 		System.out.println(memberNo + "번 회원 정보 수정 페이지 접속");
 		model.addAttribute("memberSize", rService.modifyMemberSize(memberNo));
-		model.addAttribute("teamList", tService.teamListDao());
+		model.addAttribute("teamList", tService.teamListDao(userNo));
 		return "sizeModify";
 	}
 

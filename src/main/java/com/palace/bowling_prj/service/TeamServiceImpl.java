@@ -17,14 +17,14 @@ public class TeamServiceImpl implements TeamService{
 	TeamDAOImpl dao;
 	
 	@Override
-	public ArrayList<RepositoryDTO> teamListDao() {
+	public ArrayList<RepositoryDTO> teamListDao(int userNo) {
 		// TODO Auto-generated method stub
-		return dao.teamListDao();
+		return dao.teamListDao(userNo);
 	}
 	@Override
-	public void makeTeam(String teamName) {
+	public void makeTeam(String teamName, int userNo) {
 		// TODO Auto-generated method stub
-		dao.makeTeam(teamName);
+		dao.makeTeam(teamName, userNo);
 	}
 	@Override
 	public void deleteTeam(int teamNo) {
