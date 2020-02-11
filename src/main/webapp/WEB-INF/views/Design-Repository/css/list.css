@@ -49,3 +49,49 @@
     display: flex; 
     justify-content: flex-end;
 }
+
+/* @media screen and (min-width: 1300px) {
+  .join__form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+  }
+  .textInput .join-input {
+      display: flex;
+      justify-content: baseline;
+      width: 800px !important;
+  }
+}
+@media screen and (max-width: 880px) {
+  .join__form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 400px;
+      margin: 0 auto;
+      padding: 40px;
+  }
+  .textInput .join-input {
+      display: flex;
+      justify-content: baseline;
+      width: 400px !important;
+  }
+}
+@media screen and (max-width: 660px) {
+  .join__form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 300px;
+      margin: 0 auto;
+      padding: 40px 5px;
+  }
+  .textInput .join-input {
+      display: flex;
+      justify-content: baseline;
+      width: 300px !important;
+  }
+} */
