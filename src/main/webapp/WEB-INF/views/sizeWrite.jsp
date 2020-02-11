@@ -17,7 +17,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
 
 <!-- 로컬 CSS Import -->
-<link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/mainSizeWrite.css" />'>
+	<link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/sizeForm.css" />'>
 </head>
 <body>
 	<button type="button" onclick="location.href='list'" class="ui secondary button homeButton">홈으로</button>

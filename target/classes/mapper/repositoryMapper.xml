@@ -34,9 +34,7 @@
 		SELECT * FROM MEMBERSIZE WHERE MEMBERNO = #{PARAM1}
 	</select>
 	<update id="modifyMemberSizeSave">
-		UPDATE MEMBERSIZE SET
-		TEAM_TEAMNO=#{teamNo},MEMBERNAME=#{memberName},MEMBERPHONE=#{memberPhone},MIDDLEFINGERREVERSE=#{middleFingerReverse},RINGFINGERREVERSE=#{ringFingerReverse},MIDDLEFINGERLEFT=#{middleFingerLeft},RINGFINGERRIGHT=#{ringFingerRight},INSERT1=#{insert1},INSERT2=#{insert2},MIDDLEFINGERFORWARD=#{middleFingerForward},RINGFINGERFORWARD=#{ringFingerForward},SPAN1=#{span1},SPAN2=#{span2},THUMBFORWARD=#{thumbForward},TUMBLEFT=#{tumbLeft},THUMB=#{thumb},THUMBRIGHT=#{thumbRight},THUMBREVERSE=#{thumbReverse},NO1=#{no1},NO2=#{no2},NO3=#{no3},REG_DATE=NOW()
-		WHERE MEMBERNO=#{memberNo}
+		UPDATE MEMBERSIZE SET TEAM_TEAMNO=#{teamNo},MEMBERNAME=#{memberName},MEMBERPHONE=#{memberPhone},MIDDLEFINGERREVERSE=#{middleFingerReverse},RINGFINGERREVERSE=#{ringFingerReverse},MIDDLEFINGERLEFT=#{middleFingerLeft},RINGFINGERRIGHT=#{ringFingerRight},INSERT1=#{insert1},INSERT2=#{insert2},MIDDLEFINGERFORWARD=#{middleFingerForward},RINGFINGERFORWARD=#{ringFingerForward},SPAN1=#{span1},SPAN2=#{span2},THUMBFORWARD=#{thumbForward},TUMBLEFT=#{tumbLeft},THUMB=#{thumb},THUMBRIGHT=#{thumbRight},THUMBREVERSE=#{thumbReverse},NO1=#{no1},NO2=#{no2},NO3=#{no3},REG_DATE=NOW() WHERE MEMBERNO=#{memberNo}
 	</update>
 	<select id="selectCount" resultType="int">
 		SELECT COUNT(memberNO) FROM
