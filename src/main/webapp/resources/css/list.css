@@ -33,3 +33,19 @@
 .btn-search:hover {
   background: #0b5bf7c7;
 }
+.flex {
+    display: flex; 
+    justify-content: space-between;
+}
+.aLink { 
+    padding-left: 3px;
+    width: 200px; 
+    display: flex; 
+    justify-content: space-between;
+}
+.create {
+    padding-right: 3px;
+    width:200px; 
+    display: flex; 
+    justify-content: flex-end;
+}

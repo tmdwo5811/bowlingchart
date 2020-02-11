@@ -1,6 +1,6 @@
 @import url(form.css);
 @import url(list.css);
-@import url(sizeWrite.css);
+@import url(sizeForm.css);
 
 
 body {
@@ -14,7 +14,7 @@ body {
   width: 100%;
   height: 60px;
   /* border-radius: 5px; */
-  background-image: url(../img/pinss.gif);
+  background-image: url(../mainImg/pinss.gif);
   background-size: 100px;
   background-position: center;
   background-repeat: repeat-x; /* ë°°ê²½ì´ë¯¸ì§€ ê°€ë¡œë°˜ë³µ */
