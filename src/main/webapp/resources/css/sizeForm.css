@@ -93,9 +93,13 @@
     top:-60px;
     left:0px;
 }
-.formSelectTeam{
+.regDate{
+	top:-100px;
+	left:437px;
+}
+.formSelectTeam, .teamName{
     position: absolute;
-    top:-101px;
+    top:-100px;
     left:180px;
 }
 .homeButton, .submitButton{
