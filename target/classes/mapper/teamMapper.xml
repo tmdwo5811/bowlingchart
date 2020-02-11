@@ -5,16 +5,16 @@
     
 <mapper namespace="com.palace.bowling_prj_dao.TeamDAO">
 	<select id="teamListDao" resultType="com.palace.bowling_prj_dto.RepositoryDTO">
-		SELECT TEAMNAME,TEAMNO FROM TEAM
+		SELECT TEAMNAME,TEAMNO FROM TEAM WHERE LOGIN_USERNO = #{userNo}
 	</select>
 	
 	<insert id="makeTeam">
-		INSERT INTO TEAM (TEAMNAME) VALUES (#{PARAM1})
+		INSERT INTO TEAM (LOGIN_USERNO,TEAMNAME) VALUES (#{userNo},#{teamName})
 	</insert>
 	
 	<delete id="deleteTeam" statementType="CALLABLE">
 		{
-			CALL DELETETEAM(#{PARAM1})
+			CALL DELETETEAM(#{teamNo})
 		}
 	</delete>
 </mapper>

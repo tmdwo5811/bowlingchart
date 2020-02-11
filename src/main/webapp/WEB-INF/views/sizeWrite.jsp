@@ -17,11 +17,10 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
 
 <!-- 로컬 CSS Import -->
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/mainCss/mainSizeWrite.css" />
+<link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/mainSizeWrite.css" />'>
 </head>
 <body>
-	<button type="submit" class="ui secondary button homeButton"
-		formaction="list">홈으로</button>
+	<button type="button" onclick="location.href='list'" class="ui secondary button homeButton">홈으로</button>
 	<form action="sizeSave" method="post">
 		<input type="hidden" name="userNo" value="${sessionScope.userNo}">
 
@@ -153,11 +152,9 @@
 	<hr>
 	<form action="deleteTeam" method="post">
 		<select class="ui dropdown teamSelect selectTeam" name="teamNo">
-			<option value="teamNo">임학 팀</option>
-			<option value="teamNo">부평 팀</option>
-			<option value="teamNo">계양 팀</option>
-			<option value="teamNo">문학 팀</option>
-			<option value="teamNo">남양 팀</option>
+			<c:forEach items="${teamList}" var="team">
+					<option value="${team.teamNo}">${team.teamName}팀</option>
+			</c:forEach>
 		</select> <br> <br>
 		<button class="ui primary button submitButton"
 			style="background-color: #ff1a1a;" type="submit">삭제</button>

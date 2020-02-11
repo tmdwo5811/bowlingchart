@@ -20,16 +20,17 @@ public class TeamDAOImpl implements TeamDAO{
 
 	
 	@Override
-	public ArrayList<RepositoryDTO> teamListDao() {
+	public ArrayList<RepositoryDTO> teamListDao(int userNo) {
 		// TODO Auto-generated method stub
 		TeamDAO idao = sql.getMapper(TeamDAO.class);
-		return idao.teamListDao();
+		return idao.teamListDao(userNo);
 	}
 	@Override
-	public void makeTeam(String teamName) {
+	public void makeTeam(String teamName, int userNo) {
 		// TODO Auto-generated method stub
 		TeamDAO idao = sql.getMapper(TeamDAO.class);
-		idao.makeTeam(teamName);
+		System.out.println(teamName+"생성 팀명");
+		idao.makeTeam(teamName, userNo);
 	}
 	@Override
 	public void deleteTeam(int teamNo) {
