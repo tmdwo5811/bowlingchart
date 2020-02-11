@@ -1,62 +1,244 @@
 <html>
+
 <head>
-<title>+ 왕궁볼링장 +</title>
+	<title>+ 왕궁볼링장 +</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<!-- 시멘틱 UI CDN -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
 </head>
+
 <body>
-	<h1>볼링장 지공 데이터 프로그램</h1>
-	<div>
-		<form action="#" method="get">
-			<input type="text" placeholder="회원 검색" name="userSearch">
-			<input type="submit" value="검색">
-		</form>
-		<a href="#">로그아웃</a> &nbsp;&nbsp;<a href="#">비밀번호 변경하기</a><br>
-		<table>
-			<tr>
-				<td>회원번호</td>
-				<td>회원이름</td>
-				<td>연락처</td>
-				<td>작성/수정일</td>
-				<td>수정 버튼</td>
-				<td>삭제 버튼</td>
-				<td><a href="#">지공 사이즈 작성</a></td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td><a href="#">윤승재</a></td>
-				<td>010-9394-3588</td>
-				<td>2020-02-02</td>
-				<td><a href="#">회원정보 수정</a></td>
-				<td><a href="#">회원정보 삭제</a></td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td><a href="#">김지안</a></td>
-				<td>010-4884-4500</td>
-				<td>2020-02-01</td>
-				<td><a href="#">회원정보 수정</a></td>
-				<td><a href="#">회원정보 삭제</a></td>
-			</tr>
-		</table>
-		<table>
-			<tr>
-				<td>
-					<a href="#">[ 처음 ]</a>
-					<a href="#">[ 이전 ]</a>
-					<span style="color:red">1</span>&nbsp;
-					<a href="#">2</a>&nbsp;
-					<a href="#">3</a>&nbsp;
-					<a href="#">4</a>&nbsp;
-					<a href="#">5</a>&nbsp;
-					<a href="#">6</a>&nbsp;
-					<a href="#">7</a>&nbsp;
-					<a href="#">8</a>&nbsp;
-					<a href="#">9</a>&nbsp;
-					<a href="#">10</a>&nbsp;
-					<a href="#">[ 다음 ]</a>
-					<a href="#">[ 끝 ]</a>
-				</td>
-			</tr>
-		</table>
-	</div>
+	<div class="list__wrapper">
+		<h1>볼링장 지공 데이터 프로그램</h1>
+		<div>
+			<!-- <div class="ui action input">
+			  <input type="text" placeholder="Search...">
+			  <button class="ui button"><font style="vertical-align: inherit;;"><font style="vertical-align: inherit;">검색</font></font></button>
+			</div> -->
+			<form action="#" method="get" class="searchDiv">
+				<input type="text" class="form-control searchForm" placeholder="회원 검색..." name="userSearch">
+				<button class="btn btn-search" >검색</button>
+			</form>
+			<a href="#">로그아웃</a> &nbsp;&nbsp;<a href="#">비밀번호 변경하기</a><br>
+
+
+			<table class="ui purple table">
+				<thead>
+					<tr>
+						<th>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">회원이름</font>
+							</font>
+						</th>
+						<th>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">회원연락처</font>
+							</font>
+						</th>
+						<th>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">작성/수정일</font>
+							</font>
+						</th>
+						<th>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">회원정보 수정/삭제</font>
+							</font>
+						</th>
+						<th>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">-</font>
+							</font>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">윤승재</font>
+							</font>
+						</td>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">010-0100-1010</font>
+							</font>
+						</td>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">2020-02-12</font>
+							</font>
+						</td>
+						<td><a href="#">수정하기</a></td>
+						<td><a href="#">삭제하기</a></td>
+					</tr>
+					<tr>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">김지안</font>
+							</font>
+						</td>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">303-3303-0330</font>
+							</font>
+						</td>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">2020-02-20</font>
+							</font>
+						</td>
+						<td><a href="#">수정하기</a></td>
+						<td><a href="#">삭제하기</a></td>
+					</tr>
+					<tr>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">박수진</font>
+							</font>
+						</td>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">303-3303-0330</font>
+							</font>
+						</td>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">2020-02-20</font>
+							</font>
+						</td>
+						<td><a href="#">수정하기</a></td>
+						<td><a href="#">삭제하기</a></td>
+					</tr>
+					<tr>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">김태희</font>
+							</font>
+						</td>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">303-3303-0330</font>
+							</font>
+						</td>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">2020-02-20</font>
+							</font>
+						</td>
+						<td><a href="#">수정하기</a></td>
+						<td><a href="#">삭제하기</a></td>
+					</tr>
+					<tr>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">한예슬</font>
+							</font>
+						</td>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">303-3303-0330</font>
+							</font>
+						</td>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">2020-02-20</font>
+							</font>
+						</td>
+						<td><a href="#">수정하기</a></td>
+						<td><a href="#">삭제하기</a></td>
+					</tr>
+					<tr>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">권상우</font>
+							</font>
+						</td>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">303-3303-0330</font>
+							</font>
+						</td>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">2020-02-20</font>
+							</font>
+						</td>
+						<td><a href="#">수정하기</a></td>
+						<td><a href="#">삭제하기</a></td>
+					</tr>
+					<tr>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">한효주</font>
+							</font>
+						</td>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">303-3303-0330</font>
+							</font>
+						</td>
+						<td>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">2020-02-20</font>
+							</font>
+						</td>
+						<td><a href="#">수정하기</a></td>
+						<td><a href="#">삭제하기</a></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- 
+			<table>
+				<tr>
+					<td>/</td>
+					<td>회원이름</td>
+					<td>연락처</td>
+					<td>작성/수정일</td>
+					<td>수정 버튼</td>
+					<td>삭제 버튼</td>
+					<td><a href="#">지공 사이즈 작성</a></td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td><a href="#">윤승재</a></td>
+					<td>010-9394-3588</td>
+					<td>2020-02-02</td>
+					<td><a href="#">회원정보 수정</a></td>
+					<td><a href="#">회원정보 삭제</a></td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td><a href="#">김지안</a></td>
+					<td>010-4884-4500</td>
+					<td>2020-02-01</td>
+					<td><a href="#">회원정보 수정</a></td>
+					<td><a href="#">회원정보 삭제</a></td>
+				</tr>
+			</table>
+	-->
+			<table>
+				<tr>
+					<td>
+						<a href="#">[ 처음 ]</a>&nbsp;
+						<a href="#">[ 이전 ]</a>
+						<span style="color:red; font-weight: bold;">1</span>&nbsp;
+						<a href="#">2</a>&nbsp;
+						<a href="#">3</a>&nbsp;
+						<a href="#">4</a>&nbsp;
+						<a href="#">5</a>&nbsp;
+						<a href="#">...</a>&nbsp;
+						<a href="#">[ 다음 ]</a>&nbsp;
+						<a href="#">[ 끝 ]</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div><!-- wrapper -->
 </body>
+
 </html>

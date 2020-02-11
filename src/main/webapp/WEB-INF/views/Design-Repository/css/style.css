@@ -1,4 +1,7 @@
 @import url(form.css);
+@import url(list.css);
+@import url(sizeWrite.css);
+
 
 body {
   background: #eee !important;
@@ -53,7 +56,8 @@ body {
   cursor: pointer;
 }
 
-.btn-lg {
+.btn-lg,
+.btn-search {
   background-color:  #004de4eb;
   background: linear-gradient(to bottom, #6497fbe3, #004de4eb);
   padding: 10px;
@@ -62,7 +66,7 @@ body {
   text-align: center;
   color: #fff;
   font-size: 17px;
-  margin-bottom: 20px;
+  margin: 60px 0px 20px;
 }
 
 .btn-lg:hover {
