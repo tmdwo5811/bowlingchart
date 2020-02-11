@@ -1,4 +1,4 @@
-$(".inputDiv input").change(function () {
+$(".textInput input").change(function () {
     if ($(this).val() != "") {
         $(this).addClass('filled');
     } else {
