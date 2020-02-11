@@ -19,7 +19,7 @@
 }
 .searchForm:focus {
     outline: none;
-    border: 1px solid #0b5bf7c7;;
+    border: 1px solid #0b5bf7c7;
 }
 .btn-search {
     border-top-left-radius: 0 !important;

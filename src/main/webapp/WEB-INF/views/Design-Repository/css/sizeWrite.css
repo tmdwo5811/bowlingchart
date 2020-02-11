@@ -1,5 +1,10 @@
 *{margin:0;padding:0;list-style-type: none;}
 /* body{overflow-x:hidden;} */
+body {
+    background: #eee;
+    /* position: relative; */
+    padding: 30px;
+}
 .inputDiv{
     width:800px;
     height:800px;
