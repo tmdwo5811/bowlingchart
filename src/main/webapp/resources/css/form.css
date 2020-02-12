@@ -51,7 +51,8 @@
   }
   
 .form-signin .form-control,
-.searchForm {
+.searchForm,
+.join__form .join-input {
     width: 220px !important;
     font-size: 16px;
     height: auto;
@@ -59,6 +60,6 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    border: 1px solid rgba(204, 202, 202, 0.5);
+    border: 1px solid rgba(204, 202, 202, 0.7);
     border-radius: 5px;
   }

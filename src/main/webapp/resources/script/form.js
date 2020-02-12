@@ -9,4 +9,9 @@ $(".textInput input").change(function () {
 // 메인 볼링핀
 setInterval(function () {
     $('#pins').css({ 'background-position': '-=0.3' });
+    $('#joinPins').css({ 'background-position': '-=0.3' });
 });
+
+//select box 효과
+$('.selectTeam').dropdown();
+$('.formSelectTeam').dropdown();
