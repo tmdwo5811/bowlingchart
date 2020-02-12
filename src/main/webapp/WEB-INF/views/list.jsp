@@ -15,16 +15,21 @@
 	<div class="list__wrapper">
 		<h1>볼링장 지공 데이터 프로그램</h1>
 		<div>
-			<!-- <div class="ui action input">
-			  <input type="text" placeholder="Search...">
-			  <button class="ui button"><font style="vertical-align: inherit;;"><font style="vertical-align: inherit;">검색</font></font></button>
-			</div> -->
 			<form action="list" method="get" class="searchDiv">
 				<input type="text" class="form-control searchForm" placeholder="회원 검색..." name="userSearch">
 				<button class="btn btn-search" type="submit">검색</button>
 			</form>
-			<a href="index">로그아웃</a> &nbsp;&nbsp;<a href="changeUserPwForm">비밀번호 변경하기</a><br>
-			<table class="ui purple table">
+			<!-- <a href="index">로그아웃</a> &nbsp;&nbsp;<a href="changeUserPwForm">비밀번호 변경하기</a><br>
+			 -->
+			<div class="flex">
+				<div class="aLink">
+					<a href="index">로그아웃</a> &nbsp;&nbsp;<a href="changeUserPwForm">비밀번호 변경하기</a>
+				</div>
+				<div class="create">
+					<a href="sizeWrite">지공 사이즈 작성하기</a>
+				</div>
+			</div>
+			 <table class="ui purple table">
 				<thead>
 					<tr>
 						<th>
