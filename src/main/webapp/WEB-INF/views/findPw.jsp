@@ -7,7 +7,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>볼링장 비밀번호 찾기 페이지</title>
+	<title>+ 지공 차트 프로그램 +</title>
 	<link rel="stylesheet" href='<c:url value="/resources/css/style.css" />'>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>

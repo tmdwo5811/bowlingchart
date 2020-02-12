@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 가입 페이지</title>
+<title>+ 지공 차트 프로그램 +</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href='<c:url value="/resources/css/style.css" />'>

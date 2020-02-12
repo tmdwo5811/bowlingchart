@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>+ 지공 차트 프로그램 +</title>
 <!-- jQuery CDN Import -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!-- 시멘틱 UI CDN -->
