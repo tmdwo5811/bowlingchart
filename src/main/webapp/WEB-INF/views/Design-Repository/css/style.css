@@ -1,6 +1,7 @@
 @import url(form.css);
 @import url(list.css);
 @import url(sizeForm.css);
+@import url(join.css);
 
 
 body {
@@ -25,30 +26,18 @@ body {
   margin-top: 200px;
   margin-bottom: 80px;
 }
-
+.form-signin-heading {
+  margin-bottom: 10px;
+}
 .form-signin {
   max-width: 220px;
-  padding: 15px 35px 45px;
+  padding: 35px 35px 40px;
   margin: 0 auto;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, .17) 2px 1px 30px,
   rgba(0, 0, 0, .02) 1px -3px 40px;
-}
-
-.form-signin input[type="text"] {
-  margin-bottom: 8px;
-}
-/* 
-.form-signin input[type="text"] {
-  margin-bottom: 8px;
-} */
-
-.form-signin input[type="password"] {
-  margin-bottom: 40px;
-  /* border-top-left-radius: 0;
-  border-top-right-radius: 0; */
 }
 
 .btn {
