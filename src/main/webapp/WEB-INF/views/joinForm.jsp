@@ -26,8 +26,6 @@
 		<form action="userJoin" method="post">
 			<div class="join__form">
 				<h2>회원 가입</h2>
-				<hr style="width: 500px; opacity: 0.4;">
-				<br>
 				<div class="textInput join-form">
 					<h4>이름</h4>
 					<input type="text" name="userName" class="join-input" id="name" />

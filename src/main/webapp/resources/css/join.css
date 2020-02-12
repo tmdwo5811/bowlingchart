@@ -29,6 +29,13 @@
 	margin-top: 90px;
 }
 
+.join__form h2 {
+    width: 500px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid lightgray;
+}
+
 .join__wrapper h4 {
 	margin: 0;
 	font-family: Impact, 'Arial Narrow Bold', sans-serif;
@@ -55,67 +62,83 @@
 }
 
 @media screen and (min-width: 1300px) {
-	.join__form {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		width: 800px;
-		margin: 0 auto;
-		padding: 40px;
-	}
-	.textInput .join-input {
-		display: flex;
-		justify-content: baseline;
-		width: 800px !important;
-	}
-	.joinBtn {
-		width: 500px;
-		display: flex;
-		justify-content: space-between;
-		margin:0 auto;
-	}
+    .join__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 880px;
+        margin: 0 auto;
+        padding: 40px;
+    }
+    .textInput .join-input {
+        display: flex;
+        justify-content: baseline;
+        width: 800px !important;
+    }
+    .joinBtn {
+        margin: 0 auto;
+        width: 500px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .join__form h2 {
+        width: 800px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid lightgray;
+    }
 }
-
 @media screen and (max-width: 880px) {
-	.join__form {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-		width: 400px;
-		margin: 0 auto;
-		padding: 40px;
-	}
-	.textInput .join-input {
-		display: flex;
-		justify-content: baseline;
-		width: 400px !important;
-	}
-	.joinBtn {
-		width: 400px;
-		display: flex;
-		justify-content: space-between;
-	}
+    .join__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 400px;
+        margin: 0 auto;
+        padding: 40px;
+    }
+    .textInput .join-input {
+        display: flex;
+        justify-content: baseline;
+        width: 400px !important;
+    }
+    .joinBtn {
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .join__form h2 {
+        width: 400px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid lightgray;
+    }
 }
-
 @media screen and (max-width: 660px) {
-	.join__form {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-		width: 300px;
-		margin: 0 auto;
-		padding: 40px 5px;
-	}
-	.textInput .join-input {
-		display: flex;
-		justify-content: baseline;
-		width: 300px !important;
-	}
-	.joinBtn {
-		width: 300px;
-		display: flex;
-		justify-content: space-between;
-	}
+    .join__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 300px;
+        margin: 0 auto;
+        padding: 40px 5px;
+    }
+    .textInput .join-input {
+        display: flex;
+        justify-content: baseline;
+        width: 300px !important;
+    }
+    .joinBtn {
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .join__form h2 {
+        width: 300px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid lightgray;
+    }
 }
 /* 
   키보드 모양 버튼
