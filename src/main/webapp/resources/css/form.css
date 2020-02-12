@@ -1,3 +1,4 @@
+
 .textInput {
     position: relative !important;
     margin-bottom: 50px;
@@ -51,7 +52,7 @@
   
 .form-signin .form-control,
 .searchForm,
-.join__wrapper .join-input {
+.join__form .join-input {
     width: 220px !important;
     font-size: 16px;
     height: auto;

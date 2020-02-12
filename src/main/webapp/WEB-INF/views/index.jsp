@@ -1,18 +1,37 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>왕궁볼링장 로그인 페이지</title>
+<link rel="stylesheet" href='<c:url value="/resources/css/style.css" />'>
+<meta name="viewport" content="width=device-width, initial-scale=0.9" />
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 	<form action="login" method="post">
-		아이디 : <input type="text" name="aId" placeholder="아이디를 입력하세요">
-		비밀번호 : <input type="password" name="aPw" placeholder="비밀번호를 입력하세요">
-		<input type="submit" value="로그인" />
+		<div class="wrapper">
+			<div id="pins"></div>
+			<div class="form-signin">
+				<h2 class="form-signin-heading">LOGIN</h2>
+				<br>
+				<div class="textInput">
+					<input type="text" name="aId" class="form-control" id="id" />
+					<label for="id">아이디를 입력하세요</label>
+				</div>
+				<div class="textInput">
+					<input type="password" name="aPw" class="form-control" id="pw" />
+					<label for="pw">비밀번호를 입력하세요</label>
+				</div>
+				<button class="btn btn-lg" type="submit">로그인</button>
 	</form>
-	<a href="joinForm">회원 가입</a> &nbsp;&nbsp; <a href="findPwForm">비밀번호 찾기</a>
-	<h2>${resultMessage}</h2>
+	<input class="btn btn__signup" type="button" value="회원가입" onclick="location.href='joinForm'" />
+	<input class="btn btn__pwfind" type="button" value="비밀번호찾기" onclick="location.href='findPwForm'" />
+	</div>
+	</div>
+	<script type="text/javascript" src='<c:url value="/resources/script/form.js" />'></script>
 </body>
 </html>

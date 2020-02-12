@@ -1,17 +1,12 @@
 *{margin:0;padding:0;list-style-type: none;}
 /* body{overflow-x:hidden;} */
-body {
-    background: #eee;
-    /* position: relative; */
-    padding: 30px;
-}
 .inputDiv{
     width:800px;
     height:800px;
     margin:140px auto;
     margin-bottom:20px;
     position: relative;
-    background-image: url("../img/chartImg.png") ;
+    background-image: url("../mainImg/chartImg.png") ;
     background-position: center center;
     background-repeat: no-repeat;
 }
@@ -98,9 +93,13 @@ body {
     top:-60px;
     left:0px;
 }
-.formSelectTeam{
+.regDate{
+	top:-100px;
+	left:437px;
+}
+.formSelectTeam, .teamName{
     position: absolute;
-    top:-101px;
+    top:-100px;
     left:180px;
 }
 .homeButton, .submitButton{
@@ -130,7 +129,7 @@ body {
 .textInput input.filled ~ label,
 .textInput input:focus ~ label {
     padding:0.1em 10px;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 400;
     position: absolute;
 }

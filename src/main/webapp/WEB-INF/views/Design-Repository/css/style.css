@@ -1,6 +1,6 @@
 @import url(form.css);
 @import url(list.css);
-@import url(sizeWrite.css);
+@import url(sizeForm.css);
 @import url(join.css);
 
 
@@ -18,8 +18,7 @@ body {
   background-image: url(../img/pinss.gif);
   background-size: 100px;
   background-position: center;
-  background-repeat: repeat-x; /* ë°°ê²½ì´ë¯¸ì§€ ê°€ë¡œë°˜ë³µ */
-  /* ì¶”ê°€ */
+  background-repeat: repeat-x; 
 }
 
 .wrapper {
@@ -76,6 +75,7 @@ body {
 .btn-home:hover {
   background: #2a2a2bc7;
 }
+
 .btn__signup {
   color: #2c6bff;
 }
