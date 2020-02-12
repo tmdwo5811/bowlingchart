@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<title>+ 왕궁볼링장 +</title>
+<title>+ 지공 차트 프로그램 +</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href='<c:url value="/resources/css/style.css" />'>
@@ -13,7 +13,7 @@
 
 <body>
 	<div class="list__wrapper">
-		<h1>볼링장 지공 데이터 프로그램</h1>
+		<h1>볼링장 지공 차트 데이터 프로그램</h1>
 		<div>
 			<form action="list" method="get" class="searchDiv">
 				<input type="text" class="form-control searchForm" placeholder="회원 검색..." name="userSearch">
