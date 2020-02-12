@@ -15,7 +15,7 @@
 <!-- 로컬 CSS Import -->
 <link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/sizeForm.css" />'>
 </head>
-<body>
+<body style="background-color:#eee;padding:30px;">
 	<button type="button" onclick="location.href='list'" class="ui secondary button homeButton">홈으로</button>
 	<form action="modifyMemberSizeSave" method="post">
 		<input type="hidden" name="userNo" value="${sessionScope.userNo}">
@@ -123,15 +123,8 @@
 			</div>
 		</div>
 		<button class="ui primary button submitButton" type="submit">수정하기</button>
+	<br><br>
 	</form>
-	<script>
-	$(function(){
-		$(".textInput input").addClass('filled');
-		$('.selectTeam').dropdown();
-		$('.formSelectTeam').dropdown();
-	})
-	
-	</script>
-
+	<script type="text/javascript" src='<c:url value="/resources/script/form.js" />'></script>
 </body>
 </html>
