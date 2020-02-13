@@ -72,7 +72,8 @@
 				</div>
 				<div class="joinBtn">
 					<button class="btn btn-lg" type="submit">회원가입</button>
-					<button type="button" class="btn btn-home" onclick="location.href='index'">홈으로</button>
+					<button type="button" class="btn btn-home" onclick="location.href='index'"
+					style="margin-left: 10px;">홈으로</button>
 				</div>
 			</div>
 		</form>
