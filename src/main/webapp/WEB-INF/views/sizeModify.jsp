@@ -125,6 +125,6 @@
 		<button class="ui primary button submitButton" type="submit">수정하기</button>
 	<br><br>
 	</form>
-	<script type="text/javascript" src='<c:url value="/resources/script/form.js" />'></script>
+	<script type="text/javascript" src='<c:url value="/resources/script/sizeForm.js" />'></script>
 </body>
 </html>
