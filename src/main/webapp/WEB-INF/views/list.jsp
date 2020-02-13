@@ -91,10 +91,10 @@
 				<tr>
 					<td>
 					<c:if test="${navi.curBlock > 1}">
-						<a href="index?curPage=1&userSearch=${userSearch}">[ 처음 ]</a>
+						<a href="list?curPage=1&userSearch=${userSearch}">[ 처음 ]</a>
 					</c:if>
 					<c:if test="${navi.curBlock > 1}">
-						<a href="index?curPage=${navi.prevPage }&userSearch=${userSearch}">[ 이전 ]</a>
+						<a href="list?curPage=${navi.prevPage }&userSearch=${userSearch}">[ 이전 ]</a>
 					</c:if>
 					<c:forEach var="num" begin="${navi.blockBegin }" end="${navi.blockEnd }">
 						<c:choose>
@@ -102,15 +102,15 @@
 								<span style="color: red; font-weight: bold;">${num }</span>&nbsp;
 							</c:when>
 							<c:otherwise>
-							<a href="index?curPage=${num}&userSearch=${userSearch}">${num }</a>&nbsp;
+							<a href="list?curPage=${num}&userSearch=${userSearch}">${num }</a>&nbsp;
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
 					<c:if test="${navi.curBlock <= navi.totBlock }">
-					<a href="index?curPage=${navi.nextPage }&userSearch=${userSearch}">[ 다음 ]</a>
+					<a href="list?curPage=${navi.nextPage }&userSearch=${userSearch}">[ 다음 ]</a>
 					</c:if>
 					<c:if test="${navi.curPage < navi.totPage }">
-					<a href="index?curPage=${navi.totPage }&userSearch=${userSearch}">[ 끝 ]</a>
+					<a href="list?curPage=${navi.totPage }&userSearch=${userSearch}">[ 끝 ]</a>
 					</c:if>
 					</td>
 				</tr>

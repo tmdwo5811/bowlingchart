@@ -60,7 +60,6 @@
 			<mapping path="/modifyMemberSizeSave"/>
 			<mapping path="/changeUserPwForm"/>
 			<mapping path="/changePassword"/>
-			<mapping path="*/*.css"/>
 			<beans:ref bean="authenticationInterceptor" />
 		</interceptor>
 	</interceptors>
