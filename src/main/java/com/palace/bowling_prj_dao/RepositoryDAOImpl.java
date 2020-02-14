@@ -55,9 +55,9 @@ public class RepositoryDAOImpl implements RepositoryDAO{
 		idao.modifyMemberSizeSave(rDto);
 	}
 	@Override
-	public int selectCount(String userSearch) {
+	public int selectCount(String userSearch, int userNo) {
 		// TODO Auto-generated method stub
 		RepositoryDAO idao = sql.getMapper(RepositoryDAO.class);
-		return idao.selectCount(userSearch);
+		return idao.selectCount(userSearch, userNo);
 	}
 }

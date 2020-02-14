@@ -49,9 +49,9 @@ public class RepositoryServiceImpl implements RepositoryService{
 		dao.modifyMemberSizeSave(rDto);
 	}
 	@Override
-	public int selectCount(String userSearch) {
+	public int selectCount(String userSearch, int userNo) {
 		// TODO Auto-generated method stub
-		return dao.selectCount(userSearch);
+		return dao.selectCount(userSearch, userNo);
 	}
 	
 }
