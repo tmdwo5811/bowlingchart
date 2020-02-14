@@ -1,0 +1,13 @@
+.errorWrapper {
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+  background-color: powderblue;
+  color: red; 
+}
