@@ -15,5 +15,5 @@ public interface RepositoryDAO {
 	public RepositoryDTO sizeView(int memberNo) throws Exception;
 	public RepositoryDTO modifyMemberSize(int memberNo) throws Exception;
 	public void modifyMemberSizeSave(RepositoryDTO rDto)  throws Exception;
-	public int selectCount(@Param("userSearchCount") String userSearch);
+	public int selectCount(@Param("userSearchCount") String userSearch,@Param("loginUserNo") int userNo);
 }

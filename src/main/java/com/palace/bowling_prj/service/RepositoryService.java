@@ -16,7 +16,7 @@ public interface RepositoryService {
 	public RepositoryDTO sizeView(int memberNo) throws Exception;
 	public RepositoryDTO modifyMemberSize(int memberNo) throws Exception;
 	public void modifyMemberSizeSave(RepositoryDTO rDto)  throws Exception;
-	public int selectCount(String userSearch);
+	public int selectCount(String userSearch, int userNo);
 	
 	//준비중인 코드
 	//검색 -> public ArrayList<RepositoryDto> userSearch(@Param("S_Val1") String searchKeyWord) throws Exception;

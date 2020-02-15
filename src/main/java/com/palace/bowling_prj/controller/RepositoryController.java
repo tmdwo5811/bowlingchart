@@ -42,7 +42,7 @@ public class RepositoryController {
 		System.out.println(curPage + "<= 처음으로 눌렀을때 가져온 값");
 		System.out.println(userSearch + "<= 검색하려는 회원 명");
 		int userNo = (Integer) session.getAttribute("userNo");
-		int count = rService.selectCount(userSearch);
+		int count = rService.selectCount(userSearch, userNo);
 		System.out.println("토탈 회원 데이터" + count);
 		PageNavigator pp = new PageNavigator(count, curPage);
 		int start = pp.getPageBegin();
