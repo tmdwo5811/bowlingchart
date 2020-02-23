@@ -11,7 +11,13 @@ JAVA / Spring 을 이용하여 구현하였고, 볼링장에서 유용하게 사
   
 컴포넌트 구조 설명
 ----------
-*
+
+<img alt="웹 프로그램 컴포넌트 구조 이미지 사진"src="./readMeImg/component.png" style="float:left;">
+
+해당 컴포넌트는  
+이런방식이다  
+줄바꿈도 된다.  
+
 
 
 
