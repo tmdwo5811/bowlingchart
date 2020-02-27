@@ -80,8 +80,9 @@ public class LoginController {
 	}
 
 	@RequestMapping("/login")
-	public String login(HttpSession session, LoginDTO dto, HttpServletRequest request, Model model) throws Exception {
-
+	public String login(HttpSession session, LoginDTO dto, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		try {
 			UserDTO mem = mService.loadUser(dto.getaId());
 			if (passEncoder.matches(dto.getaPw(), mem.getUserPw())) {
@@ -92,12 +93,14 @@ public class LoginController {
 				return "redirect:list";
 			} else {
 				System.out.println("비밀번호 불일치");
-				model.addAttribute("resultMessage", "패스워드가 틀립니다.");
+				out.println("<script>alert('패스워드가 다릅니다.');</script>");
+				out.flush();
 				return "index";
 			}
 		} catch (Exception e) {
 			System.out.println(e + "없는 계정입니다.");
-			model.addAttribute("resultMessage", "존재하지 않는 계정입니다.");
+			out.println("<script>alert('존재하지 않는 계정입니다.');</script>");
+			out.flush();
 			return "index";
 		}
 	}
