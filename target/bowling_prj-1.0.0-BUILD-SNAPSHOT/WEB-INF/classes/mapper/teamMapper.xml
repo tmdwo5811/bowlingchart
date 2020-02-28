@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.palace.bowling_prj_dao.TeamDAO">
+	<select id="teamListDao" resultType="com.palace.bowling_prj_dto.RepositoryDTO">
+		SELECT TEAMNAME,TEAMNO FROM TEAM WHERE LOGIN_USERNO = #{userNo}
+	</select>
+	
+	<insert id="makeTeam">
+		INSERT INTO TEAM (LOGIN_USERNO,TEAMNAME) VALUES (#{userNo},#{teamName})
+	</insert>
+	
+	<delete id="deleteTeam" statementType="CALLABLE">
+		{
+			CALL DELETETEAM(#{teamNo})
+		}
+	</delete>
+</mapper>
