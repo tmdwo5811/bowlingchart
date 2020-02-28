@@ -1,0 +1,143 @@
+.join__wrapper {
+    padding: 30px;
+}
+.homeBtn {
+    background-color: lightgrey;
+    width: 90px;
+    text-align: center;
+    padding: 10px 7px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: baseline;
+}
+.homeBtn {
+    border-right: 20px solid transparent;
+    border-top: 10px solid #9e9ea0c7;
+    border-bottom: 20px solid #9e9ea0c7;
+    border-right: 20px solid #bdbdbdc7;
+    border-left: 20px solid #afafb1ce;
+}
+.join__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 550px;
+    margin: 0 auto;
+    padding: 40px;
+}
+.join__form h2 {
+    width: 500px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid lightgray;
+}
+.join__wrapper h4 {
+    margin: 0;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+}
+.join-form {
+    margin-bottom: 60px;
+}
+.textInput .join-input {
+    display: flex;
+    justify-content: baseline;
+    width: 500px !important;
+}
+.textInput .email-form {
+    width: 230px !important;
+}
+.joinBtn {
+    margin: 0 auto;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 1300px) {
+    .join__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 880px;
+        margin: 0 auto;
+        padding: 40px;
+    }
+    .textInput .join-input {
+        display: flex;
+        justify-content: baseline;
+        width: 800px !important;
+    }
+    .joinBtn {
+        margin: 0 auto;
+        width: 500px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .join__form h2 {
+        width: 800px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid lightgray;
+    }
+}
+@media screen and (max-width: 880px) {
+    .join__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 400px;
+        margin: 0 auto;
+        padding: 40px;
+    }
+    .textInput .join-input {
+        display: flex;
+        justify-content: baseline;
+        width: 400px !important;
+    }
+    .joinBtn {
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .join__form h2 {
+        width: 400px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid lightgray;
+    }
+}
+@media screen and (max-width: 660px) {
+    .join__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 300px;
+        margin: 0 auto;
+        padding: 40px 5px;
+    }
+    .textInput .join-input {
+        display: flex;
+        justify-content: baseline;
+        width: 300px !important;
+    }
+    .joinBtn {
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .join__form h2 {
+        width: 300px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid lightgray;
+    }
+}
+/* 
+  키보드 모양 버튼
+    border-top: 10px solid #0b5bf7c7;
+    border-bottom: 20px solid #0b5bf7c7;
+    border-right: 20px solid #6595f3b7;
+    border-left: 20px solid #0c46bbc7;
+*/

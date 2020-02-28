@@ -19,7 +19,6 @@
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/css/**" location="/resources/css" />
 	<resources mapping="/resources/**" location="/resources/" />
-	<resources mapping="/script /**" location="/resources/script" />
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
@@ -31,9 +30,9 @@
 	<!--  데이터 소스 -->
 	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<beans:property name="url" value="jdbc:mysql://140.238.15.96:3306/bowlingdb?serverTimezone=Asia/Seoul&amp;useSSL=false&amp;allowPublicKeyRetrieval=true" />
-		<beans:property name="username" value="santjmysql" />
-		<beans:property name="password" value="Ysj*3575811" />
+		<beans:property name="url" value="jdbc:mysql://localhost:3306/bowlingdb?useSSL=false&amp;serverTimezone=Asia/Seoul" />
+		<beans:property name="username" value="root" />
+		<beans:property name="password" value="1234" />
 	</beans:bean>
 
 	

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.palace.bowling_prj_dao.RepositoryDAO">
+	<!-- or phone like '%'||#{userSearch}||'%') -->
+	<select id="indexView"
+		resultType="com.palace.bowling_prj_dto.RepositoryDTO">
+		{
+		CALL INDEXVIEW(#{userSearch},#{start},#{end},#{userNo})
+		}
+	</select>
+	<insert id="sizeWrite">
+		{
+		CALL
+		SIZEWRITE(#{userNo},#{memberName},#{memberPhone},#{teamNo},#{middleFingerReverse},#{ringFingerReverse},#{middleFingerLeft},#{ringFingerRight},#{insert1},#{insert2},#{middleFingerForward},#{ringFingerForward},#{span1},#{span2},#{thumbForward},#{tumbLeft},#{thumb},#{thumbRight},#{thumbReverse},#{no1},#{no2},#{no3})
+		}
+	</insert>
+	<delete id="deleteMemberSize" statementType="CALLABLE">
+		{
+		CALL
+		DELETEMEMBERSIZE(#{PARAM1})
+		}
+	</delete>
+	<select id="sizeView"
+		resultType="com.palace.bowling_prj_dto.RepositoryDTO">
+		SELECT
+		MEMBERNO,MEMBERNAME,MEMBERPHONE,MIDDLEFINGERREVERSE,RINGFINGERREVERSE,MIDDLEFINGERLEFT,RINGFINGERRIGHT,INSERT1,INSERT2,MIDDLEFINGERFORWARD,RINGFINGERFORWARD,SPAN1,SPAN2,THUMBFORWARD,TUMBLEFT,THUMB,THUMBRIGHT,THUMBREVERSE,NO1,NO2,NO3,REG_DATE,TEAMNAME,TEAM_TEAMNO FROM
+		MEMBERSIZE AS A INNER JOIN TEAM AS B ON A.TEAM_TEAMNO = B.TEAMNO WHERE
+		MEMBERNO = #{PARAM1}
+	</select>
+	<select id="modifyMemberSize"
+		resultType="com.palace.bowling_prj_dto.RepositoryDTO">
+		SELECT * FROM MEMBERSIZE WHERE MEMBERNO = #{PARAM1}
+	</select>
+	<update id="modifyMemberSizeSave">
+		UPDATE MEMBERSIZE SET TEAM_TEAMNO=#{teamNo},MEMBERNAME=#{memberName},MEMBERPHONE=#{memberPhone},MIDDLEFINGERREVERSE=#{middleFingerReverse},RINGFINGERREVERSE=#{ringFingerReverse},MIDDLEFINGERLEFT=#{middleFingerLeft},RINGFINGERRIGHT=#{ringFingerRight},INSERT1=#{insert1},INSERT2=#{insert2},MIDDLEFINGERFORWARD=#{middleFingerForward},RINGFINGERFORWARD=#{ringFingerForward},SPAN1=#{span1},SPAN2=#{span2},THUMBFORWARD=#{thumbForward},TUMBLEFT=#{tumbLeft},THUMB=#{thumb},THUMBRIGHT=#{thumbRight},THUMBREVERSE=#{thumbReverse},NO1=#{no1},NO2=#{no2},NO3=#{no3},REG_DATE=NOW() WHERE MEMBERNO=#{memberNo}
+	</update>
+	<select id="selectCount" resultType="int">
+		SELECT COUNT(memberNO) FROM	MEMBERSIZE where membername like CONCAT('%',#{userSearchCount},'%') AND login_userno = #{loginUserNo}
+	</select>
+
+</mapper>
