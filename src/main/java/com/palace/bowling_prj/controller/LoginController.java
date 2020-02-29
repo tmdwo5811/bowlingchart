@@ -120,18 +120,24 @@ public class LoginController {
 		if (result.hasErrors()) {
 			return "joinForm";
 		} else {
-			UserDTO mem = mService.loadUser(uDto.getUserId());
-			if(mem.getUserId() != null) {
-				out.println("<script>alert('이미 가입된 아이디 입니다.');</script>");
+			try {
+				UserDTO mem = mService.loadUser(uDto.getUserId());
+				if(mem.getUserId() == null) {
+					String encode = passEncoder.encode(uDto.getUserPw());
+					uDto.setUserPw(encode);
+					mService.userJoin(uDto);
+					out.println("<script>alert('회원가입이 완료되었습니다.');</script>");
+					out.flush();
+					return "redirect:index";
+				}else {
+					out.println("<script>alert('이미 가입된 아이디 입니다.');</script>");
+					out.flush();
+					return "joinForm";
+				}
+			}catch(Exception e) {
+				out.println("<script>alert('오류');</script>");
 				out.flush();
 				return "joinForm";
-			} else {
-				String encode = passEncoder.encode(uDto.getUserPw());
-				uDto.setUserPw(encode);
-				mService.userJoin(uDto);
-				out.println("<script>alert('회원가입이 완료되었습니다.');</script>");
-				out.flush();
-				return "redirect:index";
 			}
 		}
 	}
