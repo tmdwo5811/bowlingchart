@@ -26,8 +26,6 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	
-	
 	<!--  데이터 소스 -->
 	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
@@ -36,7 +34,6 @@
 		<beans:property name="password" value="Ysj*3575811" />
 	</beans:bean>
 
-	
 	<!-- mybatis Sql세션팩토리 빈 -->
 	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />

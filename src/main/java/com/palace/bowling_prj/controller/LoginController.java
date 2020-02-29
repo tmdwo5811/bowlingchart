@@ -62,26 +62,30 @@ public class LoginController {
 	}
 
 	@RequestMapping("/changePassword")
-	public String changeUserPw(HttpSession session, HttpServletRequest request, Model model) throws Exception {
-
+	public String changeUserPw(HttpSession session, HttpServletRequest request, Model model, HttpServletResponse response) throws Exception {
+		
+		response.setContentType("text/html;charset=utf-8");
 		UserDTO mem = mService.loadUser((String) session.getAttribute("userId"));
-
+		PrintWriter out = response.getWriter();
 		if (passEncoder.matches(request.getParameter("userPw"), mem.getUserPw())) {
 			System.out.println("비밀번호 일치");
 			String userId = (String) session.getAttribute("userId");
 			String encode = passEncoder.encode(request.getParameter("userNewPw"));
 			mService.changeUserPw(encode, userId);
 			session.invalidate();
+			out.println("<script>alert('비밀번호가 변경 처리 되었습니다.');</script>");
+			out.flush();
 			return "index";
 		} else {
-			System.out.println("현재 비밀번호가 틀렸습니다.");
-			model.addAttribute("resultMessage", "현재 비밀번호가 틀렸습니다.");
+			out.println("<script>alert('현재 비밀번호가 옮바르지 않습니다. 다시 확인하여 주세요');</script>");
+			out.flush();
 			return "changePw";
 		}
 	}
 
 	@RequestMapping("/login")
-	public String login(HttpSession session, LoginDTO dto, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public String login(HttpSession session, LoginDTO dto, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 
@@ -108,35 +112,47 @@ public class LoginController {
 	}
 
 	@RequestMapping("/userJoin")
-	public String userJoin(@ModelAttribute @Valid UserDTO uDto, BindingResult result) throws Exception {
+	public String userJoin(@ModelAttribute @Valid UserDTO uDto, BindingResult result,HttpServletResponse response) throws Exception {
 		// 회원가입 실행
 
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
 		if (result.hasErrors()) {
 			return "joinForm";
 		} else {
-			String encode = passEncoder.encode(uDto.getUserPw());
-			uDto.setUserPw(encode);
-			mService.userJoin(uDto);
-			return "redirect:index";
+			UserDTO mem = mService.loadUser(uDto.getUserId());
+			if(mem.getUserId() != null) {
+				out.println("<script>alert('이미 가입된 아이디 입니다.');</script>");
+				out.flush();
+				return "joinForm";
+			} else {
+				String encode = passEncoder.encode(uDto.getUserPw());
+				uDto.setUserPw(encode);
+				mService.userJoin(uDto);
+				out.println("<script>alert('회원가입이 완료되었습니다.');</script>");
+				out.flush();
+				return "redirect:index";
+			}
 		}
 	}
 
 	@RequestMapping("/findPw")
-	public String findUserPw(@ModelAttribute UserDTO uDto, HttpServletResponse response, Model model){
-		
+	public String findUserPw(@ModelAttribute UserDTO uDto, HttpServletResponse response, Model model) throws IOException {
+
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
 		try {
 			mService.updatePw(response, uDto);
-			PrintWriter out = response.getWriter();
-			response.setContentType("text/html;charset=utf-8");
-			out.println("<script language='javascript'>");
-			out.println("alert('이메일로 임시 비밀번호가 발송되었습니다.')");
-			out.println("</script>");
+//			out.println("<script language='javascript'>");
+//			out.println("alert('이메일로 임시 비밀번호가 발송되었습니다.')");
+//			out.println("</script>");
 			out.flush();
 			return "index";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			model.addAttribute("resultMessage", "없는 이메일 또는 옮바르지않은 이메일 형식입니다.");
+			out.println("<script>alert('없는 이메일 또는 옮바르지 않은 이메일 형식입니다.');</script>");
+			out.flush();
 			return "findPw";
 		}
 	}

@@ -39,16 +39,18 @@ public class UserServiceImpl implements UserService {
 		dao.changeUserPw(encode, userId);
 	}
 	@Override
-	public void updatePw(HttpServletResponse response, UserDTO uDto) throws Exception {
+	public String updatePw(HttpServletResponse response, UserDTO uDto) throws Exception {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		if(uDto.getUserId() == null) {
-			out.print("아이디가 없습니다.");
-			out.close();
+			out.println("<script>alert('아이디가 없습니다.');</script>");
+			out.flush();
+			return "";
 		} else if(!uDto.getUserEmail().equals(dao.loadUser(uDto.getUserId()).getUserEmail())) {
-			out.print("잘못된 이메일 입니다.");
-			out.close();
+			out.println("<script>alert('잘못된 이메일 입니다.');</script>");
+			out.flush();
+			return "";
 		} else {
 			String pw = "";
 			for (int i=0;i<12;i++) {
@@ -59,8 +61,9 @@ public class UserServiceImpl implements UserService {
 			dao.updatePw(uDto);
 			uDto.setUserPw(pw);
 			dao.sendEmail(uDto,"findPw");
-			out.print("이메일로 임시 비밀번호를 발송하였습니다.");
-			out.close();
+			out.println("<script>alert('이메일로 임시 비밀번호를 발송하였습니다.')</script>");
+			out.flush();
+			return "";
 		}
 	}
 	
