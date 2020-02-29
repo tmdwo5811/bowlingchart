@@ -23,7 +23,6 @@ function joinFormCheck(){
 			form.userName.focus();
 			return false;
 		} else {
-			alert("회원가입이 완료되었습니다.")
 			form.submit();
 		}
 	}
