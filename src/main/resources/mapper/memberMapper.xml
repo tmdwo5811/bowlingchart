@@ -4,10 +4,9 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.palace.bowling_prj_dao.UserDAO">
 	<insert id="userJoin">
-		insert into login (userid,userpw,useremail,username) values (#{userId},#{userPw},#{userEmail},#{userName})
+		insert into LOGIN (userid,userpw,useremail,username) values (#{userId},#{userPw},#{userEmail},#{userName})
 	</insert>
-	<select id="loadUser"
-		resultType="com.palace.bowling_prj_dto.UserDTO">
+	<select id="loadUser" resultType="com.palace.bowling_prj_dto.UserDTO">
 		SELECT * FROM LOGIN WHERE USERID = #{aId}
 	</select>
 	<update id="updatePw">

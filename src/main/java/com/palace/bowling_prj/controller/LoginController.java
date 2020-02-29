@@ -80,10 +80,10 @@ public class LoginController {
 	}
 
 	@RequestMapping("/login")
-	public String login(HttpSession session, LoginDTO dto, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		response.setContentType("text/html; charset=UTF-8");
+	public String login(HttpSession session, LoginDTO dto, HttpServletRequest request) {
+		//response.setContentType("text/html; charset=UTF-8");
 		//PrintWriter out = response.getWriter();
-		
+
 		try {
 			UserDTO mem = mService.loadUser(dto.getaId());
 			if (passEncoder.matches(dto.getaPw(), mem.getUserPw())) {
