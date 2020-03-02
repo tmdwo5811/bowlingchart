@@ -48,7 +48,7 @@
 				</div>
 				<div class="joinBtn">
 					<button class="btn btn-lg" type="button" onclick="joinFormCheck()">회원가입</button>
-					<button type="submit" class="btn btn-home" style="margin-left: 10px;">홈으로</button>
+					<button type="submit" class="btn btn-home" onclick="location.href='index'" style="margin-left: 10px;">홈으로</button>
 				</div>
 			</div>
 		</form>
