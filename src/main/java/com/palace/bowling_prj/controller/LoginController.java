@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.palace.bowling_prj.service.UserServiceImpl;
 import com.palace.bowling_prj_dto.LoginDTO;
@@ -140,8 +141,8 @@ public class LoginController {
 			return "redirect:index";
 		}
 	}
-
-	@RequestMapping("idCheck")
+	@ResponseBody
+	@RequestMapping("/idCheck")
 	public int idCheck(UserDTO uDto) throws Exception {
 		int result = mService.idCheck(uDto);
 		return result;

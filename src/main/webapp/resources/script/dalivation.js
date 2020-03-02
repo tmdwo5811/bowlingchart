@@ -57,8 +57,9 @@ function check(re, what, message){
 
 //ID 중복 체크
 function idCheck(){
+	alert("아이디중복체크");
 	$.ajax({
-		url : "idCheck",
+		url : "/idCheck",
 		type : "post",
 		dataType : "json",
 		data : {"userId" : $("#id").val()},

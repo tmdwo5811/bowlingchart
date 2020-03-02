@@ -85,7 +85,8 @@ public class UserDAOImpl implements UserDAO{
 	@Override
 	public int idCheck(UserDTO uDto) throws Exception {
 		// TODO Auto-generated method stub
-		int result = sql.selectOne("memberMapper.idCheck",uDto);
+		UserDAO dao = sql.getMapper(UserDAO.class);
+		int result = dao.idCheck(uDto);
 		return result;
 	}
 }
