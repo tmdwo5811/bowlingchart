@@ -62,8 +62,9 @@ public class LoginController {
 	}
 
 	@RequestMapping("/changePassword")
-	public String changeUserPw(HttpSession session, HttpServletRequest request, Model model, HttpServletResponse response) throws Exception {
-		
+	public String changeUserPw(HttpSession session, HttpServletRequest request, Model model,
+			HttpServletResponse response) throws Exception {
+
 		response.setContentType("text/html;charset=utf-8");
 		UserDTO mem = mService.loadUser((String) session.getAttribute("userId"));
 		PrintWriter out = response.getWriter();
@@ -112,39 +113,43 @@ public class LoginController {
 	}
 
 	@RequestMapping("/userJoin")
-	public String userJoin(@ModelAttribute @Valid UserDTO uDto, BindingResult result,HttpServletResponse response) throws Exception {
+	public String userJoin(@ModelAttribute @Valid UserDTO uDto, BindingResult result, HttpServletResponse response)
+			throws Exception {
 		// 회원가입 실행
 
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
+		int checkResult = mService.idCheck(uDto);
 		if (result.hasErrors()) {
-			//ID 중복 체크 메소드 수정해야함
+			// ID 중복 체크 메소드 수정해야함
 			return "joinForm";
 		} else {
 			try {
-				UserDTO mem = mService.loadUser(uDto.getUserId());
-				if(mem.getUserId() == null) {
+				if (checkResult == 1) {
+					return "joinForm";
+				} else if (checkResult == 0) {
 					String encode = passEncoder.encode(uDto.getUserPw());
 					uDto.setUserPw(encode);
 					mService.userJoin(uDto);
 					out.println("<script>alert('회원가입이 완료되었습니다.');</script>");
 					out.flush();
-					return "redirect:index";
-				}else {
-					out.println("<script>alert('이미 가입된 아이디 입니다.');</script>");
-					out.flush();
-					return "joinForm";
 				}
-			}catch(Exception e) {
-				out.println("<script>alert('오류');</script>");
-				out.flush();
-				return "joinForm";
+			} catch (Exception e) {
+				System.out.println("에러 내용 =>" + e);
 			}
+			return "redirect:index";
 		}
 	}
 
+	@RequestMapping("idCheck")
+	public int idCheck(UserDTO uDto) throws Exception {
+		int result = mService.idCheck(uDto);
+		return result;
+	}
+
 	@RequestMapping("/findPw")
-	public String findUserPw(@ModelAttribute UserDTO uDto, HttpServletResponse response, Model model) throws IOException {
+	public String findUserPw(@ModelAttribute UserDTO uDto, HttpServletResponse response, Model model)
+			throws IOException {
 
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
@@ -163,5 +168,4 @@ public class LoginController {
 			return "findPw";
 		}
 	}
-
 }

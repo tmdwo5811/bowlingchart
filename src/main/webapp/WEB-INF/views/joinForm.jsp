@@ -35,6 +35,7 @@
 					<h4>아이디</h4>
 					<input type="text" name="userId" class="join-input" id="id" />
 					<label for="id">사용할 아이디 입력</label>
+					<button type="button" onclick="idCheck()" value="N">ID 중복 체크</button>
 				</div>
 				<div class="textInput join-form">
 					<h4>비밀번호</h4>

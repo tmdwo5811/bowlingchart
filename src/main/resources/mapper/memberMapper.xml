@@ -15,4 +15,7 @@
 	<update id="changeUserPw">
 		UPDATE LOGIN SET USERPW = #{newPw} WHERE USERID = #{userId}
 	</update>
+	<select id="idCheck" resultType="ine">
+		SELECT * COUNT(*) FROM LOGIN WHERE USERID = #{userId}
+	</select>
 </mapper>

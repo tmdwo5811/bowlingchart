@@ -39,6 +39,7 @@ function loginFormCheck(){
 		form.submit();
 	}
 }
+
 //사이즈 입력 폼 유효성 검사
 
 //비밀번호 찾기 폼 유효성 검사
@@ -52,4 +53,22 @@ function check(re, what, message){
 		what.value="";
 		what.focus();
 	}
+}
+
+//ID 중복 체크
+function idCheck(){
+	$.ajax({
+		url : "idCheck",
+		type : "post",
+		dataType : "json",
+		data : {"userId" : $("#id").val()},
+		success : function(data){
+			if(data == 1){
+				alert("이미 등록된 아이디 입니다.");
+			}else if(data == 0){
+				$("#idChk").attr("value","Y");
+				alert("사용 가능한 아이디 입니다.");
+			}
+		}
+	})
 }
