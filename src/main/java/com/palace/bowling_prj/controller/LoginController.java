@@ -118,6 +118,7 @@ public class LoginController {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		if (result.hasErrors()) {
+			//ID 중복 체크 메소드 수정해야함
 			return "joinForm";
 		} else {
 			try {
