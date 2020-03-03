@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>+ 지공 차트 프로그램 +</title>
+<title>+ 수정 지공 차트 프로그램 +</title>
 <link rel="stylesheet" href='<c:url value="/resources/css/style.css" />'>
 <meta name="viewport" content="width=device-width, initial-scale=0.9" />
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -27,12 +27,13 @@
 					<input type="password" name="aPw" class="form-control" id="pw" />
 					<label for="pw">비밀번호를 입력하세요</label>
 				</div>
-				<button class="btn btn-lg" type="submit" onclick="loginFormCheck()">로그인</button>
+				<button class="btn btn-lg" type="button" onclick="loginFormCheck()">로그인</button>
+				
 	</form>
 	<input class="btn btn__signup" type="button" value="회원가입" onclick="location.href='joinForm'" />
 	<input class="btn btn__pwfind" type="button" value="비밀번호찾기" onclick="location.href='findPwForm'" />
-	</div>
-	</div>
+			</div>
+		</div>
 	<script type="text/javascript" src='<c:url value="/resources/script/form.js" />'></script>
 </body>
 </html>
