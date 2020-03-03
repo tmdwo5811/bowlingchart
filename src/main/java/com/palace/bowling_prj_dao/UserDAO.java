@@ -11,4 +11,5 @@ public interface UserDAO {
 	public int updatePw(UserDTO uDto) throws Exception;
 	public void sendEmail(UserDTO uDto, String div) throws Exception;
 	public void changeUserPw(@Param("newPw") String encode,@Param("userId") String userNo) throws Exception;
+	public int idCheck(UserDTO uDto) throws Exception;
 }

@@ -10,4 +10,5 @@ public interface UserService {
 	public UserDTO loadUser(String getaId) throws Exception;
 	public String updatePw(HttpServletResponse response, UserDTO uDto) throws Exception;
 	public void changeUserPw(String encode, String userId) throws Exception;
+	public int idCheck(UserDTO uDto) throws Exception;
 }

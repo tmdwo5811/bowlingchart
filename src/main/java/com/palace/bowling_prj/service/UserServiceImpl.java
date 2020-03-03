@@ -67,4 +67,11 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 	
+	@Override
+	public int idCheck(UserDTO uDto) throws Exception {
+		// TODO Auto-generated method stub
+		int result = dao.idCheck(uDto);
+		return result;
+	}
+	
 }
