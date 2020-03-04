@@ -31,9 +31,7 @@
 * CSS 
 * HTML
 
-#구현 기능 및 배포 방식
-
-
+# 구현 기능 및 배포 방식
 
 * 회원가입 / 아이디 중복 체크 (Spring Security, Spring Validation, Js, Ajax)
 * 로그인 (Spring Security, Spring Inteceptor(Session), Js)
