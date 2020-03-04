@@ -103,6 +103,18 @@ function sizeUpdate() {
 
 // 비밀번호 찾기 폼 유효성 검사
 
+// 비밀번호 변경 유효성 검사
+function changeUserPw(){
+	var newPw = document.getElementById('userNewPw');
+	var newPwSub = document.getElementById('userNewPwSub');
+	var form = document.changePw;
+	if(newPw.value == newPwSub.value && newPw.value.length > 2){
+		form.submit();
+	}else{
+		alert("1차 비밀번호와 2차비밀번호가 다릅니다. 같은 비밀번호를 입력해주세요")
+	}
+}
+
 // 회원가입 폼을 위한 check 함수
 function check(re, what, message) {
 	if (re.test(what.value)) {

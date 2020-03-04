@@ -18,30 +18,19 @@
 </head>
 <body style="background-color:#eee;padding:30px;">
 	<button type="button" onclick="location.href='list'" class="ui secondary button homeButton">홈으로</button>
-	<form action="sizeSave" method="post">
+	<form action="sizeSave" method="post" name="sizeSaveForm">
 		<input type="hidden" name="userNo" value="${sessionScope.userNo}">
 
 		<div class="inputDiv">
 			<div class="textInput memberName">
 				<input type="text" id="memberName" name="memberName">
 				<label for="memberName">회원명</label>
-				<spring:hasBindErrors name="repositoryDTO">
-					<c:if test="${errors.hasFieldErrors('memberName') }">
-						<strong>회원 이름은 ${errors.getFieldError('memberName').defaultMessage }</strong>
-					</c:if>
-				</spring:hasBindErrors>
 			</div>
 			<div class="textInput memberPhone">
 				<input type="text" id="memberPhone" name="memberPhone">
 				<label for="memberPhone">연락처</label>
-				<spring:hasBindErrors name="repositoryDTO">
-					<c:if test="${errors.hasFieldErrors('memberPhone') }">
-						<strong>연락처는 ${errors.getFieldError('memberPhone').defaultMessage }</strong>
-					</c:if>
-				</spring:hasBindErrors>
-
 			</div>
-			<select class="ui dropdown teamSelect formSelectTeam" name="teamNo">
+			<select class="ui dropdown teamSelect formSelectTeam" name="teamNo" id="teamName">
 				<c:forEach items="${teamList}" var="team">
 					<option value="${team.teamNo}">${team.teamName}팀</option>
 				</c:forEach>
@@ -119,7 +108,7 @@
 				<label for="no3">No.3</label>
 			</div>
 		</div>
-		<button class="ui primary button submitButton" type="submit">입력</button>
+		<button class="ui primary button submitButton" type="button" onclick="sizeCheckFunction('sizeSave')">입력</button>
 	</form>
 	<br>
 	<h3>팀 생성 기능</h3>
@@ -145,6 +134,8 @@
 		<button class="ui primary button submitButton" style="background-color: #ff1a1a;" type="submit">삭제</button>
 	<br><br>
 	</form>
+	
 	<script type="text/javascript" src='<c:url value="/resources/script/form.js" />'></script>
+	<script type="text/javascript" src='<c:url value="/resources/script/dalivation.js" />'></script>
 </body>
 </html>
