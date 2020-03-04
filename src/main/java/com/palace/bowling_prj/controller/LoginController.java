@@ -74,7 +74,6 @@ public class LoginController {
 			String userId = (String) session.getAttribute("userId");
 			String encode = passEncoder.encode(request.getParameter("userNewPw"));
 			mService.changeUserPw(encode, userId);
-			session.invalidate();
 			out.println("<script>alert('비밀번호가 변경 처리 되었습니다. 로그인 페이지로 이동됩니다.');location.href='/bowling_prj/index';</script>");
 			out.flush();
 			return "index";
