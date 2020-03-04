@@ -28,12 +28,13 @@
 					<label for="pw">비밀번호를 입력하세요</label>
 				</div>
 				<button class="btn btn-lg" type="button" onclick="loginFormCheck()">로그인</button>
-				
-	</form>
-	<input class="btn btn__signup" type="button" value="회원가입" onclick="location.href='joinForm'" />
-	<input class="btn btn__pwfind" type="button" value="비밀번호찾기" onclick="location.href='findPwForm'" />
+
+				<input class="btn btn__signup" type="button" value="회원가입" onclick="location.href='joinForm'" />
+				<input class="btn btn__pwfind" type="button" value="비밀번호찾기" onclick="location.href='findPwForm'" />
 			</div>
 		</div>
+
+	</form>
 	<script type="text/javascript" src='<c:url value="/resources/script/form.js" />'></script>
 </body>
 </html>
