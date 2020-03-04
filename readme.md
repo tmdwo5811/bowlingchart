@@ -1,7 +1,6 @@
 # 해당 프로젝트는 완성 되었습니다.  
-.
-
-<iframe width="893" height="502" src="https://www.youtube.com/embed/m5Om6kCw980" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+* 프로그램 시연 영상
+[![프로그램 시연 영상](https://youtu.be/m5Om6kCw980?t=37/0.jpg)](https://youtu.be/m5Om6kCw980)
   
 # 프로그램 용도 및 소개
     
