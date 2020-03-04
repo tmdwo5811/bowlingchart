@@ -1,7 +1,9 @@
 # 해당 프로젝트는 완성 되었습니다.  
 * 프로그램 시연 영상  (클릭하시면 영상을 확인하실 수 있습니다.)
   
+<center>
 [![프로그램 시연 영상](https://img.youtube.com/vi/m5Om6kCw980/0.jpg)](https://youtu.be/m5Om6kCw980)
+</center>  
   
 # 프로그램 용도 및 소개
     
