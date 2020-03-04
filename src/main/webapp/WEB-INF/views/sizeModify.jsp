@@ -17,7 +17,7 @@
 </head>
 <body style="background-color:#eee;padding:30px;">
 	<button type="button" onclick="location.href='list'" class="ui secondary button homeButton">홈으로</button>
-	<form action="modifyMemberSizeSave" method="post">
+	<form action="modifyMemberSizeSave" method="post" name="modifyMemberSizeSave">
 		<input type="hidden" name="userNo" value="${sessionScope.userNo}">
 		<input type="hidden" name="memberNo" value="${memberSize.memberNo}">
 		<div class="inputDiv">
@@ -40,7 +40,7 @@
 				</spring:hasBindErrors>
 
 			</div>
-			<select class="ui dropdown teamSelect formSelectTeam" name="teamNo">
+			<select class="ui dropdown teamSelect formSelectTeam" name="teamNo" id="teamName">
 				<c:forEach items="${teamList}" var="team">
 					<option value="${team.teamNo}" ${team.teamNo == memberSize.team_teamNo?'selected="selected"':''}>${team.teamName}팀</option>
 				</c:forEach>
@@ -122,9 +122,10 @@
 				<label for="no3">No.3</label>
 			</div>
 		</div>
-		<button class="ui primary button submitButton" type="submit">수정하기</button>
+		<button class="ui primary button submitButton" type="button" onclick="sizeCheckFunction('sizeUpdate')">수정하기</button>
 	<br><br>
 	</form>
 	<script type="text/javascript" src='<c:url value="/resources/script/sizeForm.js" />'></script>
+	<script type="text/javascript" src='<c:url value="/resources/script/dalivation.js" />'></script>
 </body>
 </html>

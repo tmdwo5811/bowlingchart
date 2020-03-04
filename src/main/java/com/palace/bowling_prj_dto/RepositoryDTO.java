@@ -18,7 +18,7 @@ public class RepositoryDTO {
 	String memberName;
 
 	@NotEmpty
-	@Length(min=9,max=15)
+	@Length(min=1,max=15)
 	String memberPhone;
 	
 	String teamName;

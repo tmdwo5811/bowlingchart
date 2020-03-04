@@ -43,33 +43,64 @@ function loginFormCheck() {
 }
 
 // 사이즈 입력 폼 유효성 검사
+
+function sizeCheckFunction (valueString){
+
+	var memberName = document.getElementById("memberName");
+	var memberPhone= document.getElementById("memberPhone");
+	var teamName = document.getElementById("teamName");
+	var form = document.sizeSaveForm;
+	
+	if(memberName.value == ""){
+		alert("회원명을 입력하세요");
+		memberName.focus();
+	} else if (memberPhone.value == "") {
+		alert("회원 연락처를 입력하세요");
+		memberPhone.focus();
+	} else if (teamName.value == "") {
+		alert("소속 팀을 선택하여 주세요. 옵션창에 팀이 없다면 팀을 먼저 생성해주세요.");
+		teamName.focus();
+	} else {
+		if(valueString == "sizeUpdate"){
+			sizeUpdate();
+		}else if(valueString == "sizeSave"){
+			sizeSave();
+		}
+		location.href="list";
+	}	
+}
+
+
 function sizeSave() {
 	var queryString = $("form[name=sizeSaveForm]").serialize();
-	$(function() {
-
-		if ($("#memberName").val == null) {
-			alert("회원명을 입력하세요");
-			$("#memberName").focus();
-		} else if ($("#memberPhone").val == null) {
-			alert("회원 연락처를 입력하세요");
-			$("#memberPhone").focus();
-		} else if ($("#teamName").val == null) {
-			alert("소속 팀을 선택하여 주세요. 옵션창에 팀이 없다면 팀을 먼저 생성해주세요.");
-			$("#teamName").focus();
-		} else {
-			$.ajax({
-				url : "/bowling_prj/sizeSave",
-				type : "post",
-				dataType : "json",
-				data : queryString,
-				success : function(data) {
-					alert("지공 차트 저장이 완료 되었습니다.");
-				}
-			})
+	$.ajax({
+		url : '/bowling_prj/sizeSave',
+		type : 'post',
+		dataType : 'json',
+		data : queryString,
+		success : function(data) {
+			alert(data);
 		}
-
 	})
+
+	alert("지공 데이터가 저장 되었습니다.");
 }
+//사이즈 업데이트 유효성 검사
+function sizeUpdate() {
+	var queryString = $("form[name=modifyMemberSizeSave]").serialize();
+	$.ajax({
+		url : '/bowling_prj/modifyMemberSizeSave',
+		type : 'post',
+		dataType : 'json',
+		data : queryString,
+		success : function(data) {
+			alert(data);
+		}
+	})
+
+	alert("지공 데이터가 수정 되었습니다.");
+}
+
 // 비밀번호 찾기 폼 유효성 검사
 
 // 회원가입 폼을 위한 check 함수

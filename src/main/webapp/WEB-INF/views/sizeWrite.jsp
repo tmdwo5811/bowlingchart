@@ -25,21 +25,10 @@
 			<div class="textInput memberName">
 				<input type="text" id="memberName" name="memberName">
 				<label for="memberName">회원명</label>
-				<spring:hasBindErrors name="repositoryDTO">
-					<c:if test="${errors.hasFieldErrors('memberName') }">
-						<strong>회원 이름은 ${errors.getFieldError('memberName').defaultMessage }</strong>
-					</c:if>
-				</spring:hasBindErrors>
 			</div>
 			<div class="textInput memberPhone">
 				<input type="text" id="memberPhone" name="memberPhone">
 				<label for="memberPhone">연락처</label>
-				<spring:hasBindErrors name="repositoryDTO">
-					<c:if test="${errors.hasFieldErrors('memberPhone') }">
-						<strong>연락처는 ${errors.getFieldError('memberPhone').defaultMessage }</strong>
-					</c:if>
-				</spring:hasBindErrors>
-
 			</div>
 			<select class="ui dropdown teamSelect formSelectTeam" name="teamNo" id="teamName">
 				<c:forEach items="${teamList}" var="team">
@@ -119,7 +108,7 @@
 				<label for="no3">No.3</label>
 			</div>
 		</div>
-		<button class="ui primary button submitButton" type="button" onclick="sizeSave()">입력</button>
+		<button class="ui primary button submitButton" type="button" onclick="sizeCheckFunction('sizeSave')">입력</button>
 	</form>
 	<br>
 	<h3>팀 생성 기능</h3>
@@ -146,7 +135,7 @@
 	<br><br>
 	</form>
 	
-	<script type="text/javascript" src='<c:url value="/resources/script/dalivation.js" />'></script>
 	<script type="text/javascript" src='<c:url value="/resources/script/form.js" />'></script>
+	<script type="text/javascript" src='<c:url value="/resources/script/dalivation.js" />'></script>
 </body>
 </html>
