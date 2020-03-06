@@ -73,8 +73,9 @@ function sizeCheckFunction (valueString){
 
 function sizeSave() {
 	var queryString = $("form[name=sizeSaveForm]").serialize();
+	
 	$.ajax({
-		url : '/bowling_prj/sizeSave',
+		url : '/sizeSave',
 		type : 'post',
 		dataType : 'json',
 		data : queryString,
@@ -89,7 +90,7 @@ function sizeSave() {
 function sizeUpdate() {
 	var queryString = $("form[name=modifyMemberSizeSave]").serialize();
 	$.ajax({
-		url : '/bowling_prj/modifyMemberSizeSave',
+		url : '/modifyMemberSizeSave',
 		type : 'post',
 		dataType : 'json',
 		data : queryString,
@@ -129,7 +130,7 @@ function check(re, what, message) {
 // ID 중복 체크
 function idCheck() {
 	$.ajax({
-		url : "/bowling_prj/idCheck",
+		url : "/idCheck",
 		type : "post",
 		dataType : "json",
 		data : {

@@ -37,7 +37,7 @@ public class LoginController {
 		return "index";
 	}
 
-	@RequestMapping("/index")
+	@RequestMapping(value= {"/","/index"})
 	public String index(HttpSession session) {
 		// 로그인 메인 페이지 접속
 		session.invalidate();
