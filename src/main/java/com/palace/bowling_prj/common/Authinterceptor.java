@@ -18,7 +18,7 @@ public class Authinterceptor extends HandlerInterceptorAdapter{
 		HttpSession session = request.getSession();
 		Object obj = session.getAttribute("userId");
 		if(obj == null) {
-			response.sendRedirect("/bowling_prj/index");
+			response.sendRedirect("/index");
 			return false;
 		}else {
 			return true;
