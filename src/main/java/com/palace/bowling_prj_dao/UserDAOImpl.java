@@ -82,4 +82,11 @@ public class UserDAOImpl implements UserDAO{
 			System.out.println("이메일 발송 실패 : " + e);
 		}
 	}
+	@Override
+	public int idCheck(UserDTO uDto) throws Exception {
+		// TODO Auto-generated method stub
+		UserDAO dao = sql.getMapper(UserDAO.class);
+		int result = dao.idCheck(uDto);
+		return result;
+	}
 }

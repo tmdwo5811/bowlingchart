@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.palace.bowling_prj.common.PageNavigator;
 import com.palace.bowling_prj.service.RepositoryServiceImpl;
@@ -86,6 +87,7 @@ public class RepositoryController {
 		if (result.hasErrors()) {
 			return "redirect:sizeWrite";
 		} else {
+			System.out.println("등록 회원 명"+rDto.getMemberName());
 			rService.sizeWrite(rDto);
 			return "redirect:list";
 		}
