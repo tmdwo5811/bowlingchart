@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>왕궁볼링장 로그인 페이지</title>
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=0.9" />
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+	<form action="login" method="post">
+		<div class="wrapper">
+			<div id="pins"></div>
+			<div class="form-signin">
+				<h2 class="form-signin-heading">LOGIN</h2><br>
+					<div class="textInput">
+						<input type="text" name="aId" class="form-control" id="id" />
+						<label for="id">아이디를 입력하세요</label>
+					</div>
+					<div class="textInput">
+						<input type="password" name="aPw" class="form-control" id="pw" />
+						<label for="pw">비밀번호를 입력하세요</label>
+					</div>
+					<button class="btn btn-lg" type="submit">로그인</button>
+					<input class="btn btn__signup" type="submit" value="회원가입" onclick="location.href='joinForm'" />
+					<input class="btn btn__pwfind" type="submit" value="비밀번호찾기" onclick="location.href='findPwForm'" />
+				</div>
+			</div>
+	</form>
+	<script type="text/javascript" src="script/form.js"></script>
+</body>
+
+</html>
